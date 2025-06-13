@@ -65,11 +65,123 @@
             opacity: 0.6;
         }
 
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 8px 40px 8px 15px;
+            font-size: 0.9rem;
+            width: 0;
+            transition: all 0.3s ease;
+            outline: none;
+            opacity: 0;
+        }
+
+        .search-input.active {
+            width: 200px;
+            opacity: 1;
+        }
+
+        .search-input:focus {
+            background: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
         .search-icon {
             font-size: 1.2rem;
             cursor: pointer;
             opacity: 0.6;
             transition: opacity 0.3s ease;
+            position: absolute;
+            right: 12px;
+            z-index: 10;
+        }
+
+        .search-icon:hover {
+            opacity: 1;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1001;
+            display: none;
+        }
+
+        .search-results.show {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .search-result-item:hover {
+            background: #f8f8f8;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-title {
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+            color: #000;
+        }
+
+        .search-result-description {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .search-result-category {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 3px;
+        }
+
+        .search-no-results {
+            padding: 15px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .search-no-results small {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        mark {
+            background: #ffeb3b;
+            color: #000;
+            padding: 1px 2px;
+            border-radius: 2px;
+            font-weight: 500;
         }
 
         /* Page System */
@@ -83,7 +195,6 @@
             display: block;
         }
 
-        /* Main Hero Image */
         .main-hero {
             position: relative;
             height: calc(100vh - 80px);
@@ -93,29 +204,40 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 2s ease, transform 2s ease, background 0.5s ease;
-            cursor: pointer;
+            overflow: hidden;
         }
 
-        .main-hero:hover {
-            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 50%, #ff8a8e 100%);
-            transform: scale(1.01);
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 50%, rgba(255, 154, 158, 0.8) 100%);
+            z-index: 2;
         }
 
         .main-hero.fade-out {
-            opacity: 0;
-            transform: scale(1.05);
+            opacity: 0 !important;
+            transform: scale(1.05) !important;
         }
 
         .main-hero-content {
             text-align: center;
             color: white;
-            z-index: 2;
-            transition: all 0.5s ease;
-        }
-
-        .main-hero:hover .main-hero-content {
-            transform: translateY(-5px);
+            z-index: 3;
+            position: relative;
         }
 
         .main-hero h1 {
@@ -123,12 +245,6 @@
             font-weight: 300;
             margin-bottom: 1rem;
             text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-            transition: all 0.5s ease;
-        }
-
-        .main-hero:hover h1 {
-            text-shadow: 0 4px 30px rgba(0,0,0,0.4);
-            transform: scale(1.02);
         }
 
         .main-hero p {
@@ -136,114 +252,35 @@
             font-weight: 300;
             opacity: 0.9;
             max-width: 600px;
-            margin: 0 auto 2rem auto;
+            margin: 0 auto;
             line-height: 1.6;
-            transition: opacity 0.5s ease;
         }
 
-        .main-hero:hover p {
-            opacity: 1;
-        }
-
-        .discover-hint {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            margin-top: 1rem;
-            transition: all 0.5s ease;
-        }
-
-        .main-hero:hover .discover-hint {
-            opacity: 1;
-            transform: translateY(-3px);
-        }
-
-        /* Floating Elements */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .floating-icon {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.3;
-            animation: float-around 20s infinite linear;
-            transition: all 0.5s ease;
-        }
-
-        .main-hero:hover .floating-icon {
-            opacity: 0.6;
-            animation-duration: 15s;
-        }
-
-        .floating-icon:nth-child(1) {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-icon:nth-child(2) {
-            top: 60%;
-            right: 15%;
-            animation-delay: 5s;
-        }
-
-        .floating-icon:nth-child(3) {
-            bottom: 30%;
-            left: 20%;
-            animation-delay: 10s;
-        }
-
-        .floating-icon:nth-child(4) {
-            top: 40%;
-            right: 30%;
-            animation-delay: 15s;
-        }
-
-        @keyframes float-around {
-            0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-            25% { transform: translateY(-20px) rotate(90deg); opacity: 0.5; }
-            50% { transform: translateY(0px) rotate(180deg); opacity: 0.3; }
-            75% { transform: translateY(-15px) rotate(270deg); opacity: 0.4; }
-            100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
-        }
-
-        /* Hero Grid */
-        .hero-grid {
-            display: none;
-            grid-template-columns: repeat(4, 1fr);
-            height: calc(100vh - 80px);
+        /* Categories Section */
+        .categories-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
             max-width: 1400px;
             margin: 0 auto;
-            opacity: 0;
-            animation: fadeInGrid 1.5s ease forwards;
+            gap: 0;
         }
 
-        .hero-grid.show {
-            display: grid;
+        /* Hero Grid - Hidden now */
+        .hero-grid {
+            display: none;
         }
 
-        @keyframes fadeInGrid {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+        /* Toggle Button */
+        .toggle-view-btn {
+            display: none;
         }
 
         .hero-card {
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .hero-card:hover {
-            transform: scale(1.02);
+            height: 100px;
         }
 
         .hero-card-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
@@ -256,62 +293,144 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 2rem;
+            padding: 1rem;
             background: linear-gradient(transparent, rgba(0,0,0,0.7));
             color: white;
         }
 
         .hero-card h2 {
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             font-weight: 500;
+            margin-bottom: 0.3rem;
+            line-height: 1.1;
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:hover h2 {
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            line-height: 1.2;
         }
 
         .hero-card p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.9;
             font-weight: 300;
+            line-height: 1.3;
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:hover p {
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .hero-card .category {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             opacity: 0.8;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:hover .category {
+            font-size: 0.8rem;
             margin-bottom: 0.5rem;
         }
 
-        /* Content Section */
-        .content-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
 
-        .content-section p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #000;
-            text-align: justify;
-        }
 
-        /* Other Pages Styling */
-        .page-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            text-align: center;
-            margin: 4rem 0 3rem 0;
-            color: #000;
-        }
-
-        .simple-content {
-            max-width: 800px;
+        /* Blog Page Styling */
+        .blog-page {
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .blog-category {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #999;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-content {
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.8;
             color: #333;
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2rem 0 1rem 0;
+            color: #000;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+        }
+
+        .back-to-home {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .back-to-home:hover {
+            background: rgba(0, 0, 0, 1);
+            transform: translateX(-3px);
         }
 
         /* Debug Info */
@@ -331,9 +450,12 @@
         @media (max-width: 1024px) {
             .main-hero h1 { font-size: 3rem; }
             .main-hero p { font-size: 1.1rem; padding: 0 1rem; }
-            .hero-grid { 
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(2, 1fr);
+            .categories-section { 
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+            .hero-card {
+                height: 270px;
             }
         }
 
@@ -341,18 +463,33 @@
             .main-hero h1 { font-size: 2.5rem; }
             .main-hero p { font-size: 1rem; padding: 0 1.5rem; }
             .discover-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
-            .hero-grid { 
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, 1fr);
+            .categories-section { 
+                padding: 1rem;
+                gap: 1rem;
+            }
+            .hero-card {
+                height: 240px;
+                border-radius: 12px;
+            }
+            .hero-card-content { 
+                padding: 2rem; 
+            }
+            .hero-card h2 { 
+                font-size: 1.4rem; 
             }
             .nav-links { gap: 1.5rem; font-size: 0.9rem; }
-            .hero-card-content { padding: 1.5rem; }
-            .hero-card h2 { font-size: 1.4rem; }
         }
 
         @media (max-width: 480px) {
             .nav-container { padding: 0 1rem; }
-            .hero-card-content { padding: 1rem; }
+            .hero-card-content { padding: 1.5rem; }
+            .hero-card {
+                height: 220px;
+                border-radius: 10px;
+            }
+            .categories-section {
+                gap: 0.8rem;
+            }
             .content-section, .simple-content { padding: 2rem 1rem; }
         }
     </style>
@@ -368,14 +505,23 @@
                 <li><a href="#" class="nav-link" data-page="about">About</a></li>
                 <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
             </ul>
-            <div class="search-icon">🔍</div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search..." id="searchInput">
+                <div class="search-icon" id="searchIcon" onclick="toggleSearch()">⌕</div>
+                <div class="search-results" id="searchResults"></div>
+            </div>
         </div>
     </nav>
 
     <!-- Home Page -->
     <section id="home" class="page-section active">
-        <!-- Main Hero Image -->
-        <div class="main-hero" id="mainHero" onmouseenter="revealGrid()">
+        <!-- Main Hero with Video -->
+        <div class="main-hero" id="mainHero">
+            <video class="hero-video" autoplay muted loop>
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
             <div class="floating-elements">
                 <div class="floating-icon">🎵</div>
                 <div class="floating-icon">🎬</div>
@@ -385,45 +531,38 @@
             <div class="main-hero-content">
                 <h1>MC Media</h1>
                 <p>Empowering creators with revolutionary digital asset management and copyright protection solutions</p>
-                <div class="discover-hint">Move cursor here to explore</div>
             </div>
         </div>
 
-        <!-- Hero Grid -->
-        <div class="hero-grid" id="heroGrid">
-            <div class="hero-card hero-card-1">
+        <!-- Categories Section -->
+        <div class="categories-section">
+            <div class="hero-card hero-card-1" onclick="showBlogPage('copyright')">
+                <div class="hero-card-image"></div>
                 <div class="hero-card-content">
-                    <div class="category">Digital Asset Management</div>
                     <h2>Streamlined Copyright Management</h2>
-                    <p>Revolutionary tools for digital media organization and protection</p>
                 </div>
             </div>
-            <div class="hero-card hero-card-2">
+            <div class="hero-card hero-card-2" onclick="showBlogPage('innovation')">
+                <div class="hero-card-image"></div>
                 <div class="hero-card-content">
-                    <div class="category">Innovation</div>
                     <h2>Empowering Creative Professionals</h2>
-                    <p>Top-notch support and efficient processes for enhanced productivity</p>
                 </div>
             </div>
-            <div class="hero-card hero-card-3">
+            <div class="hero-card hero-card-3" onclick="showBlogPage('technology')">
+                <div class="hero-card-image"></div>
                 <div class="hero-card-content">
-                    <div class="category">Technology</div>
                     <h2>Fair & Transparent Practices</h2>
-                    <p>Advancing copyright awareness in the creative industries</p>
                 </div>
             </div>
-            <div class="hero-card hero-card-4">
+            <div class="hero-card hero-card-4" onclick="showBlogPage('solutions')">
+                <div class="hero-card-image"></div>
                 <div class="hero-card-content">
-                    <div class="category">Solutions</div>
                     <h2>Complete Workflow Management</h2>
-                    <p>From planning to archiving - comprehensive asset management</p>
                 </div>
             </div>
         </div>
 
-        <div class="content-section">
-            <p>MC Media is committed to making digital and media asset management more accessible and effective. Our mission is to empower creators and producers with top-notch support, innovative tools, and efficient processes to enhance their product management. We address the pressing need to improve copyright management in digital products, ensuring fair and transparent practices. From production planning to audiovisual catalog management, categorization, and archiving, we aim to elevate copyright awareness and promote fairness in the creative industries. By streamlining workflows and providing cutting-edge solutions, we ensure that creators can focus on what they do best—creating—while we handle the complexities of asset management.</p>
-        </div>
+
     </section>
 
     <!-- Services Page -->
@@ -458,6 +597,120 @@
         </div>
     </section>
 
+    <!-- Blog Pages -->
+    <section id="copyright" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Digital Asset Management</div>
+                <h1 class="blog-title">Streamlined Copyright Management</h1>
+                <p class="blog-subtitle">Revolutionary tools for digital media organization and protection</p>
+                <div class="blog-meta">
+                    <span>📅 June 3, 2025</span>
+                    <span>⏱️ 5 min read</span>
+                    <span>👤 MC Media Team</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>In today's digital landscape, <span class="blog-highlight">copyright management</span> has become more complex than ever. Content creators, producers, and media companies face unprecedented challenges in protecting their intellectual property while ensuring efficient workflow management.</p>
+                
+                <h3>The Challenge of Digital Rights</h3>
+                <p>Traditional copyright systems weren't designed for the speed and scale of modern digital production. From music streaming to video content, creators need tools that can keep pace with their creativity while providing robust protection mechanisms.</p>
+                
+                <h3>Our Innovative Approach</h3>
+                <p>MC Media's copyright management system leverages cutting-edge technology to provide real-time protection, automated rights tracking, and seamless integration with existing production workflows. Our platform ensures that every digital asset is properly catalogued, protected, and monetized.</p>
+                
+                <p>By implementing intelligent metadata management and blockchain-based verification systems, we're revolutionizing how creators approach copyright protection in the digital age.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="innovation" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Innovation</div>
+                <h1 class="blog-title">Empowering Creative Professionals</h1>
+                <p class="blog-subtitle">Top-notch support and efficient processes for enhanced productivity</p>
+                <div class="blog-meta">
+                    <span>📅 June 3, 2025</span>
+                    <span>⏱️ 4 min read</span>
+                    <span>👤 Innovation Team</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>Creative professionals deserve tools that enhance rather than hinder their artistic vision. Our <span class="blog-highlight">innovation-driven approach</span> focuses on removing technical barriers and streamlining creative workflows.</p>
+                
+                <h3>Productivity Through Technology</h3>
+                <p>We believe that technology should be invisible to the creative process. Our suite of tools is designed to work in the background, handling the complex technical aspects of media management while creators focus on what they do best.</p>
+                
+                <h3>Collaborative Excellence</h3>
+                <p>Modern creative projects require seamless collaboration across teams, time zones, and platforms. Our cloud-based solutions enable real-time collaboration while maintaining the highest standards of security and version control.</p>
+                
+                <p>From initial concept to final delivery, MC Media's platform supports every stage of the creative journey with intelligent automation and intuitive interfaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Technology</div>
+                <h1 class="blog-title">Fair & Transparent Practices</h1>
+                <p class="blog-subtitle">Advancing copyright awareness in the creative industries</p>
+                <div class="blog-meta">
+                    <span>📅 June 3, 2025</span>
+                    <span>⏱️ 6 min read</span>
+                    <span>👤 Technology Division</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>Transparency and fairness are the cornerstones of a healthy creative ecosystem. MC Media is committed to developing <span class="blog-highlight">ethical technology solutions</span> that promote equitable practices across the industry.</p>
+                
+                <h3>Blockchain-Based Transparency</h3>
+                <p>Our blockchain implementation ensures that all rights transactions are permanently recorded and publicly verifiable. This creates an immutable record of ownership and licensing that benefits creators, distributors, and consumers alike.</p>
+                
+                <h3>AI-Powered Fairness</h3>
+                <p>Machine learning algorithms help identify potential copyright conflicts before they become legal issues, while ensuring that revenue distribution accurately reflects contribution and ownership stakes.</p>
+                
+                <h3>Industry Standards</h3>
+                <p>We actively participate in developing industry standards for digital rights management, ensuring that our solutions remain interoperable and future-proof while promoting fair practices across the creative industries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Solutions</div>
+                <h1 class="blog-title">Complete Workflow Management</h1>
+                <p class="blog-subtitle">From planning to archiving - comprehensive asset management</p>
+                <div class="blog-meta">
+                    <span>📅 June 3, 2025</span>
+                    <span>⏱️ 7 min read</span>
+                    <span>👤 Solutions Architects</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>A comprehensive approach to digital asset management requires tools that support every stage of the content lifecycle. Our <span class="blog-highlight">end-to-end solutions</span> provide seamless integration from initial concept through long-term archival.</p>
+                
+                <h3>Pre-Production Planning</h3>
+                <p>Our planning tools help teams establish clear copyright frameworks before production begins, ensuring that rights are properly allocated and documented from day one.</p>
+                
+                <h3>Production Management</h3>
+                <p>During active production, our real-time tracking systems monitor asset creation, modification, and usage, automatically generating the documentation needed for compliance and monetization.</p>
+                
+                <h3>Distribution & Monetization</h3>
+                <p>Smart contracts and automated licensing systems ensure that revenue flows efficiently to all stakeholders while maintaining detailed audit trails for transparency and accountability.</p>
+                
+                <h3>Long-term Archival</h3>
+                <p>Our archival solutions use redundant storage systems and format migration strategies to ensure that digital assets remain accessible and valuable for decades to come.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Debug Info -->
     <div class="debug-info" id="debugInfo">
         Status: Loading...
@@ -482,76 +735,310 @@
 
         debugLog(`Found ${navLinks.length} nav links and ${sections.length} sections`);
 
-        navLinks.forEach((link, index) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                debugLog(`Navigation clicked: ${link.getAttribute('data-page')}`);
+        // Navigation functionality
+        function initializeNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.page-section');
+
+            debugLog(`Found ${navLinks.length} nav links and ${sections.length} sections`);
+
+            navLinks.forEach((link, index) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetPage = link.getAttribute('data-page');
+                    debugLog(`Navigation clicked: ${targetPage}`);
+                    
+                    // Remove active class from all links and sections
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    link.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetSection = document.getElementById(targetPage);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        debugLog(`Switched to page: ${targetPage}`);
+                    } else {
+                        debugLog(`ERROR: Could not find section: ${targetPage}`);
+                    }
+                });
+            });
+        }
+
+        // Blog navigation functionality
+        function showBlogPage(blogId) {
+            debugLog(`Opening blog page: ${blogId}`);
+            
+            try {
+                // Get fresh references to avoid stale NodeList
+                const navLinks = document.querySelectorAll('.nav-link');
+                const sections = document.querySelectorAll('.page-section');
                 
-                // Remove active class from all links and sections
+                // Remove active class from all nav links and sections
                 navLinks.forEach(l => l.classList.remove('active'));
                 sections.forEach(s => s.classList.remove('active'));
                 
-                // Add active class to clicked link
-                link.classList.add('active');
-                
-                // Show corresponding section
-                const targetPage = link.getAttribute('data-page');
-                const targetSection = document.getElementById(targetPage);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                    debugLog(`Switched to page: ${targetPage}`);
+                // Show the specific blog page
+                const blogSection = document.getElementById(blogId);
+                if (blogSection) {
+                    blogSection.classList.add('active');
+                    debugLog(`Successfully opened blog: ${blogId}`);
+                    
+                    // Smooth scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    debugLog(`ERROR: Could not find section: ${targetPage}`);
+                    debugLog(`ERROR: Blog page not found: ${blogId}`);
                 }
-            });
-        });
-
-        // Hero transition functionality
-        let transitionTriggered = false;
-
-        function revealGrid() {
-            if (transitionTriggered) return; // Prevent multiple triggers
-            transitionTriggered = true;
-            
-            debugLog('Mouse entered - revealing grid...');
-            const mainHero = document.getElementById('mainHero');
-            const heroGrid = document.getElementById('heroGrid');
-            
-            if (!mainHero || !heroGrid) {
-                debugLog('ERROR: Hero elements not found');
-                return;
+            } catch (error) {
+                debugLog(`ERROR in showBlogPage: ${error.message}`);
             }
-
-            // Fade out main hero
-            mainHero.classList.add('fade-out');
-            debugLog('Added fade-out class');
-            
-            // After transition, hide main hero and show grid
-            setTimeout(() => {
-                mainHero.style.display = 'none';
-                heroGrid.classList.add('show');
-                debugLog('Grid revealed successfully');
-            }, 2000);
         }
 
-        // Auto-reveal after 10 seconds as backup
-        setTimeout(() => {
-            if (!transitionTriggered) {
-                debugLog('Auto-revealing grid after 10 seconds');
-                revealGrid();
+        function returnToHome() {
+            debugLog('Returning to home page');
+            
+            try {
+                // Get fresh references
+                const sections = document.querySelectorAll('.page-section');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                // Remove active class from all sections
+                sections.forEach(s => s.classList.remove('active'));
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // Show home section and set nav active
+                const homeSection = document.getElementById('home');
+                const homeNavLink = document.querySelector('.nav-link[data-page="home"]');
+                
+                if (homeSection && homeNavLink) {
+                    homeSection.classList.add('active');
+                    homeNavLink.classList.add('active');
+                    debugLog('Successfully returned to home');
+                    
+                    // Smooth scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    debugLog('ERROR: Home elements not found');
+                }
+            } catch (error) {
+                debugLog(`ERROR in returnToHome: ${error.message}`);
             }
-        }, 10000);
+        }
+
+        // Search functionality
+        let searchData = [
+            {
+                title: "Streamlined Copyright Management",
+                description: "Revolutionary tools for digital media organization and protection. AI-powered tracking with blockchain verification for real-time asset protection.",
+                page: "copyright",
+                category: "Digital Asset Management",
+                keywords: ["copyright", "blockchain", "AI", "protection", "digital", "assets", "management", "tracking", "verification"]
+            },
+            {
+                title: "Empowering Creative Professionals",
+                description: "Top-notch support and efficient processes for enhanced productivity. Cloud-based collaboration tools that enhance creativity without technical barriers.",
+                page: "innovation",
+                category: "Innovation",
+                keywords: ["innovation", "creative", "professionals", "productivity", "collaboration", "cloud", "creativity", "tools", "enhancement"]
+            },
+            {
+                title: "Fair & Transparent Practices",
+                description: "Advancing copyright awareness in the creative industries. Blockchain transparency with ML algorithms for conflict prevention and fair distribution.",
+                page: "technology",
+                category: "Technology",
+                keywords: ["technology", "transparency", "fair", "blockchain", "ML", "algorithms", "conflict", "prevention", "distribution", "awareness"]
+            },
+            {
+                title: "Complete Workflow Management",
+                description: "From planning to archiving - comprehensive asset management. End-to-end lifecycle support from pre-production to long-term archival.",
+                page: "solutions",
+                category: "Solutions",
+                keywords: ["solutions", "workflow", "management", "planning", "archiving", "lifecycle", "pre-production", "archival", "comprehensive"]
+            },
+            {
+                title: "Our Services",
+                description: "Comprehensive digital asset management solutions including copyright protection, workflow optimization, analytics and reporting, compliance management, and expert consultation services.",
+                page: "services",
+                category: "Navigation",
+                keywords: ["services", "consultation", "analytics", "reporting", "compliance", "optimization", "solutions"]
+            },
+            {
+                title: "Featured Projects",
+                description: "Our portfolio includes music rights management platforms, film archive systems, broadcasting asset managers, and Creative Commons tracking tools.",
+                page: "projects",
+                category: "Navigation", 
+                keywords: ["projects", "portfolio", "music", "rights", "film", "archive", "broadcasting", "creative commons", "platforms", "systems"]
+            },
+            {
+                title: "About MC Media",
+                description: "MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness.",
+                page: "about",
+                category: "Navigation",
+                keywords: ["about", "company", "mission", "creative industries", "transparency", "innovation", "fairness", "organization"]
+            },
+            {
+                title: "Contact Us",
+                description: "Get in touch with us at hello@mc-media.com or call +1 (555) 123-4567. We're here to help with all your digital asset management needs.",
+                page: "contact",
+                category: "Navigation",
+                keywords: ["contact", "email", "phone", "hello", "help", "support", "get in touch", "communication"]
+            }
+        ];
+
+        let searchTimeout;
+
+        function toggleSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            
+            debugLog('Toggle search clicked');
+            
+            if (searchInput.classList.contains('active')) {
+                searchInput.classList.remove('active');
+                searchResults.classList.remove('show');
+                searchInput.value = '';
+                debugLog('Search closed');
+            } else {
+                searchInput.classList.add('active');
+                searchInput.focus();
+                debugLog('Search opened');
+            }
+        }
+
+        function performSearch(query) {
+            clearTimeout(searchTimeout);
+            
+            searchTimeout = setTimeout(() => {
+                debugLog(`Searching for: "${query}"`);
+                
+                if (query.trim() === '') {
+                    const searchResults = document.getElementById('searchResults');
+                    searchResults.classList.remove('show');
+                    return;
+                }
+                
+                const normalizedQuery = query.toLowerCase().trim();
+                const results = searchData.filter(item => {
+                    // Search in title
+                    if (item.title.toLowerCase().includes(normalizedQuery)) return true;
+                    
+                    // Search in description
+                    if (item.description.toLowerCase().includes(normalizedQuery)) return true;
+                    
+                    // Search in category
+                    if (item.category.toLowerCase().includes(normalizedQuery)) return true;
+                    
+                    // Search in keywords
+                    if (item.keywords.some(keyword => keyword.toLowerCase().includes(normalizedQuery))) return true;
+                    
+                    return false;
+                });
+                
+                debugLog(`Found ${results.length} results`);
+                displaySearchResults(results, query);
+            }, 300); // Debounce search
+        }
+
+        function displaySearchResults(results, query) {
+            const searchResults = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = `
+                    <div class="search-no-results">
+                        No results found for "${query}"<br>
+                        <small>Try searching for: copyright, innovation, services, contact</small>
+                    </div>`;
+            } else {
+                searchResults.innerHTML = results.map(result => {
+                    // Highlight matching terms
+                    const highlightedTitle = highlightText(result.title, query);
+                    const highlightedDescription = highlightText(result.description, query);
+                    
+                    return `
+                        <div class="search-result-item" onclick="navigateToPage('${result.page}')">
+                            <div class="search-result-title">${highlightedTitle}</div>
+                            <div class="search-result-description">${highlightedDescription}</div>
+                            <div class="search-result-category">${result.category}</div>
+                        </div>`;
+                }).join('');
+            }
+            
+            searchResults.classList.add('show');
+        }
+
+        function highlightText(text, query) {
+            if (!query.trim()) return text;
+            
+            const regex = new RegExp(`(${query.trim()})`, 'gi');
+            return text.replace(regex, '<mark>$1</mark>');
+        }
+
+        function navigateToPage(pageId) {
+            debugLog(`Navigating to: ${pageId}`);
+            
+            // Close search
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            searchInput.classList.remove('active');
+            searchResults.classList.remove('show');
+            searchInput.value = '';
+            
+            // Navigate to page
+            if (pageId === 'home') {
+                returnToHome();
+            } else if (['copyright', 'innovation', 'technology', 'solutions'].includes(pageId)) {
+                showBlogPage(pageId);
+            } else {
+                // Navigate to regular pages (services, projects, about, contact)
+                const navLinks = document.querySelectorAll('.nav-link');
+                const sections = document.querySelectorAll('.page-section');
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                
+                const targetLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+                const targetSection = document.getElementById(pageId);
+                
+                if (targetLink && targetSection) {
+                    targetLink.classList.add('active');
+                    targetSection.classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    debugLog(`Successfully navigated to: ${pageId}`);
+                } else {
+                    debugLog(`ERROR: Could not find page elements for: ${pageId}`);
+                }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog('DOM Content Loaded - Initializing...');
+            
+            try {
+                initializeNavigation();
+                debugLog('Navigation initialized successfully');
+            } catch (error) {
+                debugLog(`ERROR during initialization: ${error.message}`);
+            }
+        });
 
         // Test all elements are loaded
         window.addEventListener('load', () => {
             debugLog('Page fully loaded');
-            const mainHero = document.getElementById('mainHero');
-            const heroGrid = document.getElementById('heroGrid');
             
-            if (mainHero && heroGrid) {
-                debugLog('All hero elements found - Ready');
-            } else {
-                debugLog('ERROR: Missing hero elements');
+            try {
+                const mainHero = document.getElementById('mainHero');
+                const categoriesSection = document.querySelector('.categories-section');
+                
+                if (mainHero && categoriesSection) {
+                    debugLog('All elements found - Ready');
+                } else {
+                    debugLog('ERROR: Missing elements');
+                    debugLog(`mainHero: ${mainHero ? 'found' : 'missing'}`);
+                    debugLog(`categoriesSection: ${categoriesSection ? 'found' : 'missing'}`);
+                }
+            } catch (error) {
+                debugLog(`ERROR during load check: ${error.message}`);
             }
         });
 
