@@ -1,9 +1,9 @@
-}<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC Media - Debug V8</title>
+    <title>MC Media - White Footer Fix</title>
     <style>
         * {
             margin: 0;
@@ -205,19 +205,6 @@
             overflow: hidden;
         }
 
-        .hero-video {
-            display: none;
-        }
-
-        .video-overlay {
-            display: none;
-        }
-
-        .main-hero.fade-out {
-            opacity: 0 !important;
-            transform: scale(1.05) !important;
-        }
-
         .main-hero-content {
             text-align: center;
             color: white;
@@ -251,32 +238,14 @@
             gap: 0;
         }
 
-        /* Hero Grid - Hidden now */
-        .hero-grid {
-            display: none;
-        }
-
-        /* Toggle Button */
-        .toggle-view-btn {
-            display: none;
-        }
-
         .hero-card {
             position: relative;
             overflow: hidden;
             cursor: pointer;
             height: 60px;
             box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.15), 0 -4px 8px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
         }
-
-        .hero-card:last-child {
-            
-        }
-
-        .hero-card-1 { background: #ffffff; }
-        .hero-card-2 { background: #ffffff; }
-        .hero-card-3 { background: #ffffff; }
-        .hero-card-4 { background: #ffffff; }
 
         .hero-card-content {
             position: absolute;
@@ -296,24 +265,94 @@
             line-height: 1.2;
         }
 
-        .hero-card p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            font-weight: 300;
-            line-height: 1.3;
+        /* Services Page */
+        .services-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
         }
 
-        .hero-card .category {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            opacity: 0.8;
-            margin-bottom: 0.3rem;
+        .services-intro h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
+        .services-intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
 
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
 
-        /* Blog Page Styling */
+        .service-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .services-cta {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .services-cta p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .services-cta a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .services-cta a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* Blog Pages */
         .blog-page {
             max-width: 900px;
             margin: 0 auto;
@@ -406,25 +445,36 @@
             transform: translateX(-3px);
         }
 
-        /* Debug Info */
-        .debug-info {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 9999;
-        }
-
-        /* Footer */
-        .footer {
-            background: #FFFFFF;
-            color: white;
+        /* FOOTER - WHITE BACKGROUND FORCED */
+        .white-footer {
+            background-color: white;
+            background: white;
+            color: black;
             padding: 4rem 0 2rem 0;
             margin-top: 4rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .white-footer * {
+            color: inherit;
+        }
+
+        .white-footer h3 {
+            color: black;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .white-footer p {
+            color: #666;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .white-footer strong {
+            color: black;
         }
 
         .footer-content {
@@ -436,40 +486,8 @@
             gap: 4rem;
         }
 
-        .footer-section h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: black;
-        }
-
         .footer-about {
             max-width: 300px;
-        }
-
-        .footer-about p {
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
         }
 
         .social-links {
@@ -484,31 +502,21 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.1);
             border-radius: 50%;
-            color: #ccc;
+            color: #666;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: rgba(0, 0, 0, 0.2);
+            color: #000;
             transform: translateY(-2px);
         }
 
-        .footer-contact p {
-            color: #ccc;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-contact strong {
-            color: white;
-        }
-
         .footer-bottom {
-            border-top: 1px solid #333;
+            border-top: 1px solid #eee;
             margin-top: 3rem;
             padding-top: 2rem;
             text-align: center;
@@ -519,94 +527,7 @@
             font-size: 0.9rem;
         }
 
-        /* Services Page Styling */
-        .services-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            color: white;
-        }
-
-        .services-intro h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .services-intro p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .service-card h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #000;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .service-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .services-cta {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-        }
-
-        .services-cta p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .services-cta a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .services-cta a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        /* Page sections spacing for footer */
+        /* Page sections */
         .page-section {
             min-height: calc(100vh - 80px);
             padding-bottom: 0;
@@ -624,6 +545,18 @@
             font-weight: 300;
             margin: 6rem 0 2rem 0;
             color: #000;
+        }
+
+        .debug-info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
         }
 
         /* Responsive */
@@ -646,20 +579,16 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
-            
             .service-card {
                 padding: 1.5rem;
             }
-            
             .services-intro {
                 padding: 1.5rem;
                 margin-bottom: 2rem;
             }
-            
             .services-intro h3 {
                 font-size: 1.5rem;
             }
-            
             .services-cta {
                 padding: 1.5rem;
             }
@@ -668,7 +597,6 @@
         @media (max-width: 768px) {
             .main-hero h1 { font-size: 2.5rem; }
             .main-hero p { font-size: 1rem; padding: 0 1.5rem; }
-            .discover-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
             .categories-section { 
                 padding: 1rem;
                 gap: 1rem;
@@ -695,10 +623,6 @@
             .social-links {
                 justify-content: center;
             }
-            .footer-bottom .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -712,7 +636,7 @@
                 gap: 0.8rem;
             }
             .content-section, .simple-content { padding: 2rem 1rem; }
-            .footer { padding: 3rem 0 1.5rem 0; }
+            .white-footer { padding: 3rem 0 1.5rem 0; }
             .footer-content { padding: 0 1rem; }
         }
     </style>
@@ -738,7 +662,7 @@
 
     <!-- Home Page -->
     <section id="home" class="page-section active">
-        <!-- Main Hero with Gradient -->
+        <!-- Main Hero -->
         <div class="main-hero" id="mainHero">
             <div class="main-hero-content">
                 <h1>MC Media</h1>
@@ -748,32 +672,32 @@
 
         <!-- Categories Section -->
         <div class="categories-section">
-            <div class="hero-card hero-card-1" onclick="showBlogPage('copyright')">
+            <div class="hero-card" onclick="showBlogPage('copyright')">
                 <div class="hero-card-content">
                     <h2>Streamlined Copyright Management</h2>
                 </div>
             </div>
-            <div class="hero-card hero-card-2" onclick="showBlogPage('innovation')">
+            <div class="hero-card" onclick="showBlogPage('innovation')">
                 <div class="hero-card-content">
                     <h2>Empowering Creative Professionals</h2>
                 </div>
             </div>
-            <div class="hero-card hero-card-3" onclick="showBlogPage('technology')">
+            <div class="hero-card" onclick="showBlogPage('technology')">
                 <div class="hero-card-content">
                     <h2>Fair & Transparent Practices</h2>
                 </div>
             </div>
-            <div class="hero-card hero-card-4" onclick="showBlogPage('solutions')">
+            <div class="hero-card" onclick="showBlogPage('solutions')">
                 <div class="hero-card-content">
                     <h2>Complete Workflow Management</h2>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
+        <!-- WHITE FOOTER -->
+        <div class="white-footer">
             <div class="footer-content">
-                <div class="footer-section footer-about">
+                <div class="footer-about">
                     <h3>MC Media</h3>
                     <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
                     <div class="social-links">
@@ -784,9 +708,9 @@
                     </div>
                 </div>
                 
-                <div class="footer-section footer-contact">
+                <div class="footer-contact">
                     <h3>Contact Info</h3>
-                    <p><strong>Email:</strong><br>hello@mc-media.com</p>
+                    <p><strong>Email:</strong><br>mcmedia.dk@gmail.com</p>
                     <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
                     <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
                 </div>
@@ -794,297 +718,8 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2025 MC Media. All rights reserved.</p>
-            </div>
-        </footer>
-
-    </section>
-
-    <!-- Services Page -->
-    <section id="services" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">Our Services</h2>
-        <div class="simple-content">
-            <div class="services-intro">
-                <h3>We embed copyright, and creators get paid!</h3>
-                <p>MC Media addresses the critical issue of lost artist revenue in the music industry. In 2024 alone, almost USD 200 million and DKK 1200 million of artist revenue was lost due to failing copyright tracking and claim mechanisms. We're changing that.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <h4>Copyright Education & Guidance</h4>
-                    <p>We empower artists with clear, actionable guidance on copyright protection. Our educational resources help creators understand their rights and take control of their intellectual property from day one.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h4>Web-Based Copyright Embedding</h4>
-                    <p>Our simple web platform enables quick and efficient copyright embedding directly into your digital music files. Protect your work with just a few clicks, ensuring proper attribution and revenue tracking.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h4>DAW Plugin Development</h4>
-                    <p>We're developing plugins for popular Digital Audio Workstations (DAWs) starting with Audacity. Embed copyright protection directly into your creative workflow without interrupting your artistic process.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h4>Custom Catalog Management</h4>
-                    <p>For larger music catalogs, we offer software customization services for producers and publishers. Manage extensive music libraries with enterprise-grade copyright tracking and revenue optimization.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h4>Copyright Management Consulting</h4>
-                    <p>Our industry expertise extends to consulting services, helping music professionals implement comprehensive copyright strategies and maximize their revenue potential in the digital landscape.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h4>Platform Subscriptions & Licensing</h4>
-                    <p>Choose from flexible subscription plans for platform access, or license our technology for integration into your existing workflows. Scalable solutions for artists at every level.</p>
-                </div>
-            </div>
-            
-            <div class="services-cta">
-                <p><strong>Ready to protect your music and get paid what you deserve?</strong><br>
-                Contact us at <a href="mailto:mcmedia.dk@gmail.com">mcmedia.dk@gmail.com</a> to learn more about our services.</p>
             </div>
         </div>
-        
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">▶</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="showBlogPage('copyright')">Copyright Management</a></li>
-                        <li><a href="#" onclick="showBlogPage('innovation')">Creative Tools</a></li>
-                        <li><a href="#" onclick="showBlogPage('technology')">Blockchain Solutions</a></li>
-                        <li><a href="#" onclick="showBlogPage('solutions')">Workflow Management</a></li>
-                        <li><a href="#" onclick="navigateToPage('services')">All Services</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="navigateToPage('about')">About Us</a></li>
-                        <li><a href="#" onclick="navigateToPage('projects')">Projects</a></li>
-                        <li><a href="#" onclick="navigateToPage('contact')">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><strong>Email:</strong><br>hello@mc-media.com</p>
-                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
-                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                </ul>
-            </div>
-        </footer>
-    </section>
-
-    <!-- Projects Page -->
-    <section id="projects" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">Featured Projects</h2>
-        <div class="simple-content">
-            <p>Our portfolio includes music rights management platforms, film archive systems, broadcasting asset managers, and Creative Commons tracking tools.</p>
-        </div>
-        
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">▶</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="showBlogPage('copyright')">Copyright Management</a></li>
-                        <li><a href="#" onclick="showBlogPage('innovation')">Creative Tools</a></li>
-                        <li><a href="#" onclick="showBlogPage('technology')">Blockchain Solutions</a></li>
-                        <li><a href="#" onclick="showBlogPage('solutions')">Workflow Management</a></li>
-                        <li><a href="#" onclick="navigateToPage('services')">All Services</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="navigateToPage('about')">About Us</a></li>
-                        <li><a href="#" onclick="navigateToPage('projects')">Projects</a></li>
-                        <li><a href="#" onclick="navigateToPage('contact')">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><strong>Email:</strong><br>hello@mc-media.com</p>
-                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
-                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                </ul>
-            </div>
-        </footer>
-    </section>
-
-    <!-- About Page -->
-    <section id="about" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">About MC Media</h2>
-        <div class="simple-content">
-            <p>MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness as the foundation of digital asset management.</p>
-        </div>
-        
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">▶</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="showBlogPage('copyright')">Copyright Management</a></li>
-                        <li><a href="#" onclick="showBlogPage('innovation')">Creative Tools</a></li>
-                        <li><a href="#" onclick="showBlogPage('technology')">Blockchain Solutions</a></li>
-                        <li><a href="#" onclick="showBlogPage('solutions')">Workflow Management</a></li>
-                        <li><a href="#" onclick="navigateToPage('services')">All Services</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="navigateToPage('about')">About Us</a></li>
-                        <li><a href="#" onclick="navigateToPage('projects')">Projects</a></li>
-                        <li><a href="#" onclick="navigateToPage('contact')">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><strong>Email:</strong><br>hello@mc-media.com</p>
-                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
-                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                </ul>
-            </div>
-        </footer>
-    </section>
-
-    <!-- Contact Page -->
-    <section id="contact" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">Contact Us</h2>
-        <div class="simple-content">
-            <p>Get in touch with us at hello@mc-media.com or call +1 (555) 123-4567. We're here to help with all your digital asset management needs.</p>
-        </div>
-        
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">▶</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="showBlogPage('copyright')">Copyright Management</a></li>
-                        <li><a href="#" onclick="showBlogPage('innovation')">Creative Tools</a></li>
-                        <li><a href="#" onclick="showBlogPage('technology')">Blockchain Solutions</a></li>
-                        <li><a href="#" onclick="showBlogPage('solutions')">Workflow Management</a></li>
-                        <li><a href="#" onclick="navigateToPage('services')">All Services</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="navigateToPage('about')">About Us</a></li>
-                        <li><a href="#" onclick="navigateToPage('projects')">Projects</a></li>
-                        <li><a href="#" onclick="navigateToPage('contact')">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><strong>Email:</strong><br>hello@mc-media.com</p>
-                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
-                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                </ul>
-            </div>
-        </footer>
     </section>
 
     <!-- Blog Pages -->
@@ -1220,12 +855,6 @@
         debugLog('Script loaded successfully');
 
         // Navigation functionality
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.page-section');
-
-        debugLog(`Found ${navLinks.length} nav links and ${sections.length} sections`);
-
-        // Navigation functionality
         function initializeNavigation() {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.page-section');
@@ -1250,6 +879,9 @@
                     if (targetSection) {
                         targetSection.classList.add('active');
                         debugLog(`Switched to page: ${targetPage}`);
+                        
+                        // Scroll to top
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                     } else {
                         debugLog(`ERROR: Could not find section: ${targetPage}`);
                     }
@@ -1322,6 +954,11 @@
             const searchIcon = document.getElementById('searchIcon');
             const searchInput = document.getElementById('searchInput');
             const searchResults = document.getElementById('searchResults');
+
+            if (!searchIcon || !searchInput || !searchResults) {
+                debugLog('Search elements not found');
+                return;
+            }
 
             // Search icon click handler
             searchIcon.addEventListener('click', toggleSearch);
@@ -1417,7 +1054,7 @@
             },
             {
                 title: "Contact Us",
-                description: "Get in touch with us at hello@mc-media.com or call +1 (555) 123-4567. We're here to help with all your digital asset management needs.",
+                description: "Get in touch with us at mcmedia.dk@gmail.com or call +1 (555) 123-4567. We're here to help with all your digital asset management needs.",
                 page: "contact",
                 category: "Navigation",
                 keywords: ["contact", "email", "phone", "hello", "help", "support", "get in touch", "communication"]
@@ -1548,6 +1185,8 @@
                 }
             }
         }
+
+        // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             debugLog('DOM Content Loaded - Initializing...');
             
@@ -1562,22 +1201,7 @@
 
         // Test all elements are loaded
         window.addEventListener('load', () => {
-            debugLog('Page fully loaded');
-            
-            try {
-                const mainHero = document.getElementById('mainHero');
-                const categoriesSection = document.querySelector('.categories-section');
-                
-                if (mainHero && categoriesSection) {
-                    debugLog('All elements found - Ready');
-                } else {
-                    debugLog('ERROR: Missing elements');
-                    debugLog(`mainHero: ${mainHero ? 'found' : 'missing'}`);
-                    debugLog(`categoriesSection: ${categoriesSection ? 'found' : 'missing'}`);
-                }
-            } catch (error) {
-                debugLog(`ERROR during load check: ${error.message}`);
-            }
+            debugLog('Page fully loaded - Ready');
         });
 
         // Error handling
@@ -1589,3 +1213,162 @@
     </script>
 </body>
 </html>
+
+    <!-- Services Page -->
+    <section id="services" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <h2 class="page-title">Our Services</h2>
+        <div class="simple-content">
+            <div class="services-intro">
+                <h3>We embed copyright, and creators get paid!</h3>
+                <p>MC Media addresses the critical issue of lost artist revenue in the music industry. In 2024 alone, almost USD 200 million and DKK 1200 million of artist revenue was lost due to failing copyright tracking and claim mechanisms. We're changing that.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Copyright Education & Guidance</h4>
+                    <p>We empower artists with clear, actionable guidance on copyright protection. Our educational resources help creators understand their rights and take control of their intellectual property from day one.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4>Web-Based Copyright Embedding</h4>
+                    <p>Our simple web platform enables quick and efficient copyright embedding directly into your digital music files. Protect your work with just a few clicks, ensuring proper attribution and revenue tracking.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4>DAW Plugin Development</h4>
+                    <p>We're developing plugins for popular Digital Audio Workstations (DAWs) starting with Audacity. Embed copyright protection directly into your creative workflow without interrupting your artistic process.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4>Custom Catalog Management</h4>
+                    <p>For larger music catalogs, we offer software customization services for producers and publishers. Manage extensive music libraries with enterprise-grade copyright tracking and revenue optimization.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4>Copyright Management Consulting</h4>
+                    <p>Our industry expertise extends to consulting services, helping music professionals implement comprehensive copyright strategies and maximize their revenue potential in the digital landscape.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h4>Platform Subscriptions & Licensing</h4>
+                    <p>Choose from flexible subscription plans for platform access, or license our technology for integration into your existing workflows. Scalable solutions for artists at every level.</p>
+                </div>
+            </div>
+            
+            <div class="services-cta">
+                <p><strong>Ready to protect your music and get paid what you deserve?</strong><br>
+                Contact us at <a href="mailto:mcmedia.dk@gmail.com">mcmedia.dk@gmail.com</a> to learn more about our services.</p>
+            </div>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><strong>Email:</strong><br>mcmedia.dk@gmail.com</p>
+                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
+                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC Media. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Page -->
+    <section id="projects" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <h2 class="page-title">Featured Projects</h2>
+        <div class="simple-content">
+            <p>Our portfolio includes music rights management platforms, film archive systems, broadcasting asset managers, and Creative Commons tracking tools.</p>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><strong>Email:</strong><br>mcmedia.dk@gmail.com</p>
+                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
+                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC Media. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <h2 class="page-title">About MC Media</h2>
+        <div class="simple-content">
+            <p>MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness as the foundation of digital asset management.</p>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><strong>Email:</strong><br>mcmedia.dk@gmail.com</p>
+                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
+                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC Media. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <h2 class="page-title">Contact Us</h2>
+        <div class="simple-content">
+            <p>Get in touch with us at mcmedia.dk@gmail.com or call +1 (555) 123-4567. We're here to help with all your digital asset management needs.</p>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
