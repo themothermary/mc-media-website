@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MC Media - White Footer Fix</title>
     <style>
+        /* ======================================
+           GLOBAL STYLES & RESET
+           ====================================== */
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +21,9 @@
             line-height: 1.4;
         }
 
-        /* Navigation */
+        /* ======================================
+           (1) HEADER - NAVIGATION & SEARCH
+           ====================================== */
         nav {
             position: fixed;
             top: 0;
@@ -64,6 +69,7 @@
             opacity: 0.6;
         }
 
+        /* Search functionality in header */
         .search-container {
             position: relative;
             display: flex;
@@ -183,7 +189,9 @@
             font-weight: 500;
         }
 
-        /* Page System */
+        /* ======================================
+           (2) MAIN - HERO SECTION
+           ====================================== */
         .page-section {
             display: none;
             min-height: 100vh;
@@ -228,23 +236,105 @@
             line-height: 1.6;
         }
 
-        /* Categories Section */
+        /* ======================================
+           (3) MC MEDIA DESCRIPTION SECTION
+           ====================================== */
+        .intro-section {
+            background: white;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .intro-content {
+            max-width: none;
+            margin: 0;
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        /* ======================================
+           (4) FEATURED RESOURCES, PROJECTS, TALKS
+           ====================================== */
+        
+        /* Secondary Navigation for Resources/Projects/Talks */
+        .secondary-nav {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-bottom: 0;
+            padding: 1rem 0;
+        }
+
+        .secondary-nav-item {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #000;
+            text-decoration: underline;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .secondary-nav-item:hover {
+            opacity: 0.6;
+            text-decoration: underline;
+            animation: textGlitch 0.3s ease-in-out;
+        }
+
+        @keyframes textGlitch {
+            0%, 100% { transform: translate(0); }
+            25% { transform: translate(-1px, 0); }
+            50% { transform: translate(1px, 0); }
+            75% { transform: translate(0, -1px); }
+        }
+
+        /* Featured Content Cards Grid */
         .categories-section {
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(4, auto);
-            max-width: 1400px;
-            margin: 0 auto;
             gap: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            color: #333;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 12px;
+            border-radius: 15px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .hero-card {
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            height: 60px;
+            height: 80px;
             box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.15), 0 -4px 8px rgba(0, 0, 0, 0.1);
             background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 -12px 20px rgba(0, 0, 0, 0.2), 0 -6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .hero-card-content {
@@ -259,12 +349,16 @@
         }
 
         .hero-card h2 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
             margin-bottom: 0;
             line-height: 1.2;
         }
 
+        /* ======================================
+           ADDITIONAL PAGE STYLES
+           ====================================== */
+        
         /* Services Page */
         .services-intro {
             text-align: center;
@@ -293,6 +387,279 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .services-cta {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .services-cta p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .services-cta a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .services-cta a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* Blog Pages */
+        .blog-page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .blog-category {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #000;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #999;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .blog-content h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2rem 0 1rem 0;
+            color: #000;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+        }
+
+        .back-to-home {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .back-to-home:hover {
+            background: rgba(0, 0, 0, 1);
+            transform: translateX(-3px);
+        }
+
+        /* ======================================
+           (5) FOOTER - WHITE BACKGROUND
+           ====================================== */
+        .white-footer {
+            background-color: white;
+            background: white;
+            color: black;
+            padding: 4rem 0 2rem 0;
+            margin-top: 4rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .white-footer * {
+            color: inherit;
+        }
+
+        .white-footer h3 {
+            color: black;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .white-footer p {
+            color: #666;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .white-footer strong {
+            color: black;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-about {
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(0, 0, 0, 0.2);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #eee;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* ======================================
+           UTILITY CLASSES & COMMON ELEMENTS
+           ====================================== */
+        .page-section {
+            min-height: calc(100vh - 80px);
+            padding-bottom: 0;
+        }
+
+        .simple-content {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: 6rem 0 2rem 0;
+            color: #000;
+        }
+
+        .debug-info {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+
+        /* ======================================
+           RESPONSIVE DESIGN
+           ====================================== */-bottom: 3rem;
         }
 
         .service-card {
@@ -598,8 +965,17 @@
             .main-hero h1 { font-size: 2.5rem; }
             .main-hero p { font-size: 1rem; padding: 0 1.5rem; }
             .categories-section { 
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
                 padding: 1rem;
                 gap: 1rem;
+            }
+            .intro-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .intro-content p {
+                font-size: 1rem;
             }
             .hero-card {
                 height: 240px;
@@ -635,6 +1011,13 @@
             .categories-section {
                 gap: 0.8rem;
             }
+            .intro-section {
+                padding: 2rem 1rem;
+            }
+
+            .intro-content p {
+                font-size: 0.95rem;
+            }
             .content-section, .simple-content { padding: 2rem 1rem; }
             .white-footer { padding: 3rem 0 1.5rem 0; }
             .footer-content { padding: 0 1rem; }
@@ -665,31 +1048,46 @@
         <!-- Main Hero -->
         <div class="main-hero" id="mainHero">
             <div class="main-hero-content">
-                <h1>MC Media</h1>
-                <p>Empowering creators with revolutionary digital asset management and copyright protection solutions</p>
+                <h1 data-text="MC Media">MC Media</h1>
+                <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
             </div>
         </div>
 
-        <!-- Categories Section -->
-        <div class="categories-section">
-            <div class="hero-card" onclick="showBlogPage('copyright')">
-                <div class="hero-card-content">
-                    <h2>Streamlined Copyright Management</h2>
-                </div>
+        <!-- Introduction and Categories Section -->
+        <div class="intro-section">
+            <div class="intro-content">
+                <p>MC Media is an early-stage startup that supports artists, musicians, and content creators in securing ownership of their creative works. We provide a platform for usage-based copyright protection and licensing management tools. As we grow into a larger platform, we plan to expand our services to include copyright management consulting and software customization for large-scale music catalog management, targeting producers and publishers. We believe you deserve to get paid for what you create, and our main goal is to make it possible with ease and efficiency.</p>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;">
             </div>
-            <div class="hero-card" onclick="showBlogPage('innovation')">
-                <div class="hero-card-content">
-                    <h2>Empowering Creative Professionals</h2>
-                </div>
+
+            <!-- Secondary Navigation -->
+            <div class="secondary-nav">
+                <a href="#" class="secondary-nav-item" onclick="showEducationalContent()">Resources</a>
+                <a href="#" class="secondary-nav-item" onclick="navigateToPage('projects')">Projects</a>
+                <a href="#" class="secondary-nav-item" onclick="showTalks()">Talks</a>
             </div>
-            <div class="hero-card" onclick="showBlogPage('technology')">
-                <div class="hero-card-content">
-                    <h2>Fair & Transparent Practices</h2>
+
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <div class="hero-card" onclick="showBlogPage('prototype-tool')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Projects</span> Prototype Tool for Music Rights Management Launch</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-card" onclick="showBlogPage('solutions')">
-                <div class="hero-card-content">
-                    <h2>Complete Workflow Management</h2>
+                <div class="hero-card" onclick="showBlogPage('mobygratis-talk')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Talks</span> Mobygratis Explained, A Discussion with Natalie Jacobs</h2>
+                    </div>
+                </div>
+                <div class="hero-card" onclick="showBlogPage('creativity-podcast')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Talks</span> Powering Creativity Podcast with Fendous PLS</h2>
+                    </div>
+                </div>
+                <div class="hero-card" onclick="showBlogPage('rights-clinic')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Project</span> Music Rights Clinic Launch</h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -699,7 +1097,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
                     <div class="social-links">
                         <a href="#" aria-label="Twitter">𝕏</a>
                         <a href="#" aria-label="LinkedIn">in</a>
@@ -723,115 +1121,125 @@
     </section>
 
     <!-- Blog Pages -->
-    <section id="copyright" class="page-section">
+    <section id="prototype-tool" class="page-section">
         <button class="back-to-home" onclick="returnToHome()">← Back</button>
         <div class="blog-page">
             <div class="blog-header">
-                <div class="blog-category">Digital Asset Management</div>
-                <h1 class="blog-title">Streamlined Copyright Management</h1>
-                <p class="blog-subtitle">Revolutionary tools for digital media organization and protection</p>
+                <div class="blog-category">Projects</div>
+                <h1 class="blog-title">Prototype Tool for Music Rights Management Launch</h1>
+                <p class="blog-subtitle">Revolutionary web-based tool for independent artists and small labels</p>
                 <div class="blog-meta">
-                    <span>📅 June 3, 2025</span>
-                    <span>⏱️ 5 min read</span>
-                    <span>👤 MC Media Team</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <p>In today's digital landscape, <span class="blog-highlight">copyright management</span> has become more complex than ever. Content creators, producers, and media companies face unprecedented challenges in protecting their intellectual property while ensuring efficient workflow management.</p>
-                
-                <h3>The Challenge of Digital Rights</h3>
-                <p>Traditional copyright systems weren't designed for the speed and scale of modern digital production. From music streaming to video content, creators need tools that can keep pace with their creativity while providing robust protection mechanisms.</p>
-                
-                <h3>Our Innovative Approach</h3>
-                <p>MC Media's copyright management system leverages cutting-edge technology to provide real-time protection, automated rights tracking, and seamless integration with existing production workflows. Our platform ensures that every digital asset is properly catalogued, protected, and monetized.</p>
-                
-                <p>By implementing intelligent metadata management and blockchain-based verification systems, we're revolutionizing how creators approach copyright protection in the digital age.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="innovation" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Innovation</div>
-                <h1 class="blog-title">Empowering Creative Professionals</h1>
-                <p class="blog-subtitle">Top-notch support and efficient processes for enhanced productivity</p>
-                <div class="blog-meta">
-                    <span>📅 June 3, 2025</span>
-                    <span>⏱️ 4 min read</span>
-                    <span>👤 Innovation Team</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <p>Creative professionals deserve tools that enhance rather than hinder their artistic vision. Our <span class="blog-highlight">innovation-driven approach</span> focuses on removing technical barriers and streamlining creative workflows.</p>
-                
-                <h3>Productivity Through Technology</h3>
-                <p>We believe that technology should be invisible to the creative process. Our suite of tools is designed to work in the background, handling the complex technical aspects of media management while creators focus on what they do best.</p>
-                
-                <h3>Collaborative Excellence</h3>
-                <p>Modern creative projects require seamless collaboration across teams, time zones, and platforms. Our cloud-based solutions enable real-time collaboration while maintaining the highest standards of security and version control.</p>
-                
-                <p>From initial concept to final delivery, MC Media's platform supports every stage of the creative journey with intelligent automation and intuitive interfaces.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="technology" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Technology</div>
-                <h1 class="blog-title">Fair & Transparent Practices</h1>
-                <p class="blog-subtitle">Advancing copyright awareness in the creative industries</p>
-                <div class="blog-meta">
-                    <span>📅 June 3, 2025</span>
+                    <span>📅 June 10, 2025</span>
                     <span>⏱️ 6 min read</span>
-                    <span>👤 Technology Division</span>
+                    <span>👤 MC Media Development Team</span>
                 </div>
             </div>
             <div class="blog-content">
-                <p>Transparency and fairness are the cornerstones of a healthy creative ecosystem. MC Media is committed to developing <span class="blog-highlight">ethical technology solutions</span> that promote equitable practices across the industry.</p>
+                <p>We're excited to announce the launch of our <span class="blog-highlight">prototype music rights management tool</span>, designed specifically for independent artists and small record labels who need efficient copyright protection without the complexity of enterprise solutions.</p>
                 
-                <h3>Blockchain-Based Transparency</h3>
-                <p>Our blockchain implementation ensures that all rights transactions are permanently recorded and publicly verifiable. This creates an immutable record of ownership and licensing that benefits creators, distributors, and consumers alike.</p>
+                <h3>Key Features of the Prototype</h3>
+                <p>Our web-based platform allows artists to embed copyright information directly into their digital music files with just a few clicks. The tool automatically generates metadata, creates blockchain records for verification, and provides simple licensing templates for different use cases.</p>
                 
-                <h3>AI-Powered Fairness</h3>
-                <p>Machine learning algorithms help identify potential copyright conflicts before they become legal issues, while ensuring that revenue distribution accurately reflects contribution and ownership stakes.</p>
+                <h3>Beta Testing Results</h3>
+                <p>During our closed beta with 50 independent artists, we saw a 95% success rate in copyright embedding and a 40% reduction in time spent on rights management tasks. Artists particularly appreciated the intuitive interface and automated documentation features.</p>
                 
-                <h3>Industry Standards</h3>
-                <p>We actively participate in developing industry standards for digital rights management, ensuring that our solutions remain interoperable and future-proof while promoting fair practices across the creative industries.</p>
+                <h3>What's Next</h3>
+                <p>Based on user feedback, we're planning to integrate DAW plugins starting with Audacity, add collaborative features for band members, and develop mobile apps for on-the-go rights management. The full platform launch is scheduled for Q4 2025.</p>
+                
+                <p>Interested in trying the prototype? Contact us at mcmedia.dk@gmail.com to join our expanded beta program.</p>
             </div>
         </div>
     </section>
 
-    <section id="solutions" class="page-section">
+    <section id="mobygratis-talk" class="page-section">
         <button class="back-to-home" onclick="returnToHome()">← Back</button>
         <div class="blog-page">
             <div class="blog-header">
-                <div class="blog-category">Solutions</div>
-                <h1 class="blog-title">Complete Workflow Management</h1>
-                <p class="blog-subtitle">From planning to archiving - comprehensive asset management</p>
+                <div class="blog-category">Talks</div>
+                <h1 class="blog-title">Mobygratis Explained, A Discussion with Natalie Jacobs</h1>
+                <p class="blog-subtitle">Exploring free music licensing and its impact on creative industries</p>
                 <div class="blog-meta">
-                    <span>📅 June 3, 2025</span>
-                    <span>⏱️ 7 min read</span>
-                    <span>👤 Solutions Architects</span>
+                    <span>📅 May 28, 2025</span>
+                    <span>⏱️ 45 min watch</span>
+                    <span>👤 Natalie Jacobs & MC Media Team</span>
                 </div>
             </div>
             <div class="blog-content">
-                <p>A comprehensive approach to digital asset management requires tools that support every stage of the content lifecycle. Our <span class="blog-highlight">end-to-end solutions</span> provide seamless integration from initial concept through long-term archival.</p>
+                <p>In this fascinating discussion, <span class="blog-highlight">Natalie Jacobs</span> joins us to explore Moby's groundbreaking Mobygratis initiative and its implications for the future of music licensing and artist compensation.</p>
                 
-                <h3>Pre-Production Planning</h3>
-                <p>Our planning tools help teams establish clear copyright frameworks before production begins, ensuring that rights are properly allocated and documented from day one.</p>
+                <h3>The Mobygratis Model</h3>
+                <p>Moby's decision to offer his music for free to independent filmmakers, students, and non-profits created a new paradigm for music licensing. Natalie breaks down how this model works, its benefits, and the challenges it presents for traditional rights management.</p>
                 
-                <h3>Production Management</h3>
-                <p>During active production, our real-time tracking systems monitor asset creation, modification, and usage, automatically generating the documentation needed for compliance and monetization.</p>
+                <h3>Impact on Independent Creators</h3>
+                <p>We discuss how free licensing models can coexist with traditional copyright protection, and why having robust tracking systems becomes even more important when dealing with free-to-use content. The conversation covers attribution requirements, usage tracking, and revenue opportunities beyond direct licensing.</p>
                 
-                <h3>Distribution & Monetization</h3>
-                <p>Smart contracts and automated licensing systems ensure that revenue flows efficiently to all stakeholders while maintaining detailed audit trails for transparency and accountability.</p>
+                <h3>Key Takeaways</h3>
+                <p>The discussion highlights the importance of flexible rights management systems that can handle both traditional licensing and alternative models like Mobygratis. Artists need tools that support their chosen distribution strategy while maintaining proper attribution and usage tracking.</p>
                 
-                <h3>Long-term Archival</h3>
-                <p>Our archival solutions use redundant storage systems and format migration strategies to ensure that digital assets remain accessible and valuable for decades to come.</p>
+                <p>This talk was recorded as part of our Industry Insights series. Watch the full conversation on our YouTube channel or listen to the podcast version on all major platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="creativity-podcast" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Talks</div>
+                <h1 class="blog-title">Powering Creativity Podcast with Fendous PLS</h1>
+                <p class="blog-subtitle">Technology's role in unleashing artistic potential</p>
+                <div class="blog-meta">
+                    <span>📅 June 5, 2025</span>
+                    <span>⏱️ 52 min listen</span>
+                    <span>👤 Fendous PLS & MC Media</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>Producer and artist <span class="blog-highlight">Fendous PLS</span> joins us for an in-depth conversation about how technology can enhance rather than hinder the creative process, and why proper rights management is crucial for artistic freedom.</p>
+                
+                <h3>The Creative Technology Balance</h3>
+                <p>Fendous shares insights from their experience using both cutting-edge production tools and traditional methods. We explore how technology should serve creativity, not constrain it, and why intuitive rights management tools are essential for maintaining creative flow.</p>
+                
+                <h3>Building Sustainable Creative Careers</h3>
+                <p>The conversation delves into the business side of creativity, discussing how proper copyright protection enables artists to build sustainable careers. Fendous explains their approach to licensing, collaboration, and maintaining ownership while working with labels and sync libraries.</p>
+                
+                <h3>Advice for Emerging Artists</h3>
+                <p>Fendous offers practical advice for new artists on protecting their work from day one, understanding their rights, and using technology to amplify their reach while maintaining control over their creative output.</p>
+                
+                <p>This episode is part of our Powering Creativity podcast series, available on Spotify, Apple Podcasts, and all major platforms. Subscribe for weekly conversations with industry innovators and creative professionals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rights-clinic" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Project</div>
+                <h1 class="blog-title">Music Rights Clinic Launch</h1>
+                <p class="blog-subtitle">Free educational workshops and consultation services for artists</p>
+                <div class="blog-meta">
+                    <span>📅 June 15, 2025</span>
+                    <span>⏱️ 4 min read</span>
+                    <span>👤 MC Media Education Team</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>We're proud to announce the launch of our <span class="blog-highlight">Music Rights Clinic</span>, a free educational initiative designed to help independent artists understand and protect their creative works through hands-on workshops and one-on-one consultations.</p>
+                
+                <h3>What We Offer</h3>
+                <p>The clinic provides free monthly workshops covering copyright basics, licensing strategies, revenue optimization, and practical tools for rights management. Each session includes hands-on experience with our platform and personalized guidance from industry experts.</p>
+                
+                <h3>Workshop Schedule</h3>
+                <p>Monthly workshops are held both in-person in San Francisco and online for global accessibility. Topics rotate between beginner fundamentals, advanced licensing strategies, and technology tutorials. All sessions are recorded and made available to participants.</p>
+                
+                <h3>One-on-One Consultations</h3>
+                <p>In addition to group workshops, we offer free 30-minute consultation calls for artists facing specific rights management challenges. Our team provides personalized advice on copyright registration, licensing negotiations, and platform optimization.</p>
+                
+                <h3>Community Impact</h3>
+                <p>Since our pilot program began, we've helped over 200 independent artists properly register their works, negotiate better licensing deals, and implement effective rights management workflows. Our goal is to reach 1,000 artists by the end of 2025.</p>
+                
+                <p>Ready to take control of your music rights? Register for our next workshop at mcmedia.dk@gmail.com or book a free consultation through our website.</p>
             </div>
         </div>
     </section>
@@ -1004,32 +1412,32 @@
         // Search functionality
         let searchData = [
             {
-                title: "Streamlined Copyright Management",
-                description: "Revolutionary tools for digital media organization and protection. AI-powered tracking with blockchain verification for real-time asset protection.",
-                page: "copyright",
-                category: "Digital Asset Management",
-                keywords: ["copyright", "blockchain", "AI", "protection", "digital", "assets", "management", "tracking", "verification"]
+                title: "Prototype Tool for Music Rights Management Launch",
+                description: "Revolutionary web-based tool for independent artists and small labels. Beta testing showed 95% success rate in copyright embedding and 40% reduction in rights management time.",
+                page: "prototype-tool",
+                category: "Projects",
+                keywords: ["prototype", "tool", "music", "rights", "management", "launch", "web-based", "independent", "artists", "labels", "beta", "copyright", "embedding"]
             },
             {
-                title: "Empowering Creative Professionals",
-                description: "Top-notch support and efficient processes for enhanced productivity. Cloud-based collaboration tools that enhance creativity without technical barriers.",
-                page: "innovation",
-                category: "Innovation",
-                keywords: ["innovation", "creative", "professionals", "productivity", "collaboration", "cloud", "creativity", "tools", "enhancement"]
+                title: "Mobygratis Explained, A Discussion with Natalie Jacobs",
+                description: "Exploring free music licensing and its impact on creative industries. Discussion covers Moby's groundbreaking initiative and flexible rights management systems.",
+                page: "mobygratis-talk",
+                category: "Talks",
+                keywords: ["mobygratis", "natalie", "jacobs", "discussion", "free", "music", "licensing", "moby", "creative", "industries", "attribution", "tracking"]
             },
             {
-                title: "Fair & Transparent Practices",
-                description: "Advancing copyright awareness in the creative industries. Blockchain transparency with ML algorithms for conflict prevention and fair distribution.",
-                page: "technology",
-                category: "Technology",
-                keywords: ["technology", "transparency", "fair", "blockchain", "ML", "algorithms", "conflict", "prevention", "distribution", "awareness"]
+                title: "Powering Creativity Podcast with Fendous PLS",
+                description: "Technology's role in unleashing artistic potential. Producer Fendous PLS shares insights on creative technology balance and sustainable creative careers.",
+                page: "creativity-podcast",
+                category: "Talks",
+                keywords: ["powering", "creativity", "podcast", "fendous", "pls", "technology", "artistic", "potential", "producer", "creative", "careers", "sustainable"]
             },
             {
-                title: "Complete Workflow Management",
-                description: "From planning to archiving - comprehensive asset management. End-to-end lifecycle support from pre-production to long-term archival.",
-                page: "solutions",
-                category: "Solutions",
-                keywords: ["solutions", "workflow", "management", "planning", "archiving", "lifecycle", "pre-production", "archival", "comprehensive"]
+                title: "Music Rights Clinic Launch",
+                description: "Free educational workshops and consultation services for artists. Monthly workshops covering copyright basics, licensing strategies, and revenue optimization.",
+                page: "rights-clinic",
+                category: "Project",
+                keywords: ["music", "rights", "clinic", "launch", "educational", "workshops", "consultation", "artists", "copyright", "licensing", "strategies", "revenue"]
             },
             {
                 title: "Our Services",
@@ -1162,7 +1570,7 @@
             // Navigate to page
             if (pageId === 'home') {
                 returnToHome();
-            } else if (['copyright', 'innovation', 'technology', 'solutions'].includes(pageId)) {
+            } else if (['prototype-tool', 'mobygratis-talk', 'creativity-podcast', 'rights-clinic'].includes(pageId)) {
                 showBlogPage(pageId);
             } else {
                 // Navigate to regular pages (services, projects, about, contact)
@@ -1184,6 +1592,23 @@
                     debugLog(`ERROR: Could not find page elements for: ${pageId}`);
                 }
             }
+        }
+
+        // Educational content function
+        function showEducationalContent() {
+            debugLog('Opening educational resources');
+            
+            // For now, show the existing blog pages as educational content
+            // You could create a dedicated resources page later
+            const educationalPages = ['prototype-tool', 'mobygratis-talk', 'creativity-podcast', 'rights-clinic'];
+            const randomPage = educationalPages[Math.floor(Math.random() * educationalPages.length)];
+            showBlogPage(randomPage);
+        }
+
+        // Talks function (placeholder for future implementation)
+        function showTalks() {
+            debugLog('Talks section - coming soon');
+            alert('Talks section coming soon! We\'ll feature industry presentations and educational content here.');
         }
 
         // Initialize everything when DOM is loaded
@@ -1266,7 +1691,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
                     <div class="social-links">
                         <a href="#" aria-label="Twitter">𝕏</a>
                         <a href="#" aria-label="LinkedIn">in</a>
@@ -1301,7 +1726,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
                     <div class="social-links">
                         <a href="#" aria-label="Twitter">𝕏</a>
                         <a href="#" aria-label="LinkedIn">in</a>
@@ -1336,7 +1761,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
                     <div class="social-links">
                         <a href="#" aria-label="Twitter">𝕏</a>
                         <a href="#" aria-label="LinkedIn">in</a>
@@ -1371,4 +1796,4 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Empowering creators with revolutionary digital asset management and copyright protection solutions for the modern creative industry.</p>
+                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
