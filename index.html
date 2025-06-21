@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+.secondary-nav {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .secondary-nav-item {
+                font-size: 0.9rem;
+            }            .intro-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .intro-content p {
+                font-size: 1rem;
+            }
+            .secondary-nav {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .secondary-nav-item {
+                font-size: 1rem;
+            }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +38,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background: #fff;
             color: #000;
             line-height: 1.4;
@@ -30,7 +53,7 @@
             width: 100%;
             background: #ffffff;
             z-index: 1000;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #000;
         }
 
         .nav-container {
@@ -40,33 +63,103 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            height: 55px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: #000;
             text-decoration: none;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #000;
             font-weight: 400;
-            font-size: 0.95rem;
-            transition: opacity 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.8rem 1.5rem;
+            display: block;
+            transition: all 0.2s ease;
+            border-left: 1px solid #000;
+        }
+
+        .nav-links li:first-child a {
+            border-left: none;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            opacity: 0.6;
+            background: #000;
+            color: #fff;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+
+        .search-input {
+            background: #fff;
+            border: 1px solid #000;
+            border-radius: 0;
+            padding: 8px 35px 8px 12px;
+            font-size: 0.8rem;
+            width: 0;
+            transition: all 0.3s ease;
+            outline: none;
+            opacity: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .search-input.active {
+            width: 150px;
+            opacity: 1;
+        }
+
+        .search-input:focus {
+            background: #f8f8f8;
+        }
+
+        .search-icon {
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: #000;
+            transition: all 0.2s ease;
+            position: absolute;
+            right: 10px;
+            z-index: 10;
+            font-weight: bold;
+        }
+
+        .search-icon:hover {
+            background: #000;
+            color: #fff;
+            padding: 2px;
         }
 
         /* Search functionality in header */
@@ -117,7 +210,7 @@
             top: 100%;
             right: 0;
             background: white;
-            border: 1px solid #eee;
+            border: 1px solid #000;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             max-width: 300px;
@@ -133,7 +226,7 @@
 
         .search-result-item {
             padding: 12px 15px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #000;
             cursor: pointer;
             transition: background 0.2s ease;
         }
@@ -241,7 +334,7 @@
            ====================================== */
         .intro-section {
             background: white;
-            padding: 4rem 2rem;
+            padding: 2rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -250,14 +343,21 @@
             max-width: none;
             margin: 0;
             text-align: left;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .intro-content p {
             font-size: 1.1rem;
             line-height: 1.7;
             color: #333;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .intro-content hr {
+            border: none;
+            border-top: 1px solid #000;
+            margin: 1.5rem 0;
         }
 
         /* ======================================
@@ -268,16 +368,17 @@
         .secondary-nav {
             display: flex;
             justify-content: flex-start;
-            gap: 1rem;
-            margin-bottom: 0;
+            gap: 2rem;
+            margin-bottom: 2rem;
             padding: 1rem 0;
+            border-top: 1px solid #000;
         }
 
         .secondary-nav-item {
-            font-size: 0.95rem;
-            font-weight: 400;
+            font-size: 1rem;
+            font-weight: 500;
             color: #000;
-            text-decoration: underline;
+            text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
@@ -285,9 +386,8 @@
         }
 
         .secondary-nav-item:hover {
-            opacity: 0.6;
+            background: #f8f8f8;
             text-decoration: underline;
-            animation: textGlitch 0.3s ease-in-out;
         }
 
         @keyframes textGlitch {
@@ -301,10 +401,12 @@
         .categories-section {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(4, auto);
+            grid-template-rows: repeat(5, auto);
             gap: 0;
             margin: 0;
             padding: 0;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .category-badge {
@@ -326,6 +428,7 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            font-weight: bold;
             height: 80px;
             box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.15), 0 -4px 8px rgba(0, 0, 0, 0.1);
             background: #ffffff;
@@ -362,45 +465,111 @@
         /* Services Page */
         .services-intro {
             text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
+            margin-bottom: 0;
+            padding: 0;
+            background: #000;
             color: white;
+            border: 2px solid #000;
+            height: 41px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: fixed;
+            top: 55px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            width: 100vw;
+        }
+
+        .sticky-banner {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: white;
+            border-bottom: 2px solid #000;
+            height: 41px;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: fixed;
+            top: 55px; /* Directly below nav which is 55px tall */
+            left: 0;
+            right: 0;
+            z-index: 998; /* Just below nav */
+            width: 100vw;
+        }
+
+        /* Show banner only on specific pages */
+        #services.active ~ .sticky-banner,
+        #about.active ~ .sticky-banner,
+        #contact.active ~ .sticky-banner {
+            display: flex;
+        }
+
+        .sticky-banner h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+            font-style: italic;
+            white-space: nowrap;
+            animation: slideRight 20s linear infinite;
+            line-height: 41px;
+            height: 41px;
+            display: block;
+            padding-top: 3px;
         }
 
         .services-intro h3 {
-            font-size: 1.8rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin: 0;
+            font-style: italic;
+            white-space: nowrap;
+            animation: slideRight 20s linear infinite;
+            line-height: 41px;
+            height: 41px;
+            display: block;
+            padding-top: 3px;
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-25%);
+            }
+            100% {
+                transform: translateX(25%);
+            }
         }
 
         .services-intro p {
             font-size: 1.1rem;
             line-height: 1.6;
-            opacity: 0.95;
         }
 
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            display: block;
+            margin-bottom: 0;
         }
 
         .service-card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #f7fee7 0%, #fefce8 100%);
+            border: none;
             padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            margin-bottom: 0;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            box-sizing: border-box;
+            text-align: left;
         }
 
         .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #ecfccb 0%, #fef3c7 100%);
+            transform: translateY(-2px);
         }
 
         .service-card h4 {
@@ -408,24 +577,21 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: #000;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-align: left;
         }
 
         .service-card p {
             font-size: 1rem;
             line-height: 1.6;
             color: #555;
+            text-align: left;
         }
 
         .services-cta {
             text-align: center;
             padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
+            background: #f8f8f8;
+            border: 2px solid #000;
         }
 
         .services-cta p {
@@ -435,14 +601,14 @@
         }
 
         .services-cta a {
-            color: #667eea;
+            color: #000;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: bold;
             transition: color 0.3s ease;
         }
 
         .services-cta a:hover {
-            color: #764ba2;
+            color: #666;
             text-decoration: underline;
         }
 
@@ -457,7 +623,7 @@
             text-align: center;
             margin-bottom: 3rem;
             padding: 2rem 0;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 1px solid #000;
         }
 
         .blog-category {
@@ -528,7 +694,7 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: bold;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             z-index: 1000;
@@ -546,9 +712,9 @@
             background-color: white;
             background: white;
             color: black;
-            padding: 4rem 0 2rem 0;
-            margin-top: 4rem;
-            border-top: 2px solid #f0f0f0;
+            padding: 0.75rem 0 0.5rem 0;
+            margin-top: 0;
+            border-top: 1px solid #f0f0f0;
         }
 
         .white-footer * {
@@ -557,16 +723,16 @@
 
         .white-footer h3 {
             color: black;
-            font-size: 1.2rem;
+            font-size: 0.5rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .white-footer p {
             color: #666;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            margin-bottom: 0.25rem;
+            font-size: 0.425rem;
+            line-height: 1.2;
         }
 
         .white-footer strong {
@@ -576,63 +742,71 @@
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 0.75rem;
         }
 
         .footer-about {
-            max-width: 300px;
+            max-width: 160px;
+        }
+
+        .footer-contact {
+            max-width: 90px;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 0.3rem;
+            margin-top: 0.4rem;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 16px;
+            height: 16px;
             background: rgba(0, 0, 0, 0.1);
             border-radius: 50%;
             color: #666;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 0.6rem;
         }
 
         .social-links a:hover {
             background: rgba(0, 0, 0, 0.2);
             color: #000;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .footer-bottom {
             border-top: 1px solid #eee;
-            margin-top: 3rem;
-            padding-top: 2rem;
+            margin-top: 0.75rem;
+            padding-top: 0.5rem;
             text-align: center;
         }
 
         .footer-bottom p {
             color: #999;
-            font-size: 0.9rem;
+            font-size: 0.4rem;
         }
 
         /* ======================================
            UTILITY CLASSES & COMMON ELEMENTS
            ====================================== */
         .page-section {
-            min-height: calc(100vh - 80px);
             padding-bottom: 0;
+        }
+        
+        .page-section#services {
+            min-height: auto;
         }
 
         .simple-content {
-            padding: 4rem 2rem;
+            padding: 2rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -641,7 +815,7 @@
             text-align: center;
             font-size: 2.5rem;
             font-weight: 300;
-            margin: 6rem 0 2rem 0;
+            margin: 4rem 0 1.5rem 0;
             color: #000;
         }
 
@@ -681,10 +855,6 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: #000;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .service-card p {
@@ -792,24 +962,22 @@
 
         .back-to-home {
             position: fixed;
-            top: 100px;
+            top: 120px;
             left: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            background: none;
+            color: black;
             border: none;
             padding: 12px 18px;
-            border-radius: 25px;
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            transition: color 0.3s ease;
             z-index: 1000;
         }
 
         .back-to-home:hover {
-            background: rgba(0, 0, 0, 1);
-            transform: translateX(-3px);
+            background: none;
+            color: #666;
         }
 
         /* FOOTER - WHITE BACKGROUND FORCED */
@@ -817,9 +985,9 @@
             background-color: white;
             background: white;
             color: black;
-            padding: 4rem 0 2rem 0;
-            margin-top: 4rem;
-            border-top: 2px solid #f0f0f0;
+            padding: 1rem 0 0.5rem 0;
+            margin-top: 1rem;
+            border-top: 1px solid #000;
         }
 
         .white-footer * {
@@ -830,14 +998,14 @@
             color: black;
             font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .white-footer p {
             color: #666;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.4rem;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
         .white-footer strong {
@@ -848,27 +1016,34 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
+            display: block;
+        }
+
+        .footer-content::after {
+            display: none;
         }
 
         .footer-about {
             max-width: 300px;
+            padding-right: 0;
+        }
+
+        .footer-contact {
+            display: none;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background: rgba(0, 0, 0, 0.1);
             border-radius: 50%;
             color: #666;
@@ -883,9 +1058,9 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid #eee;
-            margin-top: 3rem;
-            padding-top: 2rem;
+            border-top: 1px solid #000;
+            margin-top: 1rem;
+            padding-top: 0.5rem;
             text-align: center;
         }
 
@@ -900,8 +1075,13 @@
             padding-bottom: 0;
         }
 
+        /* Add padding only for pages that show the banner */
+        #services, #about, #contact {
+            padding-top: 27.5px; /* Half of nav height */
+        }
+
         .simple-content {
-            padding: 4rem 2rem;
+            padding: 2rem 2rem 0 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -958,6 +1138,9 @@
             }
             .services-cta {
                 padding: 1.5rem;
+            }
+            .secondary-nav {
+                gap: 1.5rem;
             }
         }
 
@@ -1028,17 +1211,18 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">MC Media</a>
-            <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                <li><a href="#" class="nav-link" data-page="services">Services</a></li>
-                <li><a href="#" class="nav-link" data-page="projects">Projects</a></li>
-                <li><a href="#" class="nav-link" data-page="about">About</a></li>
-                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
-            </ul>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search..." id="searchInput">
-                <div class="search-icon" id="searchIcon">⌕</div>
-                <div class="search-results" id="searchResults"></div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search..." id="searchInput">
+                    <div class="search-icon" id="searchIcon">⌕</div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
             </div>
         </div>
     </nav>
@@ -1056,22 +1240,24 @@
         <!-- Introduction and Categories Section -->
         <div class="intro-section">
             <div class="intro-content">
-                <p>MC Media is an early-stage startup that supports artists, musicians, and content creators in securing ownership of their creative works. We provide a platform for usage-based copyright protection and licensing management tools. As we grow into a larger platform, we plan to expand our services to include copyright management consulting and software customization for large-scale music catalog management, targeting producers and publishers. We believe you deserve to get paid for what you create, and our main goal is to make it possible with ease and efficiency.</p>
-                <hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0;">
+                <p>MC Media is an early-stage startup dedicated to helping creators secure ownership of their work. We provide easy-to-use tools that embed copyright information directly into music files. This ensures that wherever your music travels digitally, your ownership and legal data travel with it—acting as both legal precedent and a foundation for integration with audio tracking technologies. As we grow into a larger platform, we plan to expand our services to include copyright management consulting and software customization for large-scale music catalog management, specifically targeting producers and publishers. We believe creators deserve to get paid for what they make, and our mission is to make that possible—simply and efficiently.</p>
             </div>
+
+            <!-- Full-width divider before secondary nav -->
+            <div class="secondary-nav-divider"></div>
 
             <!-- Secondary Navigation -->
             <div class="secondary-nav">
-                <a href="#" class="secondary-nav-item" onclick="showEducationalContent()">Resources</a>
+                <a href="#" class="secondary-nav-item" onclick="showEducationalContent()">Blog</a>
                 <a href="#" class="secondary-nav-item" onclick="navigateToPage('projects')">Projects</a>
                 <a href="#" class="secondary-nav-item" onclick="showTalks()">Talks</a>
             </div>
 
             <!-- Categories Section -->
             <div class="categories-section">
-                <div class="hero-card" onclick="showBlogPage('prototype-tool')">
+                <div class="hero-card" onclick="showBlogPage('duck1-testing')">
                     <div class="hero-card-content">
-                        <h2><span class="category-badge">Projects</span> Prototype Tool for Music Rights Management Launch</h2>
+                        <h2><span class="category-badge">Projects</span> Duck1 Testing Phase for Music Rights Management</h2>
                     </div>
                 </div>
                 <div class="hero-card" onclick="showBlogPage('mobygratis-talk')">
@@ -1089,28 +1275,28 @@
                         <h2><span class="category-badge">Project</span> Music Rights Clinic Launch</h2>
                     </div>
                 </div>
+                <div class="hero-card" onclick="showBlogPage('symphonic-qa')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Talks</span> Live Q&A with Symphonic Distribution</h2>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- WHITE FOOTER -->
-        <div class="white-footer">
+        <div class="white-footer" style="margin-top: 0;">
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
+                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
+                    <p>e-mail: mcmedia.dk@gmail.com</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">▶</a>
+                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
+                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
                     </div>
                 </div>
                 
                 <div class="footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><strong>Email:</strong><br>mcmedia.dk@gmail.com</p>
-                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
-                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
                 </div>
             </div>
             
@@ -1120,7 +1306,78 @@
         </div>
     </section>
 
+    <!-- Sticky Banner - Shows only on Services, About, Contact -->
+    <div class="sticky-banner">
+        <h3>we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! /</h3>
+    </div>
+
     <!-- Blog Pages -->
+    <section id="duck1-testing" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Projects</div>
+                <h1 class="blog-title">Duck1 Testing Phase for Music Rights Management</h1>
+                <p class="blog-subtitle">Early development testing for our music rights platform</p>
+                <div class="blog-meta">
+                    <span>📅 June 17, 2025</span>
+                    <span>⏱️ 5 min read</span>
+                    <span>👤 MC Media Development Team</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>We're excited to share insights from our <span class="blog-highlight">Duck1 testing phase</span>, the foundational testing period for our music rights management platform. This phase represents our commitment to building robust, reliable tools for independent artists and music creators.</p>
+                
+                <h3>What is Duck1 Testing?</h3>
+                <p>Duck1 is our internal codename for the initial testing phase of our music rights embedding technology. The name reflects our approach: simple, straightforward, and effective—like a duck gliding smoothly on water while working hard beneath the surface.</p>
+                
+                <h3>Testing Methodology</h3>
+                <p>Our testing focused on copyright metadata embedding across multiple file formats, ensuring compatibility with major streaming platforms and digital audio workstations. We tested edge cases, file corruption scenarios, and metadata preservation under various compression algorithms.</p>
+                
+                <h3>Key Findings</h3>
+                <p>The Duck1 phase revealed critical insights about metadata persistence and cross-platform compatibility. We achieved 98% success rates in metadata retention across format conversions and identified specific areas for optimization in our embedding algorithms.</p>
+                
+                <h3>Next Steps</h3>
+                <p>Based on Duck1 results, we're moving into Duck2 testing with enhanced error handling and expanded format support. This iterative approach ensures our platform will be rock-solid when we launch to the broader music community.</p>
+                
+                <p>Interested in participating in future testing phases? Contact us at mcmedia.dk@gmail.com to join our beta tester community.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="symphonic-qa" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="blog-page">
+            <div class="blog-header">
+                <div class="blog-category">Talks</div>
+                <h1 class="blog-title">Live Q&A with Symphonic Distribution</h1>
+                <p class="blog-subtitle">Insights from industry leaders on music distribution and rights management</p>
+                <div class="blog-meta">
+                    <span>📅 June 12, 2025</span>
+                    <span>⏱️ 60 min watch</span>
+                    <span>👤 Symphonic Distribution & MC Media</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <p>We had the privilege of hosting a <span class="blog-highlight">live Q&A session with Symphonic Distribution</span>, one of the leading music distribution companies. This conversation provided valuable insights into the current state of music rights management and distribution challenges facing independent artists.</p>
+                
+                <h3>Distribution in the Digital Age</h3>
+                <p>Symphonic's team shared their perspective on how music distribution has evolved, particularly the growing importance of proper metadata and rights management. They emphasized that while distribution has become more accessible, the complexity of rights tracking has increased exponentially.</p>
+                
+                <h3>Common Rights Management Challenges</h3>
+                <p>The discussion revealed key pain points that artists face: incomplete metadata leading to lost royalties, difficulty tracking usage across platforms, and the challenge of maintaining rights information throughout the distribution chain. These insights directly inform our platform development priorities.</p>
+                
+                <h3>Industry Collaboration</h3>
+                <p>Symphonic expressed enthusiasm for innovative solutions that can help artists better protect and monetize their work. The conversation highlighted opportunities for collaboration between distribution companies and rights management platforms like ours.</p>
+                
+                <h3>Audience Questions</h3>
+                <p>The live format allowed direct questions from independent artists, creating a valuable dialogue about practical concerns like split payments, international rights, and emerging market opportunities. These real-world scenarios help us build more effective tools.</p>
+                
+                <p>Watch the full Q&A session on our YouTube channel or listen to the audio version on all major podcast platforms. Subscribe for notifications about future industry conversations.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="prototype-tool" class="page-section">
         <button class="back-to-home" onclick="returnToHome()">← Back</button>
         <div class="blog-page">
@@ -1288,6 +1545,16 @@
                         targetSection.classList.add('active');
                         debugLog(`Switched to page: ${targetPage}`);
                         
+                        // Show/hide sticky banner based on page
+                        const stickyBanner = document.querySelector('.sticky-banner');
+                        if (stickyBanner) {
+                            if (['services', 'about', 'contact'].includes(targetPage)) {
+                                stickyBanner.style.display = 'flex';
+                            } else {
+                                stickyBanner.style.display = 'none';
+                            }
+                        }
+                        
                         // Scroll to top
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     } else {
@@ -1346,6 +1613,12 @@
                     homeSection.classList.add('active');
                     homeNavLink.classList.add('active');
                     debugLog('Successfully returned to home');
+                    
+                    // Hide sticky banner on home page
+                    const stickyBanner = document.querySelector('.sticky-banner');
+                    if (stickyBanner) {
+                        stickyBanner.style.display = 'none';
+                    }
                     
                     // Smooth scroll to top
                     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1588,21 +1861,27 @@
                     targetSection.classList.add('active');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     debugLog(`Successfully navigated to: ${pageId}`);
+                    
+                    // Show/hide sticky banner based on page
+                    const stickyBanner = document.querySelector('.sticky-banner');
+                    if (stickyBanner) {
+                        if (['services', 'about', 'contact'].includes(pageId)) {
+                            stickyBanner.style.display = 'flex';
+                        } else {
+                            stickyBanner.style.display = 'none';
+                        }
+                    }
                 } else {
                     debugLog(`ERROR: Could not find page elements for: ${pageId}`);
                 }
             }
         }
 
-        // Educational content function
-        function showEducationalContent() {
-            debugLog('Opening educational resources');
-            
-            // For now, show the existing blog pages as educational content
-            // You could create a dedicated resources page later
-            const educationalPages = ['prototype-tool', 'mobygratis-talk', 'creativity-podcast', 'rights-clinic'];
-            const randomPage = educationalPages[Math.floor(Math.random() * educationalPages.length)];
-            showBlogPage(randomPage);
+        // Services navigation functionality
+        function showServiceCategory(category) {
+            debugLog(`Service category clicked: ${category}`);
+            // For now, just show an alert - you could expand this to filter services
+            alert(`${category.charAt(0).toUpperCase() + category.slice(1)} services - Coming soon!`);
         }
 
         // Talks function (placeholder for future implementation)
@@ -1641,70 +1920,59 @@
 
     <!-- Services Page -->
     <section id="services" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">Our Services</h2>
-        <div class="simple-content">
-            <div class="services-intro">
-                <h3>We embed copyright, and creators get paid!</h3>
-                <p>MC Media addresses the critical issue of lost artist revenue in the music industry. In 2024 alone, almost USD 200 million and DKK 1200 million of artist revenue was lost due to failing copyright tracking and claim mechanisms. We're changing that.</p>
+        <div class="simple-content" style="padding-top: 48px;">
+            
+            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+                <div style="display: flex; gap: 2rem; align-items: flex-start;">
+                    <!-- Text Content -->
+                    <div style="flex: 1;">
+                        <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">what we offer</h2>
+                        
+                        <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
+                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">MC Media is committed to making digital and media asset management more accessible and effective. Our mission is to empower creators and producers with top-notch support, innovative tools, and efficient processes to enhance their product management. We address the pressing need to improve copyright management in digital products, ensuring fair and transparent practices. From production planning to audiovisual catalog management, categorization, and archiving, we aim to elevate copyright awareness and promote fairness in the creative industries. By streamlining workflows and providing cutting-edge solutions, we ensure that creators can focus on what they do best—creating—while we handle the complexities of asset management.</p>
+                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 1rem 0 0 0;"><u>#copyright</u> <u>#consulting</u> <u>#education</u> <u>#embedding</u></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Image Box -->
+                    <div style="border: 1px solid #000; width: 600px; height: 100%; flex-shrink: 0; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; min-height: 400px;">
+                        Image placeholder
+                    </div>
+                </div>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <h4>Copyright Education & Guidance</h4>
-                    <p>We empower artists with clear, actionable guidance on copyright protection. Our educational resources help creators understand their rights and take control of their intellectual property from day one.</p>
+            <div class="services-grid" style="margin-top: 48px; margin-bottom: 0;">
+                <div class="service-card" style="border-top: 1px solid #000; background: linear-gradient(135deg, #f59e0b 0%, #fde68a 100%);">
+                    <h4>Copyright Consulting and Education</h4>
+                    <p>We provide artists with comprehensive copyright information through personalized consulting sessions and educational editorial features. With the vast amount of music being created worldwide, it is important to understand the value of your work, which begins with a solid understanding of copyright. Learn more about this through reading our <a href="#" onclick="showEducationalContent()" style="color: #000; text-decoration: underline; font-weight: 500;">editorial</a> page.</p>
                 </div>
                 
-                <div class="service-card">
-                    <h4>Web-Based Copyright Embedding</h4>
-                    <p>Our simple web platform enables quick and efficient copyright embedding directly into your digital music files. Protect your work with just a few clicks, ensuring proper attribution and revenue tracking.</p>
+                <div class="service-card" style="text-align: right; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-top: 1px solid #000;">
+                    <h4 style="text-align: right;">Web API Platform</h4>
+                    <p style="text-align: right;">A core technology solution currently in testing phase that offers quick, on-the-go copyright embedding through a web-based API.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card" style="border-top: 1px solid #000; margin-bottom: 0; background: linear-gradient(135deg, #f59e0b 0%, #fde68a 100%);">
                     <h4>DAW Plugin Development</h4>
-                    <p>We're developing plugins for popular Digital Audio Workstations (DAWs) starting with Audacity. Embed copyright protection directly into your creative workflow without interrupting your artistic process.</p>
+                    <p style="margin-bottom: 0;">Research and development of plugins for popular Digital Audio Workstations that allow artists to secure their copyright directly within their creative workflow during the production process.</p>
                 </div>
-                
-                <div class="service-card">
-                    <h4>Custom Catalog Management</h4>
-                    <p>For larger music catalogs, we offer software customization services for producers and publishers. Manage extensive music libraries with enterprise-grade copyright tracking and revenue optimization.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h4>Copyright Management Consulting</h4>
-                    <p>Our industry expertise extends to consulting services, helping music professionals implement comprehensive copyright strategies and maximize their revenue potential in the digital landscape.</p>
-                </div>
-                
-                <div class="service-card">
-                    <h4>Platform Subscriptions & Licensing</h4>
-                    <p>Choose from flexible subscription plans for platform access, or license our technology for integration into your existing workflows. Scalable solutions for artists at every level.</p>
-                </div>
-            </div>
-            
-            <div class="services-cta">
-                <p><strong>Ready to protect your music and get paid what you deserve?</strong><br>
-                Contact us at <a href="mailto:mcmedia.dk@gmail.com">mcmedia.dk@gmail.com</a> to learn more about our services.</p>
             </div>
         </div>
         
-        <div class="white-footer">
+        <div class="white-footer" style="margin-top: 0; padding-top: 0.75rem;">
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
+                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">▶</a>
+                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
+                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
                     </div>
                 </div>
                 
                 <div class="footer-contact">
-                    <h3>Contact Info</h3>
+                    <h3>Contact</h3>
                     <p><strong>Email:</strong><br>mcmedia.dk@gmail.com</p>
-                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
-                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
                 </div>
             </div>
             
@@ -1726,20 +1994,15 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
-                    <p>Easy and fair rights and assets management for music and media creation. We embed copyright, and creators get paid!</p>
+                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
+                    <p>e-mail: mcmedia.dk@gmail.com</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Twitter">𝕏</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="YouTube">▶</a>
+                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
+                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
                     </div>
                 </div>
                 
                 <div class="footer-contact">
-                    <h3>Contact Info</h3>
-                    <p><strong>Email:</strong><br>mcmedia.dk@gmail.com</p>
-                    <p><strong>Phone:</strong><br>+1 (555) 123-4567</p>
-                    <p><strong>Address:</strong><br>123 Creative Street<br>Innovation District<br>San Francisco, CA 94107</p>
                 </div>
             </div>
             
@@ -1751,10 +2014,13 @@
 
     <!-- About Page -->
     <section id="about" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">About MC Media</h2>
-        <div class="simple-content">
-            <p>MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness as the foundation of digital asset management.</p>
+        <div class="simple-content" style="padding-top: 0;">
+            
+            <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 2rem 0 1rem 0; color: #000;">about MC Media</h2>
+            
+            <div style="margin-bottom: 3rem; padding: 0; text-align: left; margin-top: 36px;">
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #333; max-width: 900px; margin: 0;">MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness as the foundation of digital asset management.</p>
+            </div>
         </div>
         
         <div class="white-footer">
@@ -1786,10 +2052,13 @@
 
     <!-- Contact Page -->
     <section id="contact" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">Contact Us</h2>
-        <div class="simple-content">
-            <p>Get in touch with us at mcmedia.dk@gmail.com or call +1 (555) 123-4567. We're here to help with all your digital asset management needs.</p>
+        <div class="simple-content" style="padding-top: 0;">
+            
+            <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 2rem 0 1rem 0; color: #000; margin-left: 0;">contact us</h2>
+            
+            <div style="margin-bottom: 3rem; padding: 0; text-align: left; margin-top: 36px; margin-left: 0;">
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #333; max-width: 900px; margin: 0;">Get in touch with us at mcmedia.dk@gmail.com or call +1 (555) 123-4567. We're here to help with all your digital asset management needs.</p>
+            </div>
         </div>
         
         <div class="white-footer">
