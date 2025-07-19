@@ -300,13 +300,23 @@
         .main-hero {
             position: relative;
             height: 100vh;
-            max-width: 1400px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background: #000;
+        }
+
+        .hero-video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
         .main-hero-content {
@@ -314,6 +324,11 @@
             color: white;
             z-index: 3;
             position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            max-width: 800px;
         }
 
         .main-hero h1 {
@@ -1233,32 +1248,26 @@
     <section id="home" class="page-section active">
         <!-- Main Hero -->
         <div class="main-hero" id="mainHero">
+            <!-- Full Background Video -->
+            <video 
+                id="heroVideo"
+                class="hero-video-background"
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                preload="auto"
+                onloadeddata="this.play()"
+            >
+                <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
+                <!-- Fallback background if video fails -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);"></div>
+            </video>
+            
+            <!-- Content overlay -->
             <div class="main-hero-content">
                 <h1 data-text="MC Media">MC Media</h1>
-                <!-- Video Container -->
-                <div class="hero-video-container" style="margin-top: 2rem; max-width: 800px; width: 100%; position: relative;">
-                    <video 
-                        id="heroVideo"
-                        controls 
-                        preload="metadata"
-                        style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);"
-                        poster="https://via.placeholder.com/800x450/667eea/ffffff?text=MC+Media+Video"
-                    >
-                        <!-- Your MC Media intro video -->
-                        <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
-                        
-                        <!-- Fallback for browsers that don't support video -->
-                        <div style="background: rgba(0,0,0,0.8); color: white; padding: 2rem; border-radius: 12px; text-align: center;">
-                            <p style="margin: 0; font-size: 1.1rem;">Your browser doesn't support video playbook.</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Please update your browser or <a href="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" style="color: #667eea;">download the video</a> to watch.</p>
-                        </div>
-                    </video>
-                    
-                    <!-- Video loading indicator -->
-                    <div id="videoLoader" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 1rem 2rem; border-radius: 25px; font-size: 0.9rem;">
-                        Loading video...
-                    </div>
-                </div>
+                <p>Empowering creators with easy copyright protection</p>
             </div>
         </div>
 
@@ -1945,66 +1954,69 @@
         // Video functionality
         function initializeVideo() {
             const video = document.getElementById('heroVideo');
-            const videoLoader = document.getElementById('videoLoader');
             
             if (!video) return;
             
-            // Show loading indicator when video starts loading
-            video.addEventListener('loadstart', function() {
-                if (videoLoader) {
-                    videoLoader.style.display = 'block';
-                }
-                debugLog('Video loading started');
+            // Force video to be muted for autoplay compliance
+            video.muted = true;
+            video.loop = true;
+            
+            // Try to play video immediately
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    debugLog('Hero video started playing automatically');
+                }).catch(error => {
+                    debugLog('Autoplay prevented by browser: ' + error.message);
+                    // Try again on any user interaction
+                    document.addEventListener('click', function() {
+                        video.play().catch(e => debugLog('Manual play failed: ' + e.message));
+                    }, { once: true });
+                });
+            }
+            
+            // Handle video load events
+            video.addEventListener('loadeddata', function() {
+                debugLog('Hero video loaded, attempting autoplay');
+                video.play().catch(e => debugLog('Play after load failed: ' + e.message));
             });
             
-            // Hide loading indicator when video can play
-            video.addEventListener('canplay', function() {
-                if (videoLoader) {
-                    videoLoader.style.display = 'none';
-                }
-                debugLog('Video ready to play');
+            video.addEventListener('canplaythrough', function() {
+                debugLog('Hero video can play through, ensuring loop');
+                video.play().catch(e => debugLog('Play through failed: ' + e.message));
             });
             
-            // Handle video load errors
+            // Handle video load errors - fallback to gradient background
             video.addEventListener('error', function(e) {
-                if (videoLoader) {
-                    videoLoader.style.display = 'none';
+                debugLog('Video load error, using fallback background');
+                const heroSection = document.getElementById('mainHero');
+                if (heroSection) {
+                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
+                    heroSection.style.width = '100vw';
+                    heroSection.style.marginLeft = 'calc(-50vw + 50%)';
+                    video.style.display = 'none';
                 }
-                debugLog('Video load error: ' + e.message);
-                
-                // Show error message in video container
-                const videoContainer = video.parentElement;
-                const errorMessage = document.createElement('div');
-                errorMessage.style.cssText = `
-                    background: rgba(220, 53, 69, 0.1);
-                    border: 2px dashed #dc3545;
-                    color: #dc3545;
-                    padding: 2rem;
-                    border-radius: 12px;
-                    text-align: center;
-                    font-size: 1rem;
-                `;
-                errorMessage.innerHTML = `
-                    <p style="margin: 0 0 0.5rem 0; font-weight: 600;">Video not found</p>
-                    <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Please upload your video file to GitHub and update the file path.</p>
-                `;
-                
-                video.style.display = 'none';
-                videoContainer.appendChild(errorMessage);
             });
             
-            // Optional: Auto-play on user interaction (follows browser policies)
+            // Ensure video continues looping
+            video.addEventListener('ended', function() {
+                debugLog('Video ended, restarting loop');
+                video.currentTime = 0;
+                video.play().catch(e => debugLog('Loop restart failed: ' + e.message));
+            });
+            
+            // Handle click to play/pause (optional interaction)
             video.addEventListener('click', function() {
                 if (video.paused) {
                     video.play().catch(e => {
-                        debugLog('Auto-play prevented: ' + e.message);
+                        debugLog('Click play failed: ' + e.message);
                     });
                 } else {
                     video.pause();
                 }
             });
             
-            debugLog('Video functionality initialized');
+            debugLog('Hero background video initialized with autoplay and loop');
         }
 
         // Initialize everything when DOM is loaded
