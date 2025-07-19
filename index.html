@@ -324,11 +324,6 @@
             color: white;
             z-index: 3;
             position: relative;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
-            max-width: 800px;
         }
 
         .main-hero h1 {
@@ -1252,11 +1247,12 @@
             <video 
                 id="heroVideo"
                 class="hero-video-background"
-                autoplay 
+                autoplay
                 loop 
                 playsinline
                 preload="auto"
                 onloadeddata="this.play()"
+                controls
             >
                 <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
                 <!-- Fallback background if video fails -->
@@ -1955,42 +1951,21 @@
             
             if (!video) return;
             
-            // Set video properties but don't force mute
+            // Remove muted attribute to allow sound
+            video.muted = false;
             video.loop = true;
             
-            // Try to play video with sound first
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    debugLog('Hero video started playing with sound');
-                }).catch(error => {
-                    debugLog('Autoplay with sound prevented, trying muted: ' + error.message);
-                    // If autoplay with sound fails, try muted
-                    video.muted = true;
-                    video.play().then(() => {
-                        debugLog('Hero video playing muted - click to unmute');
-                        // Show a subtle indicator that user can click to unmute
-                        showUnmuteHint();
-                    }).catch(e => {
-                        debugLog('Even muted autoplay failed: ' + e.message);
-                        // Fall back to requiring user interaction
-                        document.addEventListener('click', function() {
-                            video.muted = false;
-                            video.play().catch(e => debugLog('Manual play failed: ' + e.message));
-                        }, { once: true });
-                    });
-                });
-            }
-            
-            // Handle video load events
+            // Force play with sound
             video.addEventListener('loadeddata', function() {
-                debugLog('Hero video loaded');
-                if (video.paused) {
-                    video.play().catch(e => debugLog('Play after load failed: ' + e.message));
-                }
+                debugLog('Hero video loaded, playing with sound');
+                video.play().catch(e => {
+                    debugLog('Autoplay with sound failed: ' + e.message);
+                    // Show manual play button if autoplay fails
+                    showPlayButton();
+                });
             });
             
-            // Handle video load errors - fallback to gradient background
+            // Handle video load errors
             video.addEventListener('error', function(e) {
                 debugLog('Video load error, using fallback background');
                 const heroSection = document.getElementById('mainHero');
@@ -2009,56 +1984,40 @@
                 video.play().catch(e => debugLog('Loop restart failed: ' + e.message));
             });
             
-            // Handle click to unmute/mute
-            video.addEventListener('click', function() {
-                if (video.muted) {
-                    video.muted = false;
-                    debugLog('Video unmuted');
-                    hideUnmuteHint();
-                } else {
-                    video.muted = true;
-                    debugLog('Video muted');
-                    showUnmuteHint();
-                }
-            });
-            
             debugLog('Hero background video initialized with sound enabled');
         }
 
-        // Show/hide unmute hint
-        function showUnmuteHint() {
-            let hint = document.getElementById('unmuteHint');
-            if (!hint) {
-                hint = document.createElement('div');
-                hint.id = 'unmuteHint';
-                hint.innerHTML = '🔊 Click to unmute';
-                hint.style.cssText = `
-                    position: absolute;
-                    bottom: 20px;
-                    right: 20px;
-                    background: rgba(0,0,0,0.7);
-                    color: white;
-                    padding: 8px 15px;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    z-index: 10;
-                    cursor: pointer;
-                    animation: fadeIn 0.5s ease;
-                `;
-                document.getElementById('mainHero').appendChild(hint);
-                
-                // Hide hint after 5 seconds
-                setTimeout(() => {
-                    hint.style.opacity = '0.5';
-                }, 5000);
-            }
-        }
-
-        function hideUnmuteHint() {
-            const hint = document.getElementById('unmuteHint');
-            if (hint) {
-                hint.remove();
-            }
+        // Show manual play button if autoplay fails
+        function showPlayButton() {
+            const playButton = document.createElement('div');
+            playButton.innerHTML = '▶️ Click to Play with Sound';
+            playButton.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 50px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                z-index: 10;
+                transition: all 0.3s ease;
+            `;
+            
+            playButton.addEventListener('click', function() {
+                const video = document.getElementById('heroVideo');
+                video.muted = false;
+                video.play().then(() => {
+                    playButton.remove();
+                    debugLog('Manual play with sound successful');
+                }).catch(e => {
+                    debugLog('Manual play failed: ' + e.message);
+                });
+            });
+            
+            document.getElementById('mainHero').appendChild(playButton);
         }
 
         // Initialize everything when DOM is loaded
