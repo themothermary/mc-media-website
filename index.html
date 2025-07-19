@@ -1253,7 +1253,6 @@
                 id="heroVideo"
                 class="hero-video-background"
                 autoplay 
-                muted 
                 loop 
                 playsinline
                 preload="auto"
@@ -1267,7 +1266,6 @@
             <!-- Content overlay -->
             <div class="main-hero-content">
                 <h1 data-text="MC Media">MC Media</h1>
-                <p>Empowering creators with easy copyright protection</p>
             </div>
         </div>
 
@@ -1957,33 +1955,39 @@
             
             if (!video) return;
             
-            // Force video to be muted for autoplay compliance
-            video.muted = true;
+            // Set video properties but don't force mute
             video.loop = true;
             
-            // Try to play video immediately
+            // Try to play video with sound first
             const playPromise = video.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-                    debugLog('Hero video started playing automatically');
+                    debugLog('Hero video started playing with sound');
                 }).catch(error => {
-                    debugLog('Autoplay prevented by browser: ' + error.message);
-                    // Try again on any user interaction
-                    document.addEventListener('click', function() {
-                        video.play().catch(e => debugLog('Manual play failed: ' + e.message));
-                    }, { once: true });
+                    debugLog('Autoplay with sound prevented, trying muted: ' + error.message);
+                    // If autoplay with sound fails, try muted
+                    video.muted = true;
+                    video.play().then(() => {
+                        debugLog('Hero video playing muted - click to unmute');
+                        // Show a subtle indicator that user can click to unmute
+                        showUnmuteHint();
+                    }).catch(e => {
+                        debugLog('Even muted autoplay failed: ' + e.message);
+                        // Fall back to requiring user interaction
+                        document.addEventListener('click', function() {
+                            video.muted = false;
+                            video.play().catch(e => debugLog('Manual play failed: ' + e.message));
+                        }, { once: true });
+                    });
                 });
             }
             
             // Handle video load events
             video.addEventListener('loadeddata', function() {
-                debugLog('Hero video loaded, attempting autoplay');
-                video.play().catch(e => debugLog('Play after load failed: ' + e.message));
-            });
-            
-            video.addEventListener('canplaythrough', function() {
-                debugLog('Hero video can play through, ensuring loop');
-                video.play().catch(e => debugLog('Play through failed: ' + e.message));
+                debugLog('Hero video loaded');
+                if (video.paused) {
+                    video.play().catch(e => debugLog('Play after load failed: ' + e.message));
+                }
             });
             
             // Handle video load errors - fallback to gradient background
@@ -2005,18 +2009,56 @@
                 video.play().catch(e => debugLog('Loop restart failed: ' + e.message));
             });
             
-            // Handle click to play/pause (optional interaction)
+            // Handle click to unmute/mute
             video.addEventListener('click', function() {
-                if (video.paused) {
-                    video.play().catch(e => {
-                        debugLog('Click play failed: ' + e.message);
-                    });
+                if (video.muted) {
+                    video.muted = false;
+                    debugLog('Video unmuted');
+                    hideUnmuteHint();
                 } else {
-                    video.pause();
+                    video.muted = true;
+                    debugLog('Video muted');
+                    showUnmuteHint();
                 }
             });
             
-            debugLog('Hero background video initialized with autoplay and loop');
+            debugLog('Hero background video initialized with sound enabled');
+        }
+
+        // Show/hide unmute hint
+        function showUnmuteHint() {
+            let hint = document.getElementById('unmuteHint');
+            if (!hint) {
+                hint = document.createElement('div');
+                hint.id = 'unmuteHint';
+                hint.innerHTML = '🔊 Click to unmute';
+                hint.style.cssText = `
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(0,0,0,0.7);
+                    color: white;
+                    padding: 8px 15px;
+                    border-radius: 20px;
+                    font-size: 0.9rem;
+                    z-index: 10;
+                    cursor: pointer;
+                    animation: fadeIn 0.5s ease;
+                `;
+                document.getElementById('mainHero').appendChild(hint);
+                
+                // Hide hint after 5 seconds
+                setTimeout(() => {
+                    hint.style.opacity = '0.5';
+                }, 5000);
+            }
+        }
+
+        function hideUnmuteHint() {
+            const hint = document.getElementById('unmuteHint');
+            if (hint) {
+                hint.remove();
+            }
         }
 
         // Initialize everything when DOM is loaded
