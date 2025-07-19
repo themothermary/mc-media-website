@@ -41,7 +41,7 @@
 
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background: #fff;
+            background: #ff4b8d;
             color: #000;
             line-height: 1.4;
             overflow-x: hidden;
@@ -306,7 +306,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #000;
+            background: #ff4b8d;
         }
 
         .hero-video-background {
@@ -319,11 +319,23 @@
             z-index: 1;
         }
 
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 75, 141, 0.1);
+            z-index: 2;
+            pointer-events: none;
+        }
+
         .main-hero h1 {
             font-size: 4rem;
             font-weight: 300;
             margin-bottom: 1rem;
             text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            display: none; /* Hide any h1 elements in hero */
         }
 
         .main-hero p {
@@ -1248,8 +1260,11 @@
             >
                 <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
                 <!-- Fallback background if video fails -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);"></div>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ff4b8d;"></div>
             </video>
+            
+            <!-- Pink Overlay on Video -->
+            <div class="video-overlay"></div>
         </div>
 
         <!-- Introduction and Categories Section -->
@@ -1976,7 +1991,7 @@
                 debugLog('Video load error, using fallback background');
                 const heroSection = document.getElementById('mainHero');
                 if (heroSection) {
-                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
+                    heroSection.style.background = '#ff4b8d';
                     video.style.display = 'none';
                 }
             });
