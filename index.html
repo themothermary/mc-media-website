@@ -1256,6 +1256,7 @@
                 loop 
                 playsinline
                 preload="auto"
+                muted="false"
                 style="pointer-events: none;"
             >
                 <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
@@ -1991,7 +1992,7 @@
                 debugLog('Video load error, using fallback background');
                 const heroSection = document.getElementById('mainHero');
                 if (heroSection) {
-                    heroSection.style.background = '#ff4b8d';
+                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
                     video.style.display = 'none';
                 }
             });
