@@ -1248,21 +1248,15 @@
                 id="heroVideo"
                 class="hero-video-background"
                 autoplay
+                muted
                 loop 
                 playsinline
                 preload="auto"
-                onloadeddata="this.play()"
-                controls
             >
                 <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
                 <!-- Fallback background if video fails -->
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);"></div>
             </video>
-            
-            <!-- Content overlay -->
-            <div class="main-hero-content">
-                <h1 data-text="MC Media">MC Media</h1>
-            </div>
         </div>
 
         <!-- Introduction and Categories Section -->
@@ -1951,73 +1945,60 @@
             
             if (!video) return;
             
-            // Remove muted attribute to allow sound
-            video.muted = false;
+            // Ensure autoplay and loop work reliably
+            video.muted = true; // Required for autoplay in most browsers
             video.loop = true;
+            video.autoplay = true;
             
-            // Force play with sound
+            // Force play when video loads
             video.addEventListener('loadeddata', function() {
-                debugLog('Hero video loaded, playing with sound');
-                video.play().catch(e => {
-                    debugLog('Autoplay with sound failed: ' + e.message);
-                    // Show manual play button if autoplay fails
-                    showPlayButton();
+                video.play().then(() => {
+                    debugLog('Video auto-playing and looping');
+                }).catch(e => {
+                    debugLog('Autoplay failed: ' + e.message);
+                    // Retry on any user interaction
+                    document.addEventListener('click', function() {
+                        video.play().catch(err => debugLog('Manual play failed: ' + err.message));
+                    }, { once: true });
                 });
             });
-            
-            // Handle video load errors
+
+            // Ensure video loads and plays
+            video.addEventListener('canplaythrough', function() {
+                if (video.paused) {
+                    video.play().catch(e => debugLog('Canplaythrough play failed: ' + e.message));
+                }
+            });
+
+            // Handle video errors
             video.addEventListener('error', function(e) {
                 debugLog('Video load error, using fallback background');
                 const heroSection = document.getElementById('mainHero');
                 if (heroSection) {
                     heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
-                    heroSection.style.width = '100vw';
-                    heroSection.style.marginLeft = 'calc(-50vw + 50%)';
                     video.style.display = 'none';
                 }
             });
-            
-            // Ensure video continues looping
+
+            // Force loop restart if needed
             video.addEventListener('ended', function() {
-                debugLog('Video ended, restarting loop');
+                debugLog('Video ended, restarting');
                 video.currentTime = 0;
                 video.play().catch(e => debugLog('Loop restart failed: ' + e.message));
             });
-            
-            debugLog('Hero background video initialized with sound enabled');
-        }
 
-        // Show manual play button if autoplay fails
-        function showPlayButton() {
-            const playButton = document.createElement('div');
-            playButton.innerHTML = '▶️ Click to Play with Sound';
-            playButton.style.cssText = `
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0,0,0,0.8);
-                color: white;
-                padding: 20px 30px;
-                border-radius: 50px;
-                font-size: 1.2rem;
-                cursor: pointer;
-                z-index: 10;
-                transition: all 0.3s ease;
-            `;
-            
-            playButton.addEventListener('click', function() {
-                const video = document.getElementById('heroVideo');
-                video.muted = false;
-                video.play().then(() => {
-                    playButton.remove();
-                    debugLog('Manual play with sound successful');
-                }).catch(e => {
-                    debugLog('Manual play failed: ' + e.message);
-                });
+            // Click to unmute (optional)
+            video.addEventListener('click', function() {
+                if (video.muted) {
+                    video.muted = false;
+                    debugLog('Video unmuted');
+                } else {
+                    video.muted = true;
+                    debugLog('Video muted');
+                }
             });
-            
-            document.getElementById('mainHero').appendChild(playButton);
+
+            debugLog('Video initialized for autoplay and loop');
         }
 
         // Initialize everything when DOM is loaded
