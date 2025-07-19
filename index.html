@@ -319,13 +319,6 @@
             z-index: 1;
         }
 
-        .main-hero-content {
-            text-align: center;
-            color: white;
-            z-index: 3;
-            position: relative;
-        }
-
         .main-hero h1 {
             font-size: 4rem;
             font-weight: 300;
@@ -1248,10 +1241,10 @@
                 id="heroVideo"
                 class="hero-video-background"
                 autoplay
-                muted
                 loop 
                 playsinline
                 preload="auto"
+                style="pointer-events: none;"
             >
                 <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
                 <!-- Fallback background if video fails -->
@@ -1945,28 +1938,36 @@
             
             if (!video) return;
             
-            // Ensure autoplay and loop work reliably
-            video.muted = true; // Required for autoplay in most browsers
+            // Try to enable sound and autoplay
             video.loop = true;
-            video.autoplay = true;
+            video.muted = false; // Try with sound first
             
-            // Force play when video loads
-            video.addEventListener('loadeddata', function() {
-                video.play().then(() => {
-                    debugLog('Video auto-playing and looping');
+            // Attempt to play with sound
+            const playWithSound = () => {
+                video.muted = false;
+                return video.play().then(() => {
+                    debugLog('Video playing with sound and looping');
+                    return true;
                 }).catch(e => {
-                    debugLog('Autoplay failed: ' + e.message);
-                    // Retry on any user interaction
-                    document.addEventListener('click', function() {
-                        video.play().catch(err => debugLog('Manual play failed: ' + err.message));
-                    }, { once: true });
+                    debugLog('Autoplay with sound blocked, trying muted: ' + e.message);
+                    // If sound fails, try muted autoplay
+                    video.muted = true;
+                    return video.play().then(() => {
+                        debugLog('Video playing muted - will attempt sound on user interaction');
+                        addSoundTrigger();
+                        return false;
+                    });
                 });
+            };
+            
+            // When video loads, attempt to play with sound
+            video.addEventListener('loadeddata', function() {
+                playWithSound();
             });
 
-            // Ensure video loads and plays
             video.addEventListener('canplaythrough', function() {
                 if (video.paused) {
-                    video.play().catch(e => debugLog('Canplaythrough play failed: ' + e.message));
+                    playWithSound();
                 }
             });
 
@@ -1980,25 +1981,32 @@
                 }
             });
 
-            // Force loop restart if needed
+            // Ensure seamless looping
             video.addEventListener('ended', function() {
-                debugLog('Video ended, restarting');
                 video.currentTime = 0;
                 video.play().catch(e => debugLog('Loop restart failed: ' + e.message));
             });
 
-            // Click to unmute (optional)
-            video.addEventListener('click', function() {
-                if (video.muted) {
-                    video.muted = false;
-                    debugLog('Video unmuted');
-                } else {
-                    video.muted = true;
-                    debugLog('Video muted');
-                }
-            });
+            debugLog('Video initialized for autoplay with sound and seamless loop');
+        }
 
-            debugLog('Video initialized for autoplay and loop');
+        // Add sound trigger for user interaction
+        function addSoundTrigger() {
+            const enableSound = () => {
+                const video = document.getElementById('heroVideo');
+                if (video && video.muted) {
+                    video.muted = false;
+                    debugLog('Sound enabled by user interaction');
+                }
+                document.removeEventListener('click', enableSound);
+                document.removeEventListener('keydown', enableSound);
+                document.removeEventListener('touchstart', enableSound);
+            };
+
+            // Enable sound on any user interaction
+            document.addEventListener('click', enableSound, { once: true });
+            document.addEventListener('keydown', enableSound, { once: true });
+            document.addEventListener('touchstart', enableSound, { once: true });
         }
 
         // Initialize everything when DOM is loaded
