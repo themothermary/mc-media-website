@@ -1,115 +1,4 @@
-// Video functionality
-        function initializeVideo() {
-            const video = document.getElementById('heroVideo');
-            
-            if (!video) return;
-            
-            // Start with muted autoplay (this works reliably)
-            video.loop = true;
-            video.muted = true;
-            video.volume = 0.8;
-            video.controls = false;
-            
-            // Start video muted
-            video.play().then(() => {
-                debugLog('Video auto-playing (muted) - showing sound prompt');
-                showSoundPrompt();
-            }).catch(e => {
-                debugLog('Even muted autoplay failed: ' + e.message);
-            });
-
-            // Handle video errors
-            video.addEventListener('error', function(e) {
-                debugLog('Video load error, using fallback background');
-                const heroSection = document.getElementById('mainHero');
-                if (heroSection) {
-                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
-                    video.style.display = 'none';
-                }
-            });
-
-            // Ensure seamless looping
-            video.addEventListener('ended', function() {
-                video.currentTime = 0;
-                video.play().catch(e => debugLog('Loop restart failed: ' + e.message));
-            });
-
-            debugLog('Video initialized with muted autoplay and sound prompt');
-        }
-
-        // Show elegant sound enable prompt
-        function showSoundPrompt() {
-            const soundPrompt = document.createElement('div');
-            soundPrompt.id = 'soundPrompt';
-            soundPrompt.innerHTML = '🔊 Click to enable sound';
-            soundPrompt.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0, 0, 0, 0.8);
-                color: white;
-                padding: 20px 40px;
-                border-radius: 50px;
-                font-size: 1.2rem;
-                font-weight: 500;
-                cursor: pointer;
-                z-index: 1000;
-                backdrop-filter: blur(10px);
-                border: 2px solid rgba(255, 75, 141, 0.3);
-                transition: all 0.3s ease;
-                animation: pulse 2s infinite;
-            `;
-
-            // Add hover effect
-            soundPrompt.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(255, 75, 141, 0.2)';
-                this.style.transform = 'translate(-50%, -50%) scale(1.05)';
-            });
-
-            soundPrompt.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(0, 0, 0, 0.8)';
-                this.style.transform = 'translate(-50%, -50%) scale(1)';
-            });
-
-            // Enable sound on click
-            soundPrompt.addEventListener('click', function() {
-                const video = document.getElementById('heroVideo');
-                video.muted = false;
-                video.play().then(() => {
-                    debugLog('Sound enabled - video playing with audio');
-                    soundPrompt.remove();
-                }).catch(e => {
-                    debugLog('Sound enable failed: ' + e.message);
-                });
-            });
-
-            document.body.appendChild(soundPrompt);<!-- Founder Image -->
-<parameter name="old_str">                <!-- Image Box below text -->
-<parameter name="new_str">                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAGQAZADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA.secondary-nav {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-            }
-
-            .secondary-nav-item {
-                font-size: 0.9rem;
-            }            .intro-section {
-                padding: 3rem 1.5rem;
-            }
-
-            .intro-content p {
-                font-size: 1rem;
-            }
-            .secondary-nav {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-            }
-
-            .secondary-nav-item {
-                font-size: 1rem;
-            }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -937,279 +826,7 @@
 
         /* ======================================
            RESPONSIVE DESIGN
-           ====================================== */-bottom: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .service-card h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #000;
-        }
-
-        .service-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .services-cta {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-        }
-
-        .services-cta p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .services-cta a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .services-cta a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        /* Blog Pages */
-        .blog-page {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .blog-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .blog-category {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .blog-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #000;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .blog-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            font-weight: 300;
-            margin-bottom: 2rem;
-        }
-
-        .blog-meta {
-            font-size: 0.9rem;
-            color: #999;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .blog-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-        }
-
-        .blog-content h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin: 2rem 0 1rem 0;
-            color: #000;
-        }
-
-        .blog-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 500;
-        }
-
-        .back-to-home {
-            position: fixed;
-            top: 120px;
-            left: 20px;
-            background: none;
-            color: black;
-            border: none;
-            padding: 12px 18px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            z-index: 1000;
-        }
-
-        .back-to-home:hover {
-            background: none;
-            color: #666;
-        }
-
-        .white-footer {
-            background-color: white;
-            background: white;
-            color: black;
-            padding: 1rem 0 0.5rem 0;
-            margin-top: 1rem;
-            border-top: 1px solid #000;
-        }
-
-        .white-footer * {
-            color: inherit;
-        }
-
-        .white-footer h3 {
-            color: black;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .white-footer p {
-            color: #666;
-            margin-bottom: 0.4rem;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        .white-footer strong {
-            color: black;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: block;
-        }
-
-        .footer-content::after {
-            display: none;
-        }
-
-        .footer-about {
-            max-width: 300px;
-            padding-right: 0;
-        }
-
-        .footer-contact {
-            display: none;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            color: #666;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: rgba(0, 0, 0, 0.2);
-            color: #000;
-            transform: translateY(-2px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #000;
-            margin-top: 1rem;
-            padding-top: 0.5rem;
-            text-align: center;
-        }
-
-        .footer-bottom p {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Page sections */
-        .page-section {
-            min-height: calc(100vh - 80px);
-            padding-bottom: 0;
-        }
-
-        /* Add padding only for pages that show the banner */
-        #services, #about, #contact {
-            padding-top: 27.5px; /* Half of nav height */
-        }
-
-        .simple-content {
-            padding: 2rem 2rem 0 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .page-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin: 6rem 0 2rem 0;
-            color: #000;
-        }
-
-        .debug-info {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 9999;
-        }
-
-        /* Responsive */
+           ====================================== */
         @media (max-width: 1024px) {
             .main-hero h1 { font-size: 3rem; }
             .main-hero p { font-size: 1.1rem; padding: 0 1rem; }
@@ -1261,6 +878,15 @@
             }
 
             .intro-content p {
+                font-size: 1rem;
+            }
+            .secondary-nav {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .secondary-nav-item {
                 font-size: 1rem;
             }
             .hero-card {
@@ -1342,7 +968,7 @@
                 loop 
                 playsinline
                 preload="auto"
-                muted="false"
+                muted="true"
                 style="pointer-events: none;"
             >
                 <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
@@ -1539,6 +1165,244 @@
             </div>
             <div class="blog-content">
                 <!-- Content removed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page -->
+    <section id="services" class="page-section">
+        <div class="simple-content" style="padding-top: 48px;">
+            
+            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+                <div style="display: flex; gap: 2rem; align-items: flex-start;">
+                    <!-- Text Content -->
+                    <div style="flex: 1;">
+                        <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">what we offer</h2>
+                        
+                        <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
+                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">MC Media is committed to making digital and media asset management more accessible and effective. Our mission is to empower creators and producers with top-notch support, innovative tools, and efficient processes to enhance their product management. We address the pressing need to improve copyright management in digital products, ensuring fair and transparent practices. From production planning to audiovisual catalog management, categorization, and archiving, we aim to elevate copyright awareness and promote fairness in the creative industries. By streamlining workflows and providing cutting-edge solutions, we ensure that creators can focus on what they do best—creating—while we handle the complexities of asset management.</p>
+                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 1rem 0 0 0;"><u>#copyright</u> <u>#consulting</u> <u>#education</u> <u>#embedding</u></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Image Box -->
+                    <div style="border: 1px solid #000; width: 600px; height: 100%; flex-shrink: 0; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; min-height: 400px;">
+                        Image placeholder
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services Section Headline -->
+            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">how we help creators</h2>
+            </div>
+            
+            <!-- Services Grid - 4 column layout inspired by Hyundai Artlab -->
+            <div class="services-grid" style="margin-top: 48px; margin-bottom: 96px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; width: 100vw; margin-left: calc(-50vw + 50%); padding: 0 2rem; box-sizing: border-box;">
+                
+                <!-- Service 1 -->
+                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
+                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                        Image placeholder
+                    </div>
+                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">copyright consulting</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 1rem; flex: 1;">Personalized consulting sessions to help artists understand their rights, navigate complex licensing agreements, and develop effective copyright protection strategies.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
+                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                        Image placeholder
+                    </div>
+                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">copyright education</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 1rem; flex: 1;">Comprehensive educational workshops, resources, and editorial content designed to empower creators with essential knowledge about copyright law and best practices.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
+                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                        Image placeholder
+                    </div>
+                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">web API platform</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 0; flex: 1;">A core technology solution currently in testing phase that offers quick, on-the-go copyright embedding through a web-based API.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
+                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                        Image placeholder
+                    </div>
+                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">DAW plugin development</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 0; flex: 1;">Research and development of plugins for popular Digital Audio Workstations that allow artists to secure their copyright directly within their creative workflow.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
+                    <p>e-mail: mcmedia.dk@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
+                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC Media. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Page -->
+    <section id="projects" class="page-section">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <h2 class="page-title">Featured Projects</h2>
+        <div class="simple-content">
+            <p>Our portfolio includes music rights management platforms, film archive systems, broadcasting asset managers, and Creative Commons tracking tools.</p>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
+                    <p>e-mail: mcmedia.dk@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
+                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC Media. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-section">
+        <div class="simple-content" style="padding-top: 48px;">
+            
+            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">about MC Media</h2>
+                
+                <div style="margin-bottom: 2rem; padding: 0; text-align: justify;">
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness as the foundation of digital asset management. Our team combines deep industry expertise with cutting-edge technology to create solutions that empower creators and protect their intellectual property. From our headquarters, we serve artists, producers, and media companies worldwide, helping them navigate the complex landscape of digital rights management with confidence and clarity.</p>
+                </div>
+                
+                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 2rem 0 1rem 0; color: #000;">meet the founders</h2>
+                
+                <!-- Founder Photo -->
+                <div style="border: 1px solid #000; width: 400px; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; height: 400px; margin-bottom: 3rem;">
+                    Founder Photo<br>
+                    <small style="font-size: 0.7rem; margin-top: 5px; text-align: center;">Professional headshot with polka dot shirt<br>against brick wall background</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
+                    <p>e-mail: mcmedia.dk@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
+                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC Media. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <div class="simple-content" style="padding-top: 48px;">
+            
+            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">contact us</h2>
+                
+                <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
+                    <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">Get in touch with us at mcmedia.dk@gmail.com. We're here to help with all your digital and media asset management needs.</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div style="max-width: 600px; margin: 3rem 2rem; background: #f8f9fa; padding: 2rem; border: 1px solid #000;">
+                <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #000;">send us a message</h3>
+                
+                <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; gap: 1rem;">
+                        <div style="flex: 1;">
+                            <label for="firstName" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                        </div>
+                        <div style="flex: 1;">
+                            <label for="lastName" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Email Address *</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                    </div>
+                    
+                    <div>
+                        <label for="subject" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Subject *</label>
+                        <input type="text" id="subject" name="subject" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                    </div>
+                    
+                    <div>
+                        <label for="message" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Message *</label>
+                        <textarea id="message" name="message" required rows="6" style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease; resize: vertical; font-family: inherit;"></textarea>
+                    </div>
+                    
+                    <button type="submit" style="background: #000; color: white; padding: 15px 30px; border: none; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease; text-transform: uppercase; letter-spacing: 0.05em;">
+                        Send Message
+                    </button>
+                </form>
+                
+                <div id="formStatus" style="margin-top: 1rem; padding: 12px; border-radius: 4px; display: none;"></div>
+            </div>
+        </div>
+        
+        <div class="white-footer">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>MC Media</h3>
+                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
+                    <p>e-mail: mcmedia.dk@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
+                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC Media. All rights reserved.</p>
             </div>
         </div>
     </section>
@@ -1932,6 +1796,46 @@
             alert('Talks section coming soon! We\'ll feature industry presentations and educational content here.');
         }
 
+        // Video functionality - FIXED VERSION
+        function initializeVideo() {
+            const video = document.getElementById('heroVideo');
+            
+            if (!video) {
+                debugLog('Video element not found');
+                return;
+            }
+            
+            // Basic video setup
+            video.loop = true;
+            video.muted = true; // Start muted for reliable autoplay
+            video.controls = false;
+            
+            // Try to play muted (this works reliably)
+            video.play().then(() => {
+                debugLog('Video playing (muted)');
+            }).catch(e => {
+                debugLog('Video play failed: ' + e.message);
+                // Fallback to gradient background
+                const heroSection = document.getElementById('mainHero');
+                if (heroSection) {
+                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
+                    video.style.display = 'none';
+                }
+            });
+
+            // Handle video errors
+            video.addEventListener('error', function(e) {
+                debugLog('Video load error, using fallback background');
+                const heroSection = document.getElementById('mainHero');
+                if (heroSection) {
+                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
+                    video.style.display = 'none';
+                }
+            });
+
+            debugLog('Video initialized');
+        }
+
         // Contact form functionality
         function initializeContactForm() {
             const contactForm = document.getElementById('contactForm');
@@ -2034,86 +1938,6 @@
             }, 5000);
         }
 
-        // Video functionality
-        function initializeVideo() {
-            const video = document.getElementById('heroVideo');
-            
-            if (!video) return;
-            
-            // Force sound enabled and autoplay
-            video.loop = true;
-            video.muted = false;
-            video.volume = 0.8;
-            
-            // Remove any controls or play buttons
-            video.controls = false;
-            video.setAttribute('playsinline', true);
-            video.setAttribute('webkit-playsinline', true);
-            
-            // Aggressive autoplay with sound attempts
-            const forcePlayWithSound = () => {
-                video.muted = false;
-                const playPromise = video.play();
-                
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        debugLog('Video auto-playing with sound');
-                    }).catch(error => {
-                        debugLog('Autoplay with sound blocked, trying muted then enabling sound');
-                        // Try muted autoplay first, then enable sound
-                        video.muted = true;
-                        video.play().then(() => {
-                            // Try to enable sound after a brief delay
-                            setTimeout(() => {
-                                video.muted = false;
-                                debugLog('Sound enabled after muted autoplay');
-                            }, 500);
-                        }).catch(e => {
-                            debugLog('Even muted autoplay failed: ' + e.message);
-                        });
-                    });
-                }
-            };
-            
-            // Multiple triggers to ensure autoplay with sound
-            video.addEventListener('loadeddata', forcePlayWithSound);
-            video.addEventListener('canplay', forcePlayWithSound);
-            video.addEventListener('canplaythrough', forcePlayWithSound);
-            
-            // Force play on any user interaction to enable sound
-            const enableSoundOnInteraction = () => {
-                if (video.muted || video.paused) {
-                    video.muted = false;
-                    video.play().catch(e => debugLog('Manual sound enable failed: ' + e.message));
-                    debugLog('Sound enabled via user interaction');
-                }
-            };
-            
-            // Listen for any user interaction to enable sound
-            document.addEventListener('click', enableSoundOnInteraction, { once: true });
-            document.addEventListener('keydown', enableSoundOnInteraction, { once: true });
-            document.addEventListener('touchstart', enableSoundOnInteraction, { once: true });
-
-            // Handle video errors
-            video.addEventListener('error', function(e) {
-                debugLog('Video load error, using fallback background');
-                const heroSection = document.getElementById('mainHero');
-                if (heroSection) {
-                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
-                    video.style.display = 'none';
-                }
-            });
-
-            // Ensure seamless looping with sound
-            video.addEventListener('ended', function() {
-                video.currentTime = 0;
-                video.muted = false;
-                video.play().catch(e => debugLog('Loop restart failed: ' + e.message));
-            });
-
-            debugLog('Video initialized for autoplay with sound, no controls');
-        }
-
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             debugLog('DOM Content Loaded - Initializing...');
@@ -2123,7 +1947,7 @@
                 initializeSearch();
                 initializeContactForm();
                 initializeVideo();
-                debugLog('Navigation, search, contact form, and video initialized successfully');
+                debugLog('All components initialized successfully');
             } catch (error) {
                 debugLog(`ERROR during initialization: ${error.message}`);
             }
@@ -2143,240 +1967,3 @@
     </script>
 </body>
 </html>
-
-    <!-- Services Page -->
-    <section id="services" class="page-section">
-        <div class="simple-content" style="padding-top: 48px;">
-            
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
-                <div style="display: flex; gap: 2rem; align-items: flex-start;">
-                    <!-- Text Content -->
-                    <div style="flex: 1;">
-                        <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">what we offer</h2>
-                        
-                        <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
-                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">MC Media is committed to making digital and media asset management more accessible and effective. Our mission is to empower creators and producers with top-notch support, innovative tools, and efficient processes to enhance their product management. We address the pressing need to improve copyright management in digital products, ensuring fair and transparent practices. From production planning to audiovisual catalog management, categorization, and archiving, we aim to elevate copyright awareness and promote fairness in the creative industries. By streamlining workflows and providing cutting-edge solutions, we ensure that creators can focus on what they do best—creating—while we handle the complexities of asset management.</p>
-                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 1rem 0 0 0;"><u>#copyright</u> <u>#consulting</u> <u>#education</u> <u>#embedding</u></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Image Box -->
-                    <div style="border: 1px solid #000; width: 600px; height: 100%; flex-shrink: 0; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; min-height: 400px;">
-                        Image placeholder
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Services Section Headline -->
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">how we help creators</h2>
-            </div>
-            
-            <!-- Services Grid - 4 column layout inspired by Hyundai Artlab -->
-            <div class="services-grid" style="margin-top: 48px; margin-bottom: 96px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; width: 100vw; margin-left: calc(-50vw + 50%); padding: 0 2rem; box-sizing: border-box;">
-                
-                <!-- Service 1 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
-                        Image placeholder
-                    </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">copyright consulting</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 1rem; flex: 1;">Personalized consulting sessions to help artists understand their rights, navigate complex licensing agreements, and develop effective copyright protection strategies.</p>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
-                        Image placeholder
-                    </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">copyright education</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 1rem; flex: 1;">Comprehensive educational workshops, resources, and editorial content designed to empower creators with essential knowledge about copyright law and best practices.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
-                        Image placeholder
-                    </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">web API platform</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 0; flex: 1;">A core technology solution currently in testing phase that offers quick, on-the-go copyright embedding through a web-based API.</p>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
-                        Image placeholder
-                    </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">DAW plugin development</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 0; flex: 1;">Research and development of plugins for popular Digital Audio Workstations that allow artists to secure their copyright directly within their creative workflow.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Page -->
-    <section id="projects" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">Featured Projects</h2>
-        <div class="simple-content">
-            <p>Our portfolio includes music rights management platforms, film archive systems, broadcasting asset managers, and Creative Commons tracking tools.</p>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Page -->
-    <section id="about" class="page-section">
-        <div class="simple-content" style="padding-top: 48px;">
-            
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">about MC Media</h2>
-                
-                <div style="margin-bottom: 2rem; padding: 0; text-align: justify;">
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness as the foundation of digital asset management. Our team combines deep industry expertise with cutting-edge technology to create solutions that empower creators and protect their intellectual property. From our headquarters, we serve artists, producers, and media companies worldwide, helping them navigate the complex landscape of digital rights management with confidence and clarity.</p>
-                </div>
-                
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 2rem 0 1rem 0; color: #000;">meet the founders</h2>
-                
-                <!-- Founder Photo -->
-                <div style="border: 1px solid #000; width: 400px; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; height: 400px; margin-bottom: 3rem;">
-                    Founder Photo<br>
-                    <small style="font-size: 0.7rem; margin-top: 5px; text-align: center;">Professional headshot with polka dot shirt<br>against brick wall background</small>
-                </div>
-            </div>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Page -->
-    <section id="contact" class="page-section">
-        <div class="simple-content" style="padding-top: 48px;">
-            
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">contact us</h2>
-                
-                <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">Get in touch with us at mcmedia.dk@gmail.com. We're here to help with all your digital and media asset management needs.</p>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div style="max-width: 600px; margin: 3rem 2rem; background: #f8f9fa; padding: 2rem; border: 1px solid #000;">
-                <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #000;">send us a message</h3>
-                
-                <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div style="display: flex; gap: 1rem;">
-                        <div style="flex: 1;">
-                            <label for="firstName" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
-                        </div>
-                        <div style="flex: 1;">
-                            <label for="lastName" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="email" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Email Address *</label>
-                        <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
-                    </div>
-                    
-                    <div>
-                        <label for="subject" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Subject *</label>
-                        <input type="text" id="subject" name="subject" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
-                    </div>
-                    
-                    <div>
-                        <label for="message" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Message *</label>
-                        <textarea id="message" name="message" required rows="6" style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease; resize: vertical; font-family: inherit;"></textarea>
-                    </div>
-                    
-                    <button type="submit" style="background: #000; color: white; padding: 15px 30px; border: none; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease; text-transform: uppercase; letter-spacing: 0.05em;">
-                        Send Message
-                    </button>
-                </form>
-                
-                <div id="formStatus" style="margin-top: 1rem; padding: 12px; border-radius: 4px; display: none;"></div>
-            </div>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-            </div>
-        </div>
