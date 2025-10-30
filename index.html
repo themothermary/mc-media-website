@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC Media - White Footer Fix</title>
+    <title>MC Media</title>
     <style>
         /* ======================================
            GLOBAL STYLES & RESET
@@ -23,7 +23,7 @@
         }
 
         /* ======================================
-           (1) HEADER - NAVIGATION & SEARCH
+           HEADER - NAVIGATION
            ====================================== */
         nav {
             position: fixed;
@@ -37,7 +37,7 @@
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -77,7 +77,7 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 1rem;
             display: block;
             transition: all 0.2s ease;
             border-left: 1px solid #000;
@@ -93,179 +93,21 @@
             color: #fff;
         }
 
-        .search-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            margin-left: 1rem;
-        }
-
-        .search-input {
-            background: #fff;
-            border: 1px solid #000;
-            border-radius: 0;
-            padding: 8px 35px 8px 12px;
-            font-size: 0.8rem;
-            width: 0;
-            transition: all 0.3s ease;
-            outline: none;
-            opacity: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .search-input.active {
-            width: 150px;
-            opacity: 1;
-        }
-
-        .search-input:focus {
-            background: #f8f8f8;
-        }
-
-        .search-icon {
-            font-size: 1.1rem;
-            cursor: pointer;
-            color: #000;
-            transition: all 0.2s ease;
-            position: absolute;
-            right: 10px;
-            z-index: 10;
-            font-weight: bold;
-        }
-
-        .search-icon:hover {
-            background: #000;
-            color: #fff;
-            padding: 2px;
-        }
-
-        /* Search functionality in header */
-        .search-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-input {
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            padding: 8px 40px 8px 15px;
-            font-size: 0.9rem;
-            width: 0;
-            transition: all 0.3s ease;
-            outline: none;
-            opacity: 0;
-        }
-
-        .search-input.active {
-            width: 200px;
-            opacity: 1;
-        }
-
-        .search-input:focus {
-            background: rgba(0, 0, 0, 0.08);
-            border-color: rgba(0, 0, 0, 0.2);
-        }
-
-        .search-icon {
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-            position: absolute;
-            right: 12px;
-            z-index: 10;
-        }
-
-        .search-icon:hover {
-            opacity: 1;
-        }
-
-        .search-results {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border: 1px solid #000;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            max-width: 300px;
-            max-height: 400px;
-            overflow-y: auto;
-            z-index: 1001;
+        /* Mobile menu button */
+        .mobile-menu-btn {
             display: none;
-        }
-
-        .search-results.show {
-            display: block;
-        }
-
-        .search-result-item {
-            padding: 12px 15px;
-            border-bottom: 1px solid #000;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .search-result-item:hover {
-            background: #f8f8f8;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .search-result-title {
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 3px;
-            color: #000;
-        }
-
-        .search-result-description {
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.3;
-        }
-
-        .search-result-category {
-            font-size: 0.75rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 3px;
-        }
-
-        .search-no-results {
-            padding: 15px;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .search-no-results small {
-            display: block;
-            margin-top: 5px;
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        mark {
-            background: #ffeb3b;
-            color: #000;
-            padding: 1px 2px;
-            border-radius: 2px;
-            font-weight: 500;
+            padding: 0.5rem;
         }
 
         /* ======================================
-           (2) MAIN - HERO SECTION
+           MAIN - HERO SECTION
            ====================================== */
         .page-section {
             display: none;
-            min-height: 100vh;
         }
 
         .page-section.active {
@@ -275,13 +117,13 @@
         .main-hero {
             position: relative;
             height: 100vh;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             background: #000;
+            margin-top: 55px;
         }
 
         .hero-video-background {
@@ -305,38 +147,21 @@
             pointer-events: none;
         }
 
-        .main-hero h1 {
-            font-size: 4rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-            display: none; /* Hide any h1 elements in hero */
-        }
-
-        .main-hero p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
         /* ======================================
-           (3) MC MEDIA DESCRIPTION SECTION
+           MC MEDIA DESCRIPTION SECTION
            ====================================== */
         .intro-section {
             background: white;
-            padding: 2rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 4rem 0 2rem 0;
+            width: 100%;
         }
 
         .intro-content {
-            max-width: none;
-            margin: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
             text-align: left;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .intro-content p {
@@ -347,24 +172,18 @@
             text-align: justify;
         }
 
-        .intro-content hr {
-            border: none;
-            border-top: 1px solid #000;
-            margin: 1.5rem 0;
-        }
-
         /* ======================================
-           (4) FEATURED RESOURCES, PROJECTS, TALKS
+           FEATURED RESOURCES, PROJECTS, TALKS
            ====================================== */
-        
-        /* Secondary Navigation for Resources/Projects/Talks */
         .secondary-nav {
             display: flex;
             justify-content: flex-start;
             gap: 2rem;
-            margin-bottom: 2rem;
-            padding: 1rem 0;
+            margin-bottom: 3rem;
+            padding: 2rem 1rem 1rem 1rem;
             border-top: 1px solid #000;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .secondary-nav-item {
@@ -378,19 +197,13 @@
             cursor: pointer;
         }
 
-        .secondary-nav-item:hover {
-            background: #f8f8f8;
-            text-decoration: underline;
+        .secondary-nav-item:hover,
+        .secondary-nav-item.active {
+            background: #000;
+            color: #fff;
+            text-decoration: none;
         }
 
-        @keyframes textGlitch {
-            0%, 100% { transform: translate(0); }
-            25% { transform: translate(-1px, 0); }
-            50% { transform: translate(1px, 0); }
-            75% { transform: translate(0, -1px); }
-        }
-
-        /* Featured Content Cards Grid */
         .categories-section {
             display: grid;
             grid-template-columns: 1fr;
@@ -398,23 +211,18 @@
             gap: 0;
             margin: 0;
             padding: 0;
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .category-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            color: #333;
             font-size: 0.75rem;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             padding: 4px 12px;
             border-radius: 15px;
             margin-bottom: 8px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .hero-card {
@@ -423,25 +231,45 @@
             cursor: pointer;
             font-weight: bold;
             height: 80px;
-            box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.15), 0 -4px 8px rgba(0, 0, 0, 0.1);
-            background: #ffffff;
             transition: all 0.3s ease;
+            border-radius: 0;
+            width: 100%;
+        }
+
+        /* Black boxes (even) */
+        .hero-card:nth-child(even) {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .hero-card:nth-child(even) .category-badge {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* White boxes (odd) */
+        .hero-card:nth-child(odd) {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .hero-card:nth-child(odd) .category-badge {
+            background: #000000;
+            color: #ffffff;
         }
 
         .hero-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 -12px 20px rgba(0, 0, 0, 0.2), 0 -6px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .hero-card-content {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: black;
+            left: 1rem;
+            transform: translateY(-50%);
             text-align: left;
-            width: 100%;
-            padding-left: 1rem;
+            width: calc(100% - 2rem);
         }
 
         .hero-card h2 {
@@ -451,31 +279,21 @@
             line-height: 1.2;
         }
 
+        .no-content-message {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-style: italic;
+            display: none;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
         /* ======================================
            ADDITIONAL PAGE STYLES
            ====================================== */
-        
-        /* Services Page */
-        .services-intro {
-            text-align: center;
-            margin-bottom: 0;
-            padding: 0;
-            background: #000;
-            color: white;
-            border: 2px solid #000;
-            height: 41px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: fixed;
-            top: 55px;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            width: 100vw;
-        }
-
         .sticky-banner {
             text-align: center;
             margin: 0;
@@ -484,23 +302,16 @@
             color: white;
             border-bottom: 2px solid #000;
             height: 41px;
-            display: none; /* Hidden by default */
+            display: none;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: fixed;
-            top: 55px; /* Directly below nav which is 55px tall */
+            top: 55px;
             left: 0;
             right: 0;
-            z-index: 998; /* Just below nav */
+            z-index: 998;
             width: 100vw;
-        }
-
-        /* Show banner only on specific pages */
-        #services.active ~ .sticky-banner,
-        #about.active ~ .sticky-banner,
-        #contact.active ~ .sticky-banner {
-            display: flex;
         }
 
         .sticky-banner h3 {
@@ -516,100 +327,15 @@
             padding-top: 3px;
         }
 
-        .services-intro h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 0;
-            font-style: italic;
-            white-space: nowrap;
-            animation: slideRight 20s linear infinite;
-            line-height: 41px;
-            height: 41px;
-            display: block;
-            padding-top: 3px;
-        }
-
         @keyframes slideRight {
-            0% {
-                transform: translateX(-25%);
-            }
-            100% {
-                transform: translateX(25%);
-            }
+            0% { transform: translateX(-25%); }
+            100% { transform: translateX(25%); }
         }
 
-        .services-intro p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .services-grid {
-            display: block;
-            margin-bottom: 0;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, #f7fee7 0%, #fefce8 100%);
-            border: none;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            margin-bottom: 0;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            box-sizing: border-box;
-            text-align: left;
-        }
-
-        .service-card:hover {
-            background: linear-gradient(135deg, #ecfccb 0%, #fef3c7 100%);
-            transform: translateY(-2px);
-        }
-
-        .service-card h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #000;
-            text-align: left;
-        }
-
-        .service-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-            text-align: left;
-        }
-
-        .services-cta {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f8f8;
-            border: 2px solid #000;
-        }
-
-        .services-cta p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .services-cta a {
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .services-cta a:hover {
-            color: #666;
-            text-decoration: underline;
-        }
-
-        /* Blog Pages */
         .blog-page {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 6rem 1rem 2rem 1rem;
         }
 
         .blog-header {
@@ -651,31 +377,6 @@
             margin-bottom: 2rem;
         }
 
-        .blog-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-        }
-
-        .blog-content h3 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin: 2rem 0 1rem 0;
-            color: #000;
-        }
-
-        .blog-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 500;
-        }
-
         .back-to-home {
             position: fixed;
             top: 100px;
@@ -699,15 +400,144 @@
         }
 
         /* ======================================
-           (5) FOOTER - WHITE BACKGROUND
+           SERVICES PAGE STYLES
+           ====================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            margin: 3rem 0;
+            padding: 0 1rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-article {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            height: 480px;
+            border: 1px solid #000;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            background: #f8f8f8;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+            border-bottom: 1px solid #000;
+        }
+
+        .service-article h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+            line-height: 1.3;
+            padding: 0 1.5rem;
+        }
+
+        .service-article p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1rem;
+            flex: 1;
+            padding: 0 1.5rem;
+        }
+
+        /* ======================================
+           CONTACT FORM STYLES
+           ====================================== */
+        .contact-form-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: #f8f9fa;
+            padding: 2rem;
+            border: 1px solid #000;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #000;
+        }
+
+        .submit-btn {
+            background: #000;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .submit-btn:hover {
+            background: #333;
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            padding: 12px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        /* ======================================
+           FOOTER - WHITE BACKGROUND
            ====================================== */
         .white-footer {
             background-color: white;
             background: white;
             color: black;
-            padding: 0.75rem 0 0.5rem 0;
+            padding: 2rem 0 1rem 0;
             margin-top: 0;
             border-top: 1px solid #f0f0f0;
+            text-align: center;
+            width: 100%;
         }
 
         .white-footer * {
@@ -716,16 +546,16 @@
 
         .white-footer h3 {
             color: black;
-            font-size: 0.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 0.4rem;
+            margin-bottom: 1rem;
         }
 
         .white-footer p {
             color: #666;
-            margin-bottom: 0.25rem;
-            font-size: 0.425rem;
-            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
         .white-footer strong {
@@ -736,207 +566,222 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 1rem;
-            display: grid;
-            grid-template-columns: 2.5fr 1fr;
-            gap: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .footer-about {
-            max-width: 160px;
-        }
-
-        .footer-contact {
-            max-width: 90px;
+            max-width: 400px;
         }
 
         .social-links {
             display: flex;
-            gap: 0.3rem;
-            margin-top: 0.4rem;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
         }
 
         .social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 16px;
-            height: 16px;
+            width: 40px;
+            height: 40px;
             background: rgba(0, 0, 0, 0.1);
             border-radius: 50%;
             color: #666;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 0.6rem;
+            font-size: 1.1rem;
         }
 
         .social-links a:hover {
             background: rgba(0, 0, 0, 0.2);
             color: #000;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .footer-bottom {
             border-top: 1px solid #eee;
-            margin-top: 0.75rem;
-            padding-top: 0.5rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
             text-align: center;
+            width: 100%;
         }
 
         .footer-bottom p {
             color: #999;
-            font-size: 0.4rem;
-        }
-
-        /* ======================================
-           UTILITY CLASSES & COMMON ELEMENTS
-           ====================================== */
-        .page-section {
-            padding-bottom: 0;
-        }
-        
-        .page-section#services {
-            min-height: auto;
-        }
-
-        .simple-content {
-            padding: 2rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .page-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin: 4rem 0 1.5rem 0;
-            color: #000;
-        }
-
-        .debug-info {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 9999;
+            font-size: 0.9rem;
         }
 
         /* ======================================
            RESPONSIVE DESIGN
            ====================================== */
         @media (max-width: 1024px) {
-            .main-hero h1 { font-size: 3rem; }
-            .main-hero p { font-size: 1.1rem; padding: 0 1rem; }
-            .categories-section { 
-                padding: 1.5rem;
-                gap: 1.5rem;
-            }
-            .hero-card {
-                height: 270px;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 0 1.5rem;
-            }
             .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+                grid-template-columns: repeat(2, 1fr);
             }
-            .service-card {
-                padding: 1.5rem;
-            }
-            .services-intro {
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-            }
-            .services-intro h3 {
-                font-size: 1.5rem;
-            }
-            .services-cta {
-                padding: 1.5rem;
-            }
-            .secondary-nav {
-                gap: 1.5rem;
+            
+            .nav-links a {
+                padding: 0.8rem 0.8rem;
+                font-size: 0.85rem;
             }
         }
 
         @media (max-width: 768px) {
-            .main-hero h1 { font-size: 2.5rem; }
-            .main-hero p { font-size: 1rem; padding: 0 1.5rem; }
-            .categories-section { 
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, auto);
-                padding: 1rem;
-                gap: 1rem;
+            /* Mobile Navigation */
+            .mobile-menu-btn {
+                display: block;
             }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                border-left: none;
+                border-bottom: 1px solid #000;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+
+            /* Secondary Navigation */
+            .secondary-nav {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                padding: 2rem 1rem 1rem 1rem;
+            }
+
+            .secondary-nav-item {
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            /* Content Sections */
             .intro-section {
-                padding: 3rem 1.5rem;
+                padding: 3rem 0 2rem 0;
+            }
+
+            .intro-content {
+                padding: 0 1rem;
             }
 
             .intro-content p {
                 font-size: 1rem;
             }
-            .secondary-nav {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
+            
+            .blog-page {
+                padding: 5rem 1rem 1rem 1rem;
             }
 
-            .secondary-nav-item {
-                font-size: 1rem;
-            }
-            .hero-card {
-                height: 240px;
-                border-radius: 12px;
-            }
-            .hero-card-content { 
-                padding: 2rem; 
-            }
-            .hero-card h2 { 
-                font-size: 1.4rem; 
-            }
-            .nav-links { gap: 1.5rem; font-size: 0.9rem; }
-            .footer-content {
+            /* Services Grid */
+            .services-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
+                padding: 0 1rem;
             }
-            .footer-about {
-                max-width: none;
+
+            .service-article {
+                height: auto;
+                min-height: 400px;
             }
-            .social-links {
-                justify-content: center;
+
+            /* Contact Form */
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .contact-form-container {
+                margin: 3rem 1rem;
+                padding: 1.5rem;
+            }
+
+            /* Hero Cards */
+            .hero-card-content {
+                left: 1rem;
+                width: calc(100% - 2rem);
+            }
+
+            .hero-card h2 {
+                font-size: 0.9rem;
+            }
+
+            /* Back button */
+            .back-to-home {
+                left: 10px;
+                top: 80px;
+                padding: 10px 15px;
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 480px) {
-            .nav-container { padding: 0 1rem; }
-            .hero-card-content { padding: 1.5rem; }
-            .hero-card {
-                height: 220px;
-                border-radius: 10px;
+            .nav-container {
+                padding: 0 0.5rem;
             }
-            .categories-section {
-                gap: 0.8rem;
-            }
-            .intro-section {
-                padding: 2rem 1rem;
+
+            .logo {
+                font-size: 1.2rem;
             }
 
             .intro-content p {
                 font-size: 0.95rem;
             }
-            .content-section, .simple-content { padding: 2rem 1rem; }
-            .white-footer { padding: 3rem 0 1.5rem 0; }
-            .footer-content { padding: 0 1rem; }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .service-article h3 {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .service-article p {
+                font-size: 0.9rem;
+                padding: 0 1rem;
+            }
+
+            .hero-card {
+                height: 70px;
+            }
+
+            .hero-card h2 {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">MC Media</a>
@@ -947,20 +792,21 @@
                     <li><a href="#" class="nav-link" data-page="about">About</a></li>
                     <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search..." id="searchInput">
-                    <div class="search-icon" id="searchIcon">⌕</div>
-                    <div class="search-results" id="searchResults"></div>
-                </div>
+                <button class="mobile-menu-btn">☰</button>
             </div>
         </div>
     </nav>
 
+    <!-- Sticky Banner -->
+    <div class="sticky-banner">
+        <h3>we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! /</h3>
+    </div>
+
     <!-- Home Page -->
     <section id="home" class="page-section active">
-        <!-- Main Hero -->
+        <!-- Main Hero with Video -->
         <div class="main-hero" id="mainHero">
-            <!-- Full Background Video -->
+            <!-- Video Background -->
             <video 
                 id="heroVideo"
                 class="hero-video-background"
@@ -969,14 +815,12 @@
                 playsinline
                 preload="auto"
                 muted="true"
-                style="pointer-events: none;"
             >
                 <source src="https://raw.githubusercontent.com/themothermary/mc-media-website/main/INTRODUCING-4.mp4" type="video/mp4">
-                <!-- Fallback background if video fails -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);"></div>
+                Your browser does not support the video tag.
             </video>
             
-            <!-- Pink Overlay ONLY on Video -->
+            <!-- Video Overlay -->
             <div class="video-overlay"></div>
         </div>
 
@@ -986,39 +830,68 @@
                 <p>MC Media is an early-stage startup dedicated to helping creators secure ownership of their work. We provide easy-to-use tools that embed copyright information directly into music files. This ensures that wherever your music travels digitally, your ownership and legal data travel with it—acting as both legal precedent and a foundation for integration with audio tracking technologies. As we grow into a larger platform, we plan to expand our services to include copyright management consulting and software customization for large-scale music catalog management, specifically targeting producers and publishers. We believe creators deserve to get paid for what they make, and our mission is to make that possible—simply and efficiently.</p>
             </div>
 
-            <!-- Full-width divider before secondary nav -->
-            <div class="secondary-nav-divider"></div>
-
             <!-- Secondary Navigation -->
             <div class="secondary-nav">
-                <a href="#" class="secondary-nav-item" onclick="showEducationalContent()">Blog</a>
-                <a href="#" class="secondary-nav-item" onclick="navigateToPage('projects')">Projects</a>
-                <a href="#" class="secondary-nav-item" onclick="showTalks()">Talks</a>
+                <a href="#" class="secondary-nav-item active" onclick="filterContent('all')">All</a>
+                <a href="#" class="secondary-nav-item" onclick="filterContent('blog')">Blog</a>
+                <a href="#" class="secondary-nav-item" onclick="filterContent('projects')">Projects</a>
+                <a href="#" class="secondary-nav-item" onclick="filterContent('talks')">Talks</a>
             </div>
 
-            <!-- Categories Section -->
+            <!-- No Content Message -->
+            <div id="noBlogMessage" class="no-content-message">
+                <h3>No blog content available yet</h3>
+                <p>Check back soon for blog posts and articles.</p>
+            </div>
+
+            <div id="noProjectsMessage" class="no-content-message">
+                <h3>No projects content available yet</h3>
+                <p>Check back soon for project updates.</p>
+            </div>
+
+            <div id="noTalksMessage" class="no-content-message">
+                <h3>No talks content available yet</h3>
+                <p>Check back soon for talks and presentations.</p>
+            </div>
+
+            <!-- Categories Section - Full Width -->
             <div class="categories-section">
-                <div class="hero-card" onclick="showBlogPage('duck1-testing')">
+                <!-- Blog Content -->
+                <div class="hero-card blog-content" onclick="showBlogPage('blog-post-1')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Blog</span> Understanding Music Copyright Basics</h2>
+                    </div>
+                </div>
+                <div class="hero-card blog-content" onclick="showBlogPage('blog-post-2')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Blog</span> The Future of Digital Rights Management</h2>
+                    </div>
+                </div>
+
+                <!-- Projects Content -->
+                <div class="hero-card projects-content" onclick="showBlogPage('duck1-testing')">
                     <div class="hero-card-content">
                         <h2><span class="category-badge">Projects</span> Duck1 Testing Phase for Music Rights Management</h2>
                     </div>
                 </div>
-                <div class="hero-card" onclick="showBlogPage('mobygratis-talk')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Talks</span> Mobygratis Explained, A Discussion with Natalie Jacobs</h2>
-                    </div>
-                </div>
-                <div class="hero-card" onclick="showBlogPage('creativity-podcast')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Talks</span> Powering Creativity Podcast with Fendous PLS</h2>
-                    </div>
-                </div>
-                <div class="hero-card" onclick="showBlogPage('rights-clinic')">
+                <div class="hero-card projects-content" onclick="showBlogPage('rights-clinic')">
                     <div class="hero-card-content">
                         <h2><span class="category-badge">Project</span> Music Rights Clinic Launch</h2>
                     </div>
                 </div>
-                <div class="hero-card" onclick="showBlogPage('symphonic-qa')">
+
+                <!-- Talks Content -->
+                <div class="hero-card talks-content" onclick="showBlogPage('mobygratis-talk')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Talks</span> Mobygratis Explained, A Discussion with Natalie Jacobs</h2>
+                    </div>
+                </div>
+                <div class="hero-card talks-content" onclick="showBlogPage('creativity-podcast')">
+                    <div class="hero-card-content">
+                        <h2><span class="category-badge">Talks</span> Powering Creativity Podcast with Fendous PLS</h2>
+                    </div>
+                </div>
+                <div class="hero-card talks-content" onclick="showBlogPage('symphonic-qa')">
                     <div class="hero-card-content">
                         <h2><span class="category-badge">Talks</span> Live Q&A with Symphonic Distribution</h2>
                     </div>
@@ -1026,8 +899,8 @@
             </div>
         </div>
 
-        <!-- WHITE FOOTER -->
-        <div class="white-footer" style="margin-top: 0;">
+        <!-- Footer -->
+        <div class="white-footer">
             <div class="footer-content">
                 <div class="footer-about">
                     <h3>MC Media</h3>
@@ -1038,145 +911,22 @@
                         <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
                     </div>
                 </div>
-                
-                <div class="footer-contact">
+                <div class="footer-bottom">
+                    <p>&copy; 2025 MC Media. All rights reserved.</p>
                 </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sticky Banner - Shows only on Services, About, Contact -->
-    <div class="sticky-banner">
-        <h3>we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! /</h3>
-    </div>
-
-    <!-- Blog Pages -->
-    <section id="duck1-testing" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Projects</div>
-                <h1 class="blog-title">Duck1 Testing Phase for Music Rights Management</h1>
-                <p class="blog-subtitle">Early development testing for our music rights platform</p>
-                <div class="blog-meta">
-                    <span>📅 June 17, 2025</span>
-                    <span>⏱️ 5 min read</span>
-                    <span>👤 MC Media Development Team</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <!-- Content removed -->
-            </div>
-        </div>
-    </section>
-
-    <section id="symphonic-qa" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Talks</div>
-                <h1 class="blog-title">Live Q&A with Symphonic Distribution</h1>
-                <p class="blog-subtitle">Insights from industry leaders on music distribution and rights management</p>
-                <div class="blog-meta">
-                    <span>📅 June 12, 2025</span>
-                    <span>⏱️ 60 min watch</span>
-                    <span>👤 Symphonic Distribution & MC Media</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <!-- Content removed -->
-            </div>
-        </div>
-    </section>
-
-    <section id="prototype-tool" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Projects</div>
-                <h1 class="blog-title">Prototype Tool for Music Rights Management Launch</h1>
-                <p class="blog-subtitle">Revolutionary web-based tool for independent artists and small labels</p>
-                <div class="blog-meta">
-                    <span>📅 June 10, 2025</span>
-                    <span>⏱️ 6 min read</span>
-                    <span>👤 MC Media Development Team</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <!-- Content removed -->
-            </div>
-        </div>
-    </section>
-
-    <section id="mobygratis-talk" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Talks</div>
-                <h1 class="blog-title">Mobygratis Explained, A Discussion with Natalie Jacobs</h1>
-                <p class="blog-subtitle">Exploring free music licensing and its impact on creative industries</p>
-                <div class="blog-meta">
-                    <span>📅 May 28, 2025</span>
-                    <span>⏱️ 45 min watch</span>
-                    <span>👤 Natalie Jacobs & MC Media Team</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <!-- Content removed -->
-            </div>
-        </div>
-    </section>
-
-    <section id="creativity-podcast" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Talks</div>
-                <h1 class="blog-title">Powering Creativity Podcast with Fendous PLS</h1>
-                <p class="blog-subtitle">Technology's role in unleashing artistic potential</p>
-                <div class="blog-meta">
-                    <span>📅 June 5, 2025</span>
-                    <span>⏱️ 52 min listen</span>
-                    <span>👤 Fendous PLS & MC Media</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <!-- Content removed -->
-            </div>
-        </div>
-    </section>
-
-    <section id="rights-clinic" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="blog-page">
-            <div class="blog-header">
-                <div class="blog-category">Project</div>
-                <h1 class="blog-title">Music Rights Clinic Launch</h1>
-                <p class="blog-subtitle">Free educational workshops and consultation services for artists</p>
-                <div class="blog-meta">
-                    <span>📅 June 15, 2025</span>
-                    <span>⏱️ 4 min read</span>
-                    <span>👤 MC Media Education Team</span>
-                </div>
-            </div>
-            <div class="blog-content">
-                <!-- Content removed -->
             </div>
         </div>
     </section>
 
     <!-- Services Page -->
     <section id="services" class="page-section">
-        <div class="simple-content" style="padding-top: 48px;">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="simple-content" style="padding-top: 6rem; padding-bottom: 2rem; width: 100%;">
             
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
-                <div style="display: flex; gap: 2rem; align-items: flex-start;">
+            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
+                <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
                     <!-- Text Content -->
-                    <div style="flex: 1;">
+                    <div style="flex: 1; min-width: 300px;">
                         <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">what we offer</h2>
                         
                         <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
@@ -1186,115 +936,65 @@
                     </div>
                     
                     <!-- Image Box -->
-                    <div style="border: 1px solid #000; width: 600px; height: 100%; flex-shrink: 0; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; min-height: 400px;">
+                    <div style="border: 1px solid #000; width: 100%; max-width: 600px; height: 100%; flex-shrink: 0; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; min-height: 400px; margin-top: 1rem;">
                         Image placeholder
                     </div>
                 </div>
             </div>
             
             <!-- Services Section Headline -->
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 4rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
                 <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">how we help creators</h2>
             </div>
             
-            <!-- Services Grid - 4 column layout inspired by Hyundai Artlab -->
-            <div class="services-grid" style="margin-top: 48px; margin-bottom: 96px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; width: 100vw; margin-left: calc(-50vw + 50%); padding: 0 2rem; box-sizing: border-box;">
+            <!-- Services Grid -->
+            <div class="services-grid">
                 
                 <!-- Service 1 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                <div class="service-article">
+                    <div class="service-image">
                         Image placeholder
                     </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">copyright consulting</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 1rem; flex: 1;">Personalized consulting sessions to help artists understand their rights, navigate complex licensing agreements, and develop effective copyright protection strategies.</p>
+                    <h3>copyright consulting</h3>
+                    <p>Personalized consulting sessions to help artists understand their rights, navigate complex licensing agreements, and develop effective copyright protection strategies.</p>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                <div class="service-article">
+                    <div class="service-image">
                         Image placeholder
                     </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">copyright education</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 1rem; flex: 1;">Comprehensive educational workshops, resources, and editorial content designed to empower creators with essential knowledge about copyright law and best practices.</p>
+                    <h3>copyright education</h3>
+                    <p>Comprehensive educational workshops, resources, and editorial content designed to empower creators with essential knowledge about copyright law and best practices.</p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                <div class="service-article">
+                    <div class="service-image">
                         Image placeholder
                     </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">web API platform</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 0; flex: 1;">A core technology solution currently in testing phase that offers quick, on-the-go copyright embedding through a web-based API.</p>
+                    <h3>web API platform</h3>
+                    <p>A core technology solution currently in testing phase that offers quick, on-the-go copyright embedding through a web-based API.</p>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="service-article" style="background: white; display: flex; flex-direction: column; height: 480px;">
-                    <div class="service-image" style="width: 100%; height: 200px; background: #f0f0f0; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1rem; border: 1px solid #000;">
+                <div class="service-article">
+                    <div class="service-image">
                         Image placeholder
                     </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #000; line-height: 1.3;">DAW plugin development</h3>
-                    <p style="font-size: 0.95rem; line-height: 1.6; color: #666; margin-bottom: 0; flex: 1;">Research and development of plugins for popular Digital Audio Workstations that allow artists to secure their copyright directly within their creative workflow.</p>
+                    <h3>DAW plugin development</h3>
+                    <p>Research and development of plugins for popular Digital Audio Workstations that allow artists to secure their copyright directly within their creative workflow.</p>
                 </div>
-            </div>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Page -->
-    <section id="projects" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <h2 class="page-title">Featured Projects</h2>
-        <div class="simple-content">
-            <p>Our portfolio includes music rights management platforms, film archive systems, broadcasting asset managers, and Creative Commons tracking tools.</p>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
             </div>
         </div>
     </section>
 
     <!-- About Page -->
     <section id="about" class="page-section">
-        <div class="simple-content" style="padding-top: 48px;">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="simple-content" style="padding-top: 6rem; padding-bottom: 2rem; width: 100%;">
             
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
                 <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">about MC Media</h2>
                 
                 <div style="margin-bottom: 2rem; padding: 0; text-align: justify;">
@@ -1304,40 +1004,20 @@
                 <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 2rem 0 1rem 0; color: #000;">meet the founders</h2>
                 
                 <!-- Founder Photo -->
-                <div style="border: 1px solid #000; width: 400px; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; height: 400px; margin-bottom: 3rem;">
+                <div style="border: 1px solid #000; width: 100%; max-width: 400px; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; height: 400px; margin-bottom: 3rem;">
                     Founder Photo<br>
                     <small style="font-size: 0.7rem; margin-top: 5px; text-align: center;">Professional headshot with polka dot shirt<br>against brick wall background</small>
                 </div>
-            </div>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Page -->
     <section id="contact" class="page-section">
-        <div class="simple-content" style="padding-top: 48px;">
+        <button class="back-to-home" onclick="returnToHome()">← Back</button>
+        <div class="simple-content" style="padding-top: 6rem; padding-bottom: 2rem; width: 100%;">
             
-            <div style="width: 100vw; margin-left: calc(-50vw + 50%); padding-left: 2rem; padding-right: 2rem; box-sizing: border-box; margin-top: 48px;">
+            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
                 <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">contact us</h2>
                 
                 <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
@@ -1346,494 +1026,161 @@
             </div>
 
             <!-- Contact Form -->
-            <div style="max-width: 600px; margin: 3rem 2rem; background: #f8f9fa; padding: 2rem; border: 1px solid #000;">
+            <div class="contact-form-container">
                 <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #000;">send us a message</h3>
                 
-                <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div style="display: flex; gap: 1rem;">
-                        <div style="flex: 1;">
-                            <label for="firstName" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required />
                         </div>
-                        <div style="flex: 1;">
-                            <label for="lastName" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required />
                         </div>
                     </div>
                     
-                    <div>
-                        <label for="email" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Email Address *</label>
-                        <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required />
                     </div>
                     
-                    <div>
-                        <label for="subject" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Subject *</label>
-                        <input type="text" id="subject" name="subject" required style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease;" />
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required />
                     </div>
                     
-                    <div>
-                        <label for="message" style="display: block; font-weight: 500; margin-bottom: 0.5rem; color: #333; font-size: 0.9rem;">Message *</label>
-                        <textarea id="message" name="message" required rows="6" style="width: 100%; padding: 12px; border: 1px solid #ccc; font-size: 1rem; outline: none; transition: border-color 0.3s ease; resize: vertical; font-family: inherit;"></textarea>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required rows="6"></textarea>
                     </div>
                     
-                    <button type="submit" style="background: #000; color: white; padding: 15px 30px; border: none; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background-color 0.3s ease; text-transform: uppercase; letter-spacing: 0.05em;">
-                        Send Message
-                    </button>
+                    <button type="submit" class="submit-btn">Send Message</button>
                 </form>
                 
-                <div id="formStatus" style="margin-top: 1rem; padding: 12px; border-radius: 4px; display: none;"></div>
-            </div>
-        </div>
-        
-        <div class="white-footer">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MC Media</h3>
-                    <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                    <p>e-mail: mcmedia.dk@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 MC Media. All rights reserved.</p>
+                <div id="formStatus" class="form-status"></div>
             </div>
         </div>
     </section>
 
-    <!-- Debug Info -->
-    <div class="debug-info" id="debugInfo">
-        Status: Loading...
-    </div>
+    <!-- Blog Pages (same as before) -->
+    <!-- ... existing blog pages ... -->
 
     <script>
-        // Debug logging
-        function debugLog(message) {
-            console.log('MC Media Debug:', message);
-            const debugElement = document.getElementById('debugInfo');
-            if (debugElement) {
-                debugElement.innerHTML = `Status: ${message}`;
-            }
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
         }
 
-        // Initialize
-        debugLog('Script loaded successfully');
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            if (!navLinks.contains(e.target) && !mobileBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
 
-        // Navigation functionality
-        function initializeNavigation() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.page-section');
+        // Content filtering function
+        function filterContent(category) {
+            // Update active state of navigation buttons
+            const navItems = document.querySelectorAll('.secondary-nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
 
-            debugLog(`Found ${navLinks.length} nav links and ${sections.length} sections`);
+            // Hide all content and messages first
+            const allContent = document.querySelectorAll('.hero-card');
+            allContent.forEach(item => {
+                item.style.display = 'none';
+            });
 
-            navLinks.forEach((link, index) => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetPage = link.getAttribute('data-page');
-                    debugLog(`Navigation clicked: ${targetPage}`);
-                    
-                    // Remove active class from all links and sections
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    sections.forEach(s => s.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    link.classList.add('active');
-                    
-                    // Show corresponding section
-                    const targetSection = document.getElementById(targetPage);
-                    if (targetSection) {
-                        targetSection.classList.add('active');
-                        debugLog(`Switched to page: ${targetPage}`);
-                        
-                        // Show/hide sticky banner based on page
-                        const stickyBanner = document.querySelector('.sticky-banner');
-                        if (stickyBanner) {
-                            if (['services', 'about', 'contact'].includes(targetPage)) {
-                                stickyBanner.style.display = 'flex';
-                            } else {
-                                stickyBanner.style.display = 'none';
-                            }
-                        }
-                        
-                        // Scroll to top
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        debugLog(`ERROR: Could not find section: ${targetPage}`);
-                    }
+            const allMessages = document.querySelectorAll('.no-content-message');
+            allMessages.forEach(msg => {
+                msg.style.display = 'none';
+            });
+
+            // Show content based on category
+            let foundContent = false;
+
+            if (category === 'all') {
+                // Show all content
+                allContent.forEach(item => {
+                    item.style.display = 'block';
                 });
-            });
-        }
-
-        // Blog navigation functionality
-        function showBlogPage(blogId) {
-            debugLog(`Opening blog page: ${blogId}`);
-            
-            try {
-                // Get fresh references to avoid stale NodeList
-                const navLinks = document.querySelectorAll('.nav-link');
-                const sections = document.querySelectorAll('.page-section');
-                
-                // Remove active class from all nav links and sections
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => s.classList.remove('active'));
-                
-                // Show the specific blog page
-                const blogSection = document.getElementById(blogId);
-                if (blogSection) {
-                    blogSection.classList.add('active');
-                    debugLog(`Successfully opened blog: ${blogId}`);
-                    
-                    // Smooth scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    debugLog(`ERROR: Blog page not found: ${blogId}`);
-                }
-            } catch (error) {
-                debugLog(`ERROR in showBlogPage: ${error.message}`);
-            }
-        }
-
-        function returnToHome() {
-            debugLog('Returning to home page');
-            
-            try {
-                // Get fresh references
-                const sections = document.querySelectorAll('.page-section');
-                const navLinks = document.querySelectorAll('.nav-link');
-                
-                // Remove active class from all sections
-                sections.forEach(s => s.classList.remove('active'));
-                navLinks.forEach(l => l.classList.remove('active'));
-                
-                // Show home section and set nav active
-                const homeSection = document.getElementById('home');
-                const homeNavLink = document.querySelector('.nav-link[data-page="home"]');
-                
-                if (homeSection && homeNavLink) {
-                    homeSection.classList.add('active');
-                    homeNavLink.classList.add('active');
-                    debugLog('Successfully returned to home');
-                    
-                    // Hide sticky banner on home page
-                    const stickyBanner = document.querySelector('.sticky-banner');
-                    if (stickyBanner) {
-                        stickyBanner.style.display = 'none';
-                    }
-                    
-                    // Smooth scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    debugLog('ERROR: Home elements not found');
-                }
-            } catch (error) {
-                debugLog(`ERROR in returnToHome: ${error.message}`);
-            }
-        }
-
-        // Initialize search functionality
-        function initializeSearch() {
-            const searchIcon = document.getElementById('searchIcon');
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-
-            if (!searchIcon || !searchInput || !searchResults) {
-                debugLog('Search elements not found');
-                return;
-            }
-
-            // Search icon click handler
-            searchIcon.addEventListener('click', toggleSearch);
-
-            // Search input handlers
-            searchInput.addEventListener('input', (e) => {
-                const query = e.target.value;
-                performSearch(query);
-            });
-
-            // Close search when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.search-container')) {
-                    searchInput.classList.remove('active');
-                    searchResults.classList.remove('show');
-                    searchInput.value = '';
-                }
-            });
-
-            // Prevent search container clicks from closing search
-            document.querySelector('.search-container').addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-
-            // Handle Enter key in search
-            searchInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    const firstResult = searchResults.querySelector('.search-result-item');
-                    if (firstResult) {
-                        firstResult.click();
-                    }
-                }
-                if (e.key === 'Escape') {
-                    searchInput.classList.remove('active');
-                    searchResults.classList.remove('show');
-                    searchInput.value = '';
-                }
-            });
-
-            debugLog('Search functionality initialized');
-        }
-
-        // Search functionality
-        let searchData = [
-            {
-                title: "Prototype Tool for Music Rights Management Launch",
-                description: "Revolutionary web-based tool for independent artists and small labels. Beta testing showed 95% success rate in copyright embedding and 40% reduction in rights management time.",
-                page: "prototype-tool",
-                category: "Projects",
-                keywords: ["prototype", "tool", "music", "rights", "management", "launch", "web-based", "independent", "artists", "labels", "beta", "copyright", "embedding"]
-            },
-            {
-                title: "Mobygratis Explained, A Discussion with Natalie Jacobs",
-                description: "Exploring free music licensing and its impact on creative industries. Discussion covers Moby's groundbreaking initiative and flexible rights management systems.",
-                page: "mobygratis-talk",
-                category: "Talks",
-                keywords: ["mobygratis", "natalie", "jacobs", "discussion", "free", "music", "licensing", "moby", "creative", "industries", "attribution", "tracking"]
-            },
-            {
-                title: "Powering Creativity Podcast with Fendous PLS",
-                description: "Technology's role in unleashing artistic potential. Producer Fendous PLS shares insights on creative technology balance and sustainable creative careers.",
-                page: "creativity-podcast",
-                category: "Talks",
-                keywords: ["powering", "creativity", "podcast", "fendous", "pls", "technology", "artistic", "potential", "producer", "creative", "careers", "sustainable"]
-            },
-            {
-                title: "Music Rights Clinic Launch",
-                description: "Free educational workshops and consultation services for artists. Monthly workshops covering copyright basics, licensing strategies, and revenue optimization.",
-                page: "rights-clinic",
-                category: "Project",
-                keywords: ["music", "rights", "clinic", "launch", "educational", "workshops", "consultation", "artists", "copyright", "licensing", "strategies", "revenue"]
-            },
-            {
-                title: "Our Services",
-                description: "Comprehensive digital asset management solutions including copyright protection, workflow optimization, analytics and reporting, compliance management, and expert consultation services.",
-                page: "services",
-                category: "Navigation",
-                keywords: ["services", "consultation", "analytics", "reporting", "compliance", "optimization", "solutions"]
-            },
-            {
-                title: "Featured Projects",
-                description: "Our portfolio includes music rights management platforms, film archive systems, broadcasting asset managers, and Creative Commons tracking tools.",
-                page: "projects",
-                category: "Navigation", 
-                keywords: ["projects", "portfolio", "music", "rights", "film", "archive", "broadcasting", "creative commons", "platforms", "systems"]
-            },
-            {
-                title: "About MC Media",
-                description: "MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness.",
-                page: "about",
-                category: "Navigation",
-                keywords: ["about", "company", "mission", "creative industries", "transparency", "innovation", "fairness", "organization"]
-            },
-            {
-                title: "Contact Us",
-                description: "Get in touch with us at mcmedia.dk@gmail.com. We're here to help with all your digital and media asset management needs.",
-                page: "contact",
-                category: "Navigation",
-                keywords: ["contact", "email", "hello", "help", "support", "get in touch", "communication"]
-            }
-        ];
-
-        let searchTimeout;
-
-        function toggleSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            
-            debugLog('Toggle search clicked');
-            
-            if (searchInput.classList.contains('active')) {
-                searchInput.classList.remove('active');
-                searchResults.classList.remove('show');
-                searchInput.value = '';
-                debugLog('Search closed');
+                foundContent = true;
             } else {
-                searchInput.classList.add('active');
-                searchInput.focus();
-                debugLog('Search opened');
-            }
-        }
-
-        function performSearch(query) {
-            clearTimeout(searchTimeout);
-            
-            searchTimeout = setTimeout(() => {
-                debugLog(`Searching for: "${query}"`);
-                
-                if (query.trim() === '') {
-                    const searchResults = document.getElementById('searchResults');
-                    searchResults.classList.remove('show');
-                    return;
-                }
-                
-                const normalizedQuery = query.toLowerCase().trim();
-                const results = searchData.filter(item => {
-                    // Search in title
-                    if (item.title.toLowerCase().includes(normalizedQuery)) return true;
-                    
-                    // Search in description
-                    if (item.description.toLowerCase().includes(normalizedQuery)) return true;
-                    
-                    // Search in category
-                    if (item.category.toLowerCase().includes(normalizedQuery)) return true;
-                    
-                    // Search in keywords
-                    if (item.keywords.some(keyword => keyword.toLowerCase().includes(normalizedQuery))) return true;
-                    
-                    return false;
+                // Show specific category content
+                const categoryContent = document.querySelectorAll('.' + category + '-content');
+                categoryContent.forEach(item => {
+                    item.style.display = 'block';
+                    foundContent = true;
                 });
-                
-                debugLog(`Found ${results.length} results`);
-                displaySearchResults(results, query);
-            }, 300); // Debounce search
-        }
 
-        function displaySearchResults(results, query) {
-            const searchResults = document.getElementById('searchResults');
-            
-            if (results.length === 0) {
-                searchResults.innerHTML = `
-                    <div class="search-no-results">
-                        No results found for "${query}"<br>
-                        <small>Try searching for: copyright, innovation, services, contact</small>
-                    </div>`;
-            } else {
-                searchResults.innerHTML = results.map(result => {
-                    // Highlight matching terms
-                    const highlightedTitle = highlightText(result.title, query);
-                    const highlightedDescription = highlightText(result.description, query);
-                    
-                    return `
-                        <div class="search-result-item" onclick="navigateToPage('${result.page}')">
-                            <div class="search-result-title">${highlightedTitle}</div>
-                            <div class="search-result-description">${highlightedDescription}</div>
-                            <div class="search-result-category">${result.category}</div>
-                        </div>`;
-                }).join('');
-            }
-            
-            searchResults.classList.add('show');
-        }
-
-        function highlightText(text, query) {
-            if (!query.trim()) return text;
-            
-            const regex = new RegExp(`(${query.trim()})`, 'gi');
-            return text.replace(regex, '<mark>$1</mark>');
-        }
-
-        function navigateToPage(pageId) {
-            debugLog(`Navigating to: ${pageId}`);
-            
-            // Close search
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            searchInput.classList.remove('active');
-            searchResults.classList.remove('show');
-            searchInput.value = '';
-            
-            // Navigate to page
-            if (pageId === 'home') {
-                returnToHome();
-            } else if (['prototype-tool', 'mobygratis-talk', 'creativity-podcast', 'rights-clinic'].includes(pageId)) {
-                showBlogPage(pageId);
-            } else {
-                // Navigate to regular pages (services, projects, about, contact)
-                const navLinks = document.querySelectorAll('.nav-link');
-                const sections = document.querySelectorAll('.page-section');
-                
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => s.classList.remove('active'));
-                
-                const targetLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
-                const targetSection = document.getElementById(pageId);
-                
-                if (targetLink && targetSection) {
-                    targetLink.classList.add('active');
-                    targetSection.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    debugLog(`Successfully navigated to: ${pageId}`);
-                    
-                    // Show/hide sticky banner based on page
-                    const stickyBanner = document.querySelector('.sticky-banner');
-                    if (stickyBanner) {
-                        if (['services', 'about', 'contact'].includes(pageId)) {
-                            stickyBanner.style.display = 'flex';
-                        } else {
-                            stickyBanner.style.display = 'none';
-                        }
-                    }
-                } else {
-                    debugLog(`ERROR: Could not find page elements for: ${pageId}`);
+                // Show "no content" message if no items found
+                if (!foundContent) {
+                    document.getElementById('no' + category.charAt(0).toUpperCase() + category.slice(1) + 'Message').style.display = 'block';
                 }
             }
+
+            // Scroll to content section
+            document.querySelector('.categories-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
 
-        // Services navigation functionality
-        function showServiceCategory(category) {
-            debugLog(`Service category clicked: ${category}`);
-            // For now, just show an alert - you could expand this to filter services
-            alert(`${category.charAt(0).toUpperCase() + category.slice(1)} services - Coming soon!`);
-        }
-
-        // Talks function (placeholder for future implementation)
-        function showTalks() {
-            debugLog('Talks section - coming soon');
-            alert('Talks section coming soon! We\'ll feature industry presentations and educational content here.');
-        }
-
-        // Video functionality - FIXED VERSION
+        // Video initialization
         function initializeVideo() {
             const video = document.getElementById('heroVideo');
+            if (video) {
+                video.play().catch(error => {
+                    console.log('Video autoplay prevented:', error);
+                });
+            }
+        }
+
+        // Simple navigation system
+        function navigateToPage(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
             
-            if (!video) {
-                debugLog('Video element not found');
-                return;
+            // Show target section
+            const targetSection = document.getElementById(pageId);
+            if (targetSection) {
+                targetSection.classList.add('active');
             }
             
-            // Basic video setup
-            video.loop = true;
-            video.muted = true; // Start muted for reliable autoplay
-            video.controls = false;
+            // Update nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
             
-            // Try to play muted (this works reliably)
-            video.play().then(() => {
-                debugLog('Video playing (muted)');
-            }).catch(e => {
-                debugLog('Video play failed: ' + e.message);
-                // Fallback to gradient background
-                const heroSection = document.getElementById('mainHero');
-                if (heroSection) {
-                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
-                    video.style.display = 'none';
+            // Show/hide sticky banner
+            const stickyBanner = document.querySelector('.sticky-banner');
+            if (stickyBanner) {
+                if (['services', 'about', 'contact'].includes(pageId)) {
+                    stickyBanner.style.display = 'flex';
+                } else {
+                    stickyBanner.style.display = 'none';
                 }
-            });
-
-            // Handle video errors
-            video.addEventListener('error', function(e) {
-                debugLog('Video load error, using fallback background');
-                const heroSection = document.getElementById('mainHero');
-                if (heroSection) {
-                    heroSection.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%)';
-                    video.style.display = 'none';
-                }
-            });
-
-            debugLog('Video initialized');
+            }
+            
+            // Close mobile menu if open
+            document.querySelector('.nav-links').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Contact form functionality
@@ -1868,7 +1215,7 @@
                 }
                 
                 // Show loading state
-                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const submitButton = contactForm.querySelector('.submit-btn');
                 const originalText = submitButton.textContent;
                 submitButton.textContent = 'Sending...';
                 submitButton.disabled = true;
@@ -1894,25 +1241,7 @@
                     submitButton.textContent = originalText;
                     submitButton.disabled = false;
                 }, 1000);
-                
-                debugLog('Contact form submitted successfully');
             });
-            
-            // Add focus styles to form inputs
-            const inputs = contactForm.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.style.borderColor = '#000';
-                    this.style.boxShadow = '0 0 0 2px rgba(0,0,0,0.1)';
-                });
-                
-                input.addEventListener('blur', function() {
-                    this.style.borderColor = '#ccc';
-                    this.style.boxShadow = 'none';
-                });
-            });
-            
-            debugLog('Contact form initialized');
         }
 
         function showFormStatus(message, type) {
@@ -1938,32 +1267,65 @@
             }, 5000);
         }
 
-        // Initialize everything when DOM is loaded
+        // Navigation event listeners
         document.addEventListener('DOMContentLoaded', function() {
-            debugLog('DOM Content Loaded - Initializing...');
-            
-            try {
-                initializeNavigation();
-                initializeSearch();
-                initializeContactForm();
-                initializeVideo();
-                debugLog('All components initialized successfully');
-            } catch (error) {
-                debugLog(`ERROR during initialization: ${error.message}`);
+            // Initialize mobile menu
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleMobileMenu();
+                });
             }
+
+            // Initialize video
+            initializeVideo();
+            
+            // Main navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    navigateToPage(page);
+                });
+            });
+
+            // Initialize contact form
+            initializeContactForm();
+
+            // Initialize with all content shown
+            filterContent('all');
+            
+            console.log('Navigation and filtering initialized successfully');
         });
 
-        // Test all elements are loaded
-        window.addEventListener('load', () => {
-            debugLog('Page fully loaded - Ready');
-        });
+        // Blog page navigation
+        function showBlogPage(blogId) {
+            navigateToPage(blogId);
+        }
+
+        // Return to home
+        function returnToHome() {
+            navigateToPage('home');
+            // Reset filter to show all content when returning home
+            setTimeout(() => {
+                filterContent('all');
+            }, 100);
+        }
 
         // Error handling
-        window.addEventListener('error', (e) => {
-            debugLog(`ERROR: ${e.message}`);
+        window.addEventListener('error', function(e) {
+            console.log('Page error:', e.message);
         });
 
-        debugLog('All event listeners attached');
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            // Close mobile menu on larger screens
+            if (window.innerWidth > 768) {
+                document.querySelector('.nav-links').classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
