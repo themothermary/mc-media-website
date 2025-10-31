@@ -167,128 +167,260 @@
         .intro-content p {
             font-size: 1.1rem;
             line-height: 1.7;
-            color: #333;
+            color: #000;
             margin-bottom: 2rem;
             text-align: justify;
         }
 
         /* ======================================
-           FEATURED RESOURCES, PROJECTS, TALKS
+           BLACK & WHITE CASSETTE TAPE STYLING
            ====================================== */
-        .secondary-nav {
-            display: flex;
-            justify-content: flex-start;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            padding: 2rem 1rem 1rem 1rem;
-            border-top: 1px solid #000;
+        .cassette-section {
+            background: #000;
+            width: 100%;
+            padding: 3rem 0;
+            margin: 0;
+        }
+
+        .cassette-container {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        .secondary-nav-item {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #000;
-            text-decoration: underline;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .secondary-nav-item:hover,
-        .secondary-nav-item.active {
+        .cassette-player {
             background: #000;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .categories-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: repeat(5, auto);
-            gap: 0;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-
-        .category-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 4px 12px;
-            border-radius: 15px;
-            margin-bottom: 8px;
-        }
-
-        .hero-card {
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 0;
+            border: 1px solid #000;
             position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            font-weight: bold;
-            height: 80px;
-            transition: all 0.3s ease;
-            border-radius: 0;
-            width: 100%;
         }
 
-        /* Black boxes (even) */
-        .hero-card:nth-child(even) {
-            background: #000000;
-            color: #ffffff;
+        .cassette-tape {
+            background: white;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #000;
+            position: relative;
+            text-align: center;
         }
 
-        .hero-card:nth-child(even) .category-badge {
-            background: #ffffff;
-            color: #000000;
-        }
-
-        /* White boxes (odd) */
-        .hero-card:nth-child(odd) {
-            background: #ffffff;
-            color: #000000;
-        }
-
-        .hero-card:nth-child(odd) .category-badge {
-            background: #000000;
-            color: #ffffff;
-        }
-
-        .hero-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-card-content {
+        .cassette-tape::before,
+        .cassette-tape::after {
+            content: '';
             position: absolute;
             top: 50%;
-            left: 1rem;
             transform: translateY(-50%);
-            text-align: left;
-            width: calc(100% - 2rem);
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            border: 1px solid #000;
         }
 
-        .hero-card h2 {
+        .cassette-tape::before {
+            left: 20px;
+        }
+
+        .cassette-tape::after {
+            right: 20px;
+        }
+
+        .cassette-label {
+            background: white;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        .cassette-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .cassette-button {
+            padding: 10px 20px;
+            background: white;
+            color: #000;
+            border: 1px solid #000;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cassette-button:hover {
+            background: #000;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .cassette-button.active {
+            background: #000;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .cassette-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .cassette-track {
+            background: white;
+            border-radius: 4px;
+            padding: 1.2rem;
+            border: 1px solid #000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .cassette-track:hover {
+            background: #000;
+            color: white;
+        }
+
+        .cassette-track:hover .track-info h3,
+        .cassette-track:hover .track-info p {
+            color: white;
+        }
+
+        .track-number {
+            width: 24px;
+            height: 24px;
+            background: #000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .track-info {
+            flex: 1;
+        }
+
+        .track-info h3 {
             font-size: 1rem;
             font-weight: 500;
-            margin-bottom: 0;
-            line-height: 1.2;
+            margin-bottom: 0.2rem;
+            color: #000;
+        }
+
+        .track-info p {
+            font-size: 0.85rem;
+            color: #000;
+            margin: 0;
+        }
+
+        .track-category {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: white;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+        .cassette-track:hover .track-category {
+            background: white;
+            color: #000;
         }
 
         .no-content-message {
             text-align: center;
-            padding: 3rem;
-            color: #666;
+            padding: 2rem;
+            color: white;
             font-style: italic;
             display: none;
-            max-width: 1400px;
+        }
+
+        /* ======================================
+           CONTENT PAGES STYLES
+           ====================================== */
+        .content-page {
+            padding: 6rem 0 2rem 0;
+            background: white;
+        }
+
+        .content-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .content-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .content-header p {
+            font-size: 1.2rem;
+            color: #000;
+            max-width: 800px;
             margin: 0 auto;
-            padding-left: 1rem;
-            padding-right: 1rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .content-article {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .content-article:hover {
+            background: #000;
+            color: white;
+        }
+
+        .content-article:hover h3,
+        .content-article:hover p {
+            color: white;
+        }
+
+        .content-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .content-article p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #000;
+            margin-bottom: 1rem;
         }
 
         /* ======================================
@@ -332,56 +464,11 @@
             100% { transform: translateX(25%); }
         }
 
-        .blog-page {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 6rem 1rem 2rem 1rem;
-        }
-
-        .blog-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid #000;
-        }
-
-        .blog-category {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .blog-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #000;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .blog-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            font-weight: 300;
-            margin-bottom: 2rem;
-        }
-
-        .blog-meta {
-            font-size: 0.9rem;
-            color: #999;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
         .back-to-home {
             position: fixed;
             top: 100px;
             left: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            background: #000;
             color: white;
             border: none;
             padding: 12px 18px;
@@ -390,18 +477,41 @@
             font-size: 0.9rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
         .back-to-home:hover {
-            background: rgba(0, 0, 0, 1);
+            background: #000;
             transform: translateX(-3px);
         }
 
         /* ======================================
            SERVICES PAGE STYLES
            ====================================== */
+        .services-section {
+            padding: 6rem 0 2rem 0;
+            background: white;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .services-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .services-header p {
+            font-size: 1.2rem;
+            color: #000;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -420,19 +530,21 @@
             flex-direction: column;
             height: 480px;
             border: 1px solid #000;
+            border-radius: 8px;
         }
 
         .service-image {
             width: 100%;
             height: 200px;
-            background: #f8f8f8;
+            background: white;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
+            color: #000;
             font-size: 1rem;
             border-bottom: 1px solid #000;
+            border-radius: 8px 8px 0 0;
         }
 
         .service-article h3 {
@@ -447,21 +559,78 @@
         .service-article p {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #666;
+            color: #000;
             margin-bottom: 1rem;
             flex: 1;
             padding: 0 1.5rem;
         }
 
         /* ======================================
+           ABOUT PAGE STYLES
+           ====================================== */
+        .about-section {
+            padding: 6rem 0 2rem 0;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        /* ======================================
            CONTACT FORM STYLES
            ====================================== */
+        .contact-section {
+            padding: 6rem 0 2rem 0;
+            background: white;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .contact-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #000;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .contact-form-container {
             max-width: 600px;
             margin: 3rem auto;
-            background: #f8f9fa;
+            background: white;
             padding: 2rem;
             border: 1px solid #000;
+            border-radius: 8px;
         }
 
         .contact-form {
@@ -483,7 +652,7 @@
             display: block;
             font-weight: 500;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: #000;
             font-size: 0.9rem;
         }
 
@@ -491,10 +660,11 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
+            border: 1px solid #000;
             font-size: 1rem;
             outline: none;
             transition: border-color 0.3s ease;
+            border-radius: 4px;
         }
 
         .form-group input:focus,
@@ -513,10 +683,11 @@
             transition: background-color 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            border-radius: 4px;
         }
 
         .submit-btn:hover {
-            background: #333;
+            background: #000;
         }
 
         .form-status {
@@ -532,10 +703,10 @@
         .white-footer {
             background-color: white;
             background: white;
-            color: black;
+            color: #000;
             padding: 2rem 0 1rem 0;
             margin-top: 0;
-            border-top: 1px solid #f0f0f0;
+            border-top: 1px solid #000;
             text-align: center;
             width: 100%;
         }
@@ -545,21 +716,21 @@
         }
 
         .white-footer h3 {
-            color: black;
+            color: #000;
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
         .white-footer p {
-            color: #666;
+            color: #000;
             margin-bottom: 0.5rem;
             font-size: 1rem;
             line-height: 1.5;
         }
 
         .white-footer strong {
-            color: black;
+            color: #000;
         }
 
         .footer-content {
@@ -589,22 +760,23 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(0, 0, 0, 0.1);
+            background: white;
             border-radius: 50%;
-            color: #666;
+            color: #000;
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            border: 1px solid #000;
         }
 
         .social-links a:hover {
-            background: rgba(0, 0, 0, 0.2);
-            color: #000;
+            background: #000;
+            color: white;
             transform: translateY(-2px);
         }
 
         .footer-bottom {
-            border-top: 1px solid #eee;
+            border-top: 1px solid #000;
             margin-top: 2rem;
             padding-top: 1rem;
             text-align: center;
@@ -612,7 +784,7 @@
         }
 
         .footer-bottom p {
-            color: #999;
+            color: #000;
             font-size: 0.9rem;
         }
 
@@ -667,20 +839,65 @@
                 border-bottom: none;
             }
 
-            /* Secondary Navigation */
-            .secondary-nav {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-                padding: 2rem 1rem 1rem 1rem;
+            /* Cassette Player */
+            .cassette-section {
+                padding: 2rem 0;
             }
 
-            .secondary-nav-item {
-                font-size: 1rem;
-                width: 100%;
-                text-align: center;
+            .cassette-player {
+                padding: 1.5rem;
             }
-            
+
+            .cassette-tape {
+                padding: 1.2rem;
+            }
+
+            .cassette-tape::before,
+            .cassette-tape::after {
+                width: 30px;
+                height: 30px;
+            }
+
+            .cassette-tape::before {
+                left: 15px;
+            }
+
+            .cassette-tape::after {
+                right: 15px;
+            }
+
+            .cassette-label {
+                padding: 1rem;
+            }
+
+            .cassette-controls {
+                gap: 1rem;
+            }
+
+            .cassette-button {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .cassette-track {
+                padding: 1rem;
+            }
+
+            .track-number {
+                width: 22px;
+                height: 22px;
+                font-size: 0.75rem;
+                margin-right: 0.8rem;
+            }
+
+            .track-info h3 {
+                font-size: 0.95rem;
+            }
+
+            .track-info p {
+                font-size: 0.8rem;
+            }
+
             /* Content Sections */
             .intro-section {
                 padding: 3rem 0 2rem 0;
@@ -692,10 +909,6 @@
 
             .intro-content p {
                 font-size: 1rem;
-            }
-            
-            .blog-page {
-                padding: 5rem 1rem 1rem 1rem;
             }
 
             /* Services Grid */
@@ -720,16 +933,6 @@
                 padding: 1.5rem;
             }
 
-            /* Hero Cards */
-            .hero-card-content {
-                left: 1rem;
-                width: calc(100% - 2rem);
-            }
-
-            .hero-card h2 {
-                font-size: 0.9rem;
-            }
-
             /* Back button */
             .back-to-home {
                 left: 10px;
@@ -752,14 +955,6 @@
                 font-size: 0.95rem;
             }
 
-            .blog-title {
-                font-size: 2rem;
-            }
-
-            .blog-subtitle {
-                font-size: 1.1rem;
-            }
-
             .service-article h3 {
                 font-size: 1.1rem;
                 padding: 0 1rem;
@@ -770,12 +965,62 @@
                 padding: 0 1rem;
             }
 
-            .hero-card {
-                height: 70px;
+            .cassette-section {
+                padding: 1.5rem 0;
             }
 
-            .hero-card h2 {
-                font-size: 0.85rem;
+            .cassette-player {
+                padding: 1rem;
+            }
+
+            .cassette-tape {
+                padding: 1rem;
+            }
+
+            .cassette-tape::before,
+            .cassette-tape::after {
+                width: 25px;
+                height: 25px;
+            }
+
+            .cassette-tape::before {
+                left: 10px;
+            }
+
+            .cassette-tape::after {
+                right: 10px;
+            }
+
+            .cassette-label {
+                padding: 0.8rem;
+            }
+
+            .cassette-controls {
+                gap: 0.8rem;
+            }
+
+            .cassette-button {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .cassette-track {
+                padding: 0.8rem;
+            }
+
+            .track-number {
+                width: 20px;
+                height: 20px;
+                font-size: 0.7rem;
+                margin-right: 0.6rem;
+            }
+
+            .track-info h3 {
+                font-size: 0.9rem;
+            }
+
+            .track-info p {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -829,71 +1074,103 @@
             <div class="intro-content">
                 <p>MC Media is an early-stage startup dedicated to helping creators secure ownership of their work. We provide easy-to-use tools that embed copyright information directly into music files. This ensures that wherever your music travels digitally, your ownership and legal data travel with it—acting as both legal precedent and a foundation for integration with audio tracking technologies. As we grow into a larger platform, we plan to expand our services to include copyright management consulting and software customization for large-scale music catalog management, specifically targeting producers and publishers. We believe creators deserve to get paid for what they make, and our mission is to make that possible—simply and efficiently.</p>
             </div>
+        </div>
 
-            <!-- Secondary Navigation -->
-            <div class="secondary-nav">
-                <a href="#" class="secondary-nav-item active" onclick="filterContent('all')">All</a>
-                <a href="#" class="secondary-nav-item" onclick="filterContent('blog')">Blog</a>
-                <a href="#" class="secondary-nav-item" onclick="filterContent('projects')">Projects</a>
-                <a href="#" class="secondary-nav-item" onclick="filterContent('talks')">Talks</a>
-            </div>
-
-            <!-- No Content Message -->
-            <div id="noBlogMessage" class="no-content-message">
-                <h3>No blog content available yet</h3>
-                <p>Check back soon for blog posts and articles.</p>
-            </div>
-
-            <div id="noProjectsMessage" class="no-content-message">
-                <h3>No projects content available yet</h3>
-                <p>Check back soon for project updates.</p>
-            </div>
-
-            <div id="noTalksMessage" class="no-content-message">
-                <h3>No talks content available yet</h3>
-                <p>Check back soon for talks and presentations.</p>
-            </div>
-
-            <!-- Categories Section - Full Width -->
-            <div class="categories-section">
-                <!-- Blog Content -->
-                <div class="hero-card blog-content" onclick="showBlogPage('blog-post-1')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Blog</span> Understanding Music Copyright Basics</h2>
+        <!-- Cassette Tape Section with Extended Black Background -->
+        <div class="cassette-section">
+            <div class="cassette-container">
+                <div class="cassette-player">
+                    <div class="cassette-tape"></div>
+                    
+                    <!-- White Label with Filter Buttons -->
+                    <div class="cassette-label">
+                        <div class="cassette-controls">
+                            <button class="cassette-button active" onclick="filterContent('all')">All</button>
+                            <button class="cassette-button" onclick="filterContent('blog')">Blog</button>
+                            <button class="cassette-button" onclick="filterContent('projects')">Projects</button>
+                            <button class="cassette-button" onclick="filterContent('talks')">Talks</button>
+                        </div>
                     </div>
-                </div>
-                <div class="hero-card blog-content" onclick="showBlogPage('blog-post-2')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Blog</span> The Future of Digital Rights Management</h2>
-                    </div>
-                </div>
 
-                <!-- Projects Content -->
-                <div class="hero-card projects-content" onclick="showBlogPage('duck1-testing')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Projects</span> Duck1 Testing Phase for Music Rights Management</h2>
+                    <!-- No Content Messages -->
+                    <div id="noBlogMessage" class="no-content-message">
+                        <h3>No blog content available yet</h3>
+                        <p>Check back soon for blog posts and articles.</p>
                     </div>
-                </div>
-                <div class="hero-card projects-content" onclick="showBlogPage('rights-clinic')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Project</span> Music Rights Clinic Launch</h2>
-                    </div>
-                </div>
 
-                <!-- Talks Content -->
-                <div class="hero-card talks-content" onclick="showBlogPage('mobygratis-talk')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Talks</span> Mobygratis Explained, A Discussion with Natalie Jacobs</h2>
+                    <div id="noProjectsMessage" class="no-content-message">
+                        <h3>No projects content available yet</h3>
+                        <p>Check back soon for project updates.</p>
                     </div>
-                </div>
-                <div class="hero-card talks-content" onclick="showBlogPage('creativity-podcast')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Talks</span> Powering Creativity Podcast with Fendous PLS</h2>
+
+                    <div id="noTalksMessage" class="no-content-message">
+                        <h3>No talks content available yet</h3>
+                        <p>Check back soon for talks and presentations.</p>
                     </div>
-                </div>
-                <div class="hero-card talks-content" onclick="showBlogPage('symphonic-qa')">
-                    <div class="hero-card-content">
-                        <h2><span class="category-badge">Talks</span> Live Q&A with Symphonic Distribution</h2>
+
+                    <!-- Cassette Content - Tracks -->
+                    <div class="cassette-content">
+                        <!-- Blog Content -->
+                        <div class="cassette-track blog-content" onclick="navigateToContentPage('blog', 'blog-post-1')">
+                            <div class="track-number">1</div>
+                            <div class="track-info">
+                                <h3>Understanding Music Copyright Basics</h3>
+                                <p>Learn the fundamentals of protecting your creative work</p>
+                            </div>
+                            <span class="track-category">Blog</span>
+                        </div>
+                        <div class="cassette-track blog-content" onclick="navigateToContentPage('blog', 'blog-post-2')">
+                            <div class="track-number">2</div>
+                            <div class="track-info">
+                                <h3>The Future of Digital Rights Management</h3>
+                                <p>Exploring new technologies in copyright protection</p>
+                            </div>
+                            <span class="track-category">Blog</span>
+                        </div>
+
+                        <!-- Projects Content -->
+                        <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'duck1-testing')">
+                            <div class="track-number">3</div>
+                            <div class="track-info">
+                                <h3>Duck1 Testing Phase for Music Rights Management</h3>
+                                <p>Our latest project enters testing phase</p>
+                            </div>
+                            <span class="track-category">Projects</span>
+                        </div>
+                        <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'rights-clinic')">
+                            <div class="track-number">4</div>
+                            <div class="track-info">
+                                <h3>Music Rights Clinic Launch</h3>
+                                <p>Helping creators understand their rights</p>
+                            </div>
+                            <span class="track-category">Projects</span>
+                        </div>
+
+                        <!-- Talks Content -->
+                        <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'mobygratis-talk')">
+                            <div class="track-number">5</div>
+                            <div class="track-info">
+                                <h3>Mobygratis Explained, A Discussion with Natalie Jacobs</h3>
+                                <p>Understanding creative commons in music</p>
+                            </div>
+                            <span class="track-category">Talks</span>
+                        </div>
+                        <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'creativity-podcast')">
+                            <div class="track-number">6</div>
+                            <div class="track-info">
+                                <h3>Powering Creativity Podcast with Fendous PLS</h3>
+                                <p>Discussing the intersection of technology and creativity</p>
+                            </div>
+                            <span class="track-category">Talks</span>
+                        </div>
+                        <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'symphonic-qa')">
+                            <div class="track-number">7</div>
+                            <div class="track-info">
+                                <h3>Live Q&A with Symphonic Distribution</h3>
+                                <p>Answering questions about music distribution</p>
+                            </div>
+                            <span class="track-category">Talks</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -920,70 +1197,32 @@
 
     <!-- Services Page -->
     <section id="services" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="simple-content" style="padding-top: 6rem; padding-bottom: 2rem; width: 100%;">
-            
-            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
-                <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
-                    <!-- Text Content -->
-                    <div style="flex: 1; min-width: 300px;">
-                        <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">what we offer</h2>
-                        
-                        <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
-                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">MC Media is committed to making digital and media asset management more accessible and effective. Our mission is to empower creators and producers with top-notch support, innovative tools, and efficient processes to enhance their product management. We address the pressing need to improve copyright management in digital products, ensuring fair and transparent practices. From production planning to audiovisual catalog management, categorization, and archiving, we aim to elevate copyright awareness and promote fairness in the creative industries. By streamlining workflows and providing cutting-edge solutions, we ensure that creators can focus on what they do best—creating—while we handle the complexities of asset management.</p>
-                            <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 1rem 0 0 0;"><u>#copyright</u> <u>#consulting</u> <u>#education</u> <u>#embedding</u></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Image Box -->
-                    <div style="border: 1px solid #000; width: 100%; max-width: 600px; height: 100%; flex-shrink: 0; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; min-height: 400px; margin-top: 1rem;">
-                        Image placeholder
-                    </div>
-                </div>
+        <div class="services-section">
+            <div class="services-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions for music creators and rights holders</p>
             </div>
             
-            <!-- Services Section Headline -->
-            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 4rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">how we help creators</h2>
-            </div>
-            
-            <!-- Services Grid -->
             <div class="services-grid">
-                
-                <!-- Service 1 -->
                 <div class="service-article">
-                    <div class="service-image">
-                        Image placeholder
-                    </div>
-                    <h3>copyright consulting</h3>
-                    <p>Personalized consulting sessions to help artists understand their rights, navigate complex licensing agreements, and develop effective copyright protection strategies.</p>
+                    <div class="service-image">Service Image</div>
+                    <h3>Copyright Embedding</h3>
+                    <p>We embed copyright information directly into your music files, ensuring your ownership travels with your work wherever it goes digitally.</p>
                 </div>
-
-                <!-- Service 2 -->
                 <div class="service-article">
-                    <div class="service-image">
-                        Image placeholder
-                    </div>
-                    <h3>copyright education</h3>
-                    <p>Comprehensive educational workshops, resources, and editorial content designed to empower creators with essential knowledge about copyright law and best practices.</p>
+                    <div class="service-image">Service Image</div>
+                    <h3>Rights Management</h3>
+                    <p>Comprehensive management of your music rights, tracking usage and ensuring proper compensation for your creative work.</p>
                 </div>
-
-                <!-- Service 3 -->
                 <div class="service-article">
-                    <div class="service-image">
-                        Image placeholder
-                    </div>
-                    <h3>web API platform</h3>
-                    <p>A core technology solution currently in testing phase that offers quick, on-the-go copyright embedding through a web-based API.</p>
+                    <div class="service-image">Service Image</div>
+                    <h3>Distribution Support</h3>
+                    <p>Assistance with getting your music to all major platforms while maintaining proper copyright protection.</p>
                 </div>
-
-                <!-- Service 4 -->
                 <div class="service-article">
-                    <div class="service-image">
-                        Image placeholder
-                    </div>
-                    <h3>DAW plugin development</h3>
-                    <p>Research and development of plugins for popular Digital Audio Workstations that allow artists to secure their copyright directly within their creative workflow.</p>
+                    <div class="service-image">Service Image</div>
+                    <h3>Legal Consultation</h3>
+                    <p>Expert guidance on music copyright law and best practices for protecting your intellectual property.</p>
                 </div>
             </div>
         </div>
@@ -991,22 +1230,16 @@
 
     <!-- About Page -->
     <section id="about" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="simple-content" style="padding-top: 6rem; padding-bottom: 2rem; width: 100%;">
-            
-            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">about MC Media</h2>
-                
-                <div style="margin-bottom: 2rem; padding: 0; text-align: justify;">
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">MC Media emerged from the growing need for better copyright protection and media organization in the creative industries. We believe in transparency, innovation, and fairness as the foundation of digital asset management. Our team combines deep industry expertise with cutting-edge technology to create solutions that empower creators and protect their intellectual property. From our headquarters, we serve artists, producers, and media companies worldwide, helping them navigate the complex landscape of digital rights management with confidence and clarity.</p>
+        <div class="about-section">
+            <div class="about-content">
+                <div class="about-header">
+                    <h2>About MC Media</h2>
                 </div>
-                
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 2rem 0 1rem 0; color: #000;">meet the founders</h2>
-                
-                <!-- Founder Photo -->
-                <div style="border: 1px solid #000; width: 100%; max-width: 400px; background: #f8f8f8; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.9rem; height: 400px; margin-bottom: 3rem;">
-                    Founder Photo<br>
-                    <small style="font-size: 0.7rem; margin-top: 5px; text-align: center;">Professional headshot with polka dot shirt<br>against brick wall background</small>
+                <div class="about-text">
+                    <p>MC Media was founded with a simple mission: to ensure creators get paid for their work. In today's digital landscape, music travels further and faster than ever before, but often without the proper attribution and compensation for the artists who created it.</p>
+                    <p>Our innovative approach embeds copyright information directly into music files, creating a permanent record of ownership that travels with the work. This serves as both legal precedent and a foundation for integration with audio tracking technologies.</p>
+                    <p>As we continue to grow, we're expanding our services to include copyright management consulting and software customization for large-scale music catalog management, specifically targeting producers and publishers.</p>
+                    <p>We believe in a future where creativity is properly valued and compensated, and we're building the tools to make that future a reality.</p>
                 </div>
             </div>
         </div>
@@ -1014,58 +1247,107 @@
 
     <!-- Contact Page -->
     <section id="contact" class="page-section">
-        <button class="back-to-home" onclick="returnToHome()">← Back</button>
-        <div class="simple-content" style="padding-top: 6rem; padding-bottom: 2rem; width: 100%;">
-            
-            <div style="width: 100%; padding: 0 1rem; box-sizing: border-box; margin-top: 2rem; max-width: 1400px; margin-left: auto; margin-right: auto;">
-                <h2 style="font-size: 2.5rem; font-weight: bold; text-align: left; margin: 0 0 1rem 0; color: #000;">contact us</h2>
-                
-                <div style="margin-bottom: 3rem; padding: 0; text-align: justify;">
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #333; margin: 0;">Get in touch with us at mcmedia.dk@gmail.com. We're here to help with all your digital and media asset management needs.</p>
-                </div>
+        <div class="contact-section">
+            <div class="contact-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch to learn more about how we can help protect your creative work</p>
             </div>
-
-            <!-- Contact Form -->
+            
             <div class="contact-form-container">
-                <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #000;">send us a message</h3>
-                
-                <form id="contactForm" class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required />
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
                         </div>
                         <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required />
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
                         </div>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required />
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <input type="text" id="subject" name="subject" required />
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" required rows="6"></textarea>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    
                     <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-status" id="formStatus"></div>
                 </form>
-                
-                <div id="formStatus" class="form-status"></div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Pages (same as before) -->
-    <!-- ... existing blog pages ... -->
+    <!-- Content Pages -->
+    <section id="blog-page" class="page-section">
+        <div class="content-page">
+            <button class="back-to-home" onclick="navigateToPage('home')">← Back to Home</button>
+            <div class="content-header">
+                <h2>Blog</h2>
+                <p>Insights and articles about music copyright and digital rights management</p>
+            </div>
+            <div class="content-grid">
+                <div class="content-article" onclick="showContentDetail('blog-post-1')">
+                    <h3>Understanding Music Copyright Basics</h3>
+                    <p>Learn the fundamentals of protecting your creative work and understanding your rights as a music creator.</p>
+                </div>
+                <div class="content-article" onclick="showContentDetail('blog-post-2')">
+                    <h3>The Future of Digital Rights Management</h3>
+                    <p>Exploring new technologies and approaches to copyright protection in the digital age.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects-page" class="page-section">
+        <div class="content-page">
+            <button class="back-to-home" onclick="navigateToPage('home')">← Back to Home</button>
+            <div class="content-header">
+                <h2>Projects</h2>
+                <p>Our ongoing initiatives and development work</p>
+            </div>
+            <div class="content-grid">
+                <div class="content-article" onclick="showContentDetail('duck1-testing')">
+                    <h3>Duck1 Testing Phase for Music Rights Management</h3>
+                    <p>Our latest project enters testing phase with innovative approaches to copyright protection.</p>
+                </div>
+                <div class="content-article" onclick="showContentDetail('rights-clinic')">
+                    <h3>Music Rights Clinic Launch</h3>
+                    <p>Helping creators understand their rights and navigate the complex world of music copyright.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="talks-page" class="page-section">
+        <div class="content-page">
+            <button class="back-to-home" onclick="navigateToPage('home')">← Back to Home</button>
+            <div class="content-header">
+                <h2>Talks</h2>
+                <p>Presentations, discussions, and interviews about music rights</p>
+            </div>
+            <div class="content-grid">
+                <div class="content-article" onclick="showContentDetail('mobygratis-talk')">
+                    <h3>Mobygratis Explained, A Discussion with Natalie Jacobs</h3>
+                    <p>Understanding creative commons in music and how it impacts creators.</p>
+                </div>
+                <div class="content-article" onclick="showContentDetail('creativity-podcast')">
+                    <h3>Powering Creativity Podcast with Fendous PLS</h3>
+                    <p>Discussing the intersection of technology and creativity in the modern music industry.</p>
+                </div>
+                <div class="content-article" onclick="showContentDetail('symphonic-qa')">
+                    <h3>Live Q&A with Symphonic Distribution</h3>
+                    <p>Answering questions about music distribution and rights management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Mobile menu functionality
@@ -1086,14 +1368,14 @@
         // Content filtering function
         function filterContent(category) {
             // Update active state of navigation buttons
-            const navItems = document.querySelectorAll('.secondary-nav-item');
+            const navItems = document.querySelectorAll('.cassette-button');
             navItems.forEach(item => {
                 item.classList.remove('active');
             });
             event.target.classList.add('active');
 
             // Hide all content and messages first
-            const allContent = document.querySelectorAll('.hero-card');
+            const allContent = document.querySelectorAll('.cassette-track');
             allContent.forEach(item => {
                 item.style.display = 'none';
             });
@@ -1109,14 +1391,14 @@
             if (category === 'all') {
                 // Show all content
                 allContent.forEach(item => {
-                    item.style.display = 'block';
+                    item.style.display = 'flex';
                 });
                 foundContent = true;
             } else {
                 // Show specific category content
                 const categoryContent = document.querySelectorAll('.' + category + '-content');
                 categoryContent.forEach(item => {
-                    item.style.display = 'block';
+                    item.style.display = 'flex';
                     foundContent = true;
                 });
 
@@ -1127,7 +1409,7 @@
             }
 
             // Scroll to content section
-            document.querySelector('.categories-section').scrollIntoView({ 
+            document.querySelector('.cassette-section').scrollIntoView({ 
                 behavior: 'smooth',
                 block: 'start'
             });
@@ -1181,6 +1463,26 @@
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigate to content pages (Blog, Projects, Talks)
+        function navigateToContentPage(contentType, contentId) {
+            // Store the content ID for later use
+            sessionStorage.setItem('currentContent', contentId);
+            
+            // Navigate to the appropriate content page
+            if (contentType === 'blog') {
+                navigateToPage('blog-page');
+            } else if (contentType === 'projects') {
+                navigateToPage('projects-page');
+            } else if (contentType === 'talks') {
+                navigateToPage('talks-page');
+            }
+        }
+
+        // Show content detail (placeholder function)
+        function showContentDetail(contentId) {
+            alert(`Loading content: ${contentId}\n\nIn a real implementation, this would display the full content article.`);
         }
 
         // Contact form functionality
@@ -1252,13 +1554,13 @@
             formStatus.style.display = 'block';
             
             if (type === 'success') {
-                formStatus.style.background = '#d4edda';
-                formStatus.style.color = '#155724';
-                formStatus.style.border = '1px solid #c3e6cb';
+                formStatus.style.background = '#000';
+                formStatus.style.color = 'white';
+                formStatus.style.border = '1px solid #000';
             } else if (type === 'error') {
-                formStatus.style.background = '#f8d7da';
-                formStatus.style.color = '#721c24';
-                formStatus.style.border = '1px solid #f5c6cb';
+                formStatus.style.background = '#000';
+                formStatus.style.color = 'white';
+                formStatus.style.border = '1px solid #000';
             }
             
             // Hide status after 5 seconds
@@ -1267,64 +1569,37 @@
             }, 5000);
         }
 
-        // Navigation event listeners
+        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize mobile menu
-            const mobileBtn = document.querySelector('.mobile-menu-btn');
-            if (mobileBtn) {
-                mobileBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    toggleMobileMenu();
-                });
+            // Set up mobile menu button
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
             }
-
-            // Initialize video
-            initializeVideo();
             
-            // Main navigation
+            // Set up navigation links
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const page = this.getAttribute('data-page');
-                    navigateToPage(page);
+                    const pageId = this.getAttribute('data-page');
+                    navigateToPage(pageId);
                 });
             });
-
+            
+            // Initialize video
+            initializeVideo();
+            
             // Initialize contact form
             initializeContactForm();
-
-            // Initialize with all content shown
-            filterContent('all');
             
-            console.log('Navigation and filtering initialized successfully');
-        });
-
-        // Blog page navigation
-        function showBlogPage(blogId) {
-            navigateToPage(blogId);
-        }
-
-        // Return to home
-        function returnToHome() {
-            navigateToPage('home');
-            // Reset filter to show all content when returning home
+            // Show sticky banner after a delay
             setTimeout(() => {
-                filterContent('all');
-            }, 100);
-        }
-
-        // Error handling
-        window.addEventListener('error', function(e) {
-            console.log('Page error:', e.message);
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            // Close mobile menu on larger screens
-            if (window.innerWidth > 768) {
-                document.querySelector('.nav-links').classList.remove('active');
-            }
+                const stickyBanner = document.querySelector('.sticky-banner');
+                if (stickyBanner) {
+                    stickyBanner.style.display = 'flex';
+                }
+            }, 3000);
         });
     </script>
 </body>
