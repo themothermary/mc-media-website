@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background: #fff;
+            background: #ffffff;
             color: #000;
             line-height: 1.4;
             overflow-x: hidden;
@@ -134,6 +134,85 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
+            /* COMPLETELY REMOVE CONTROLS */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            /* Hide all controls */
+            pointer-events: none;
+        }
+
+        /* COMPREHENSIVE VIDEO CONTROL REMOVAL */
+        .hero-video-background::-webkit-media-controls {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-panel {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-play-button {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-start-playback-button {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-timeline {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-current-time-display {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-mute-button {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-volume-slider {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-fullscreen-button {
+            display: none !important;
+        }
+        
+        .hero-video-background::-webkit-media-controls-overlay-play-button {
+            display: none !important;
+        }
+
+        /* Firefox */
+        .hero-video-background::-moz-media-controls {
+            display: none !important;
+        }
+        
+        .hero-video-background::-moz-media-controls-panel {
+            display: none !important;
+        }
+        
+        .hero-video-background::-moz-media-controls-play-button {
+            display: none !important;
+        }
+
+        /* IE/Edge */
+        .hero-video-background::-ms-media-controls {
+            display: none !important;
+        }
+        
+        .hero-video-background::-ms-media-controls-panel {
+            display: none !important;
+        }
+        
+        .hero-video-background::-ms-media-controls-play-button {
+            display: none !important;
         }
 
         .video-overlay {
@@ -147,11 +226,55 @@
             pointer-events: none;
         }
 
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #000, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            z-index: 3;
+            display: none;
+        }
+
+        /* Video Text Overlay */
+        .video-text-overlay {
+            position: absolute;
+            bottom: 80px;
+            left: 60px;
+            color: white;
+            text-align: left;
+            z-index: 4;
+            max-width: 500px;
+        }
+
+        .video-text-overlay h2 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .video-text-overlay .line1 {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        .video-text-overlay .line2 {
+            display: block;
+        }
+
         /* ======================================
            MC MEDIA DESCRIPTION SECTION
            ====================================== */
         .intro-section {
-            background: white;
+            background: #ffffff;
             padding: 4rem 0 2rem 0;
             width: 100%;
         }
@@ -195,37 +318,6 @@
             margin-bottom: 0;
             border: 1px solid #000;
             position: relative;
-        }
-
-        .cassette-tape {
-            background: white;
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #000;
-            position: relative;
-            text-align: center;
-        }
-
-        .cassette-tape::before,
-        .cassette-tape::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            border: 1px solid #000;
-        }
-
-        .cassette-tape::before {
-            left: 20px;
-        }
-
-        .cassette-tape::after {
-            right: 20px;
         }
 
         .cassette-label {
@@ -341,9 +433,33 @@
             border: 1px solid #000;
         }
 
+        /* Neon pink category colors with black outline */
+        .blog-content .track-category {
+            background: #ff1493;
+            color: white;
+            border: 2px solid #000;
+            box-shadow: 0 0 0 1px #000;
+        }
+
+        .projects-content .track-category {
+            background: #ff1493;
+            color: white;
+            border: 2px solid #000;
+            box-shadow: 0 0 0 1px #000;
+        }
+
+        .talks-content .track-category {
+            background: #ff1493;
+            color: white;
+            border: 2px solid #000;
+            box-shadow: 0 0 0 1px #000;
+        }
+
         .cassette-track:hover .track-category {
             background: white;
             color: #000;
+            border: 1px solid white;
+            box-shadow: none;
         }
 
         .no-content-message {
@@ -359,7 +475,7 @@
            ====================================== */
         .content-page {
             padding: 6rem 0 2rem 0;
-            background: white;
+            background: #ffffff;
         }
 
         .content-header {
@@ -372,6 +488,8 @@
             font-size: 2.5rem;
             font-weight: 300;
             margin-bottom: 1rem;
+            color: #ff1493;
+            text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
         }
 
         .content-header p {
@@ -413,7 +531,8 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #000;
+            color: #ff1493;
+            text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
         }
 
         .content-article p {
@@ -490,7 +609,7 @@
            ====================================== */
         .services-section {
             padding: 6rem 0 2rem 0;
-            background: white;
+            background: #ffffff;
         }
 
         .services-header {
@@ -570,7 +689,7 @@
            ====================================== */
         .about-section {
             padding: 6rem 0 2rem 0;
-            background: white;
+            background: #ffffff;
         }
 
         .about-content {
@@ -602,7 +721,7 @@
            ====================================== */
         .contact-section {
             padding: 6rem 0 2rem 0;
-            background: white;
+            background: #ffffff;
         }
 
         .contact-header {
@@ -701,8 +820,7 @@
            FOOTER - WHITE BACKGROUND
            ====================================== */
         .white-footer {
-            background-color: white;
-            background: white;
+            background-color: #ffffff;
             color: #000;
             padding: 2rem 0 1rem 0;
             margin-top: 0;
@@ -800,6 +918,16 @@
                 padding: 0.8rem 0.8rem;
                 font-size: 0.85rem;
             }
+
+            .video-text-overlay {
+                left: 40px;
+                bottom: 60px;
+                max-width: 450px;
+            }
+
+            .video-text-overlay h2 {
+                font-size: 2.8rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -839,6 +967,17 @@
                 border-bottom: none;
             }
 
+            /* Video Text Overlay */
+            .video-text-overlay {
+                left: 30px;
+                bottom: 50px;
+                max-width: 380px;
+            }
+
+            .video-text-overlay h2 {
+                font-size: 2.3rem;
+            }
+
             /* Cassette Player */
             .cassette-section {
                 padding: 2rem 0;
@@ -846,24 +985,6 @@
 
             .cassette-player {
                 padding: 1.5rem;
-            }
-
-            .cassette-tape {
-                padding: 1.2rem;
-            }
-
-            .cassette-tape::before,
-            .cassette-tape::after {
-                width: 30px;
-                height: 30px;
-            }
-
-            .cassette-tape::before {
-                left: 15px;
-            }
-
-            .cassette-tape::after {
-                right: 15px;
             }
 
             .cassette-label {
@@ -951,6 +1072,17 @@
                 font-size: 1.2rem;
             }
 
+            /* Video Text Overlay */
+            .video-text-overlay {
+                left: 20px;
+                bottom: 40px;
+                max-width: 280px;
+            }
+
+            .video-text-overlay h2 {
+                font-size: 1.8rem;
+            }
+
             .intro-content p {
                 font-size: 0.95rem;
             }
@@ -971,24 +1103,6 @@
 
             .cassette-player {
                 padding: 1rem;
-            }
-
-            .cassette-tape {
-                padding: 1rem;
-            }
-
-            .cassette-tape::before,
-            .cassette-tape::after {
-                width: 25px;
-                height: 25px;
-            }
-
-            .cassette-tape::before {
-                left: 10px;
-            }
-
-            .cassette-tape::after {
-                right: 10px;
             }
 
             .cassette-label {
@@ -1042,7 +1156,7 @@
         </div>
     </nav>
 
-    <!-- Sticky Banner -->
+    <!-- Sticky Banner (Hidden on Home Page) -->
     <div class="sticky-banner">
         <h3>we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! /</h3>
     </div>
@@ -1051,7 +1165,7 @@
     <section id="home" class="page-section active">
         <!-- Main Hero with Video -->
         <div class="main-hero" id="mainHero">
-            <!-- Video Background -->
+            <!-- Video Background - NO CONTROLS -->
             <video 
                 id="heroVideo"
                 class="hero-video-background"
@@ -1059,11 +1173,29 @@
                 loop 
                 playsinline
                 preload="auto"
-                muted="true"
+                muted
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3C/svg%3E"
             >
-                <source src="https://github.com/marycrisostomo/mc-media-website/INTRO_RAWmp4" type="video/mp4">
+                <!-- Try multiple video sources for better compatibility -->
+                <source src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/INTRO_RAW.mp4" type="video/mp4">
+                <source src="https://github.com/marycrisostomo/mc-media-website/raw/main/INTRO_RAW.mp4" type="video/mp4">
+                <!-- Fallback to a working video if yours doesn't load -->
+                <source src="https://assets.codepen.io/3364143/710-2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            
+            <!-- Video Text Overlay - Now properly on two lines -->
+            <div class="video-text-overlay">
+                <h2>
+                    <span class="line1">Secure your music</span>
+                    <span class="line2">copyright with MC Media.</span>
+                </h2>
+            </div>
+            
+            <!-- Video Fallback Content (completely removed text content) -->
+            <div class="video-fallback" id="videoFallback">
+                <!-- Empty fallback - no text content -->
+            </div>
             
             <!-- Video Overlay -->
             <div class="video-overlay"></div>
@@ -1080,8 +1212,6 @@
         <div class="cassette-section">
             <div class="cassette-container">
                 <div class="cassette-player">
-                    <div class="cassette-tape"></div>
-                    
                     <!-- White Label with Filter Buttons -->
                     <div class="cassette-label">
                         <div class="cassette-controls">
@@ -1110,27 +1240,9 @@
 
                     <!-- Cassette Content - Tracks -->
                     <div class="cassette-content">
-                        <!-- Blog Content -->
-                        <div class="cassette-track blog-content" onclick="navigateToContentPage('blog', 'blog-post-1')">
-                            <div class="track-number">1</div>
-                            <div class="track-info">
-                                <h3>Understanding Music Copyright Basics</h3>
-                                <p>Learn the fundamentals of protecting your creative work</p>
-                            </div>
-                            <span class="track-category">Blog</span>
-                        </div>
-                        <div class="cassette-track blog-content" onclick="navigateToContentPage('blog', 'blog-post-2')">
-                            <div class="track-number">2</div>
-                            <div class="track-info">
-                                <h3>The Future of Digital Rights Management</h3>
-                                <p>Exploring new technologies in copyright protection</p>
-                            </div>
-                            <span class="track-category">Blog</span>
-                        </div>
-
                         <!-- Projects Content -->
                         <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'duck1-testing')">
-                            <div class="track-number">3</div>
+                            <div class="track-number">1</div>
                             <div class="track-info">
                                 <h3>Duck1 Testing Phase for Music Rights Management</h3>
                                 <p>Our latest project enters testing phase</p>
@@ -1138,7 +1250,7 @@
                             <span class="track-category">Projects</span>
                         </div>
                         <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'rights-clinic')">
-                            <div class="track-number">4</div>
+                            <div class="track-number">2</div>
                             <div class="track-info">
                                 <h3>Music Rights Clinic Launch</h3>
                                 <p>Helping creators understand their rights</p>
@@ -1148,7 +1260,7 @@
 
                         <!-- Talks Content -->
                         <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'mobygratis-talk')">
-                            <div class="track-number">5</div>
+                            <div class="track-number">3</div>
                             <div class="track-info">
                                 <h3>Mobygratis Explained, A Discussion with Natalie Jacobs</h3>
                                 <p>Understanding creative commons in music</p>
@@ -1156,7 +1268,7 @@
                             <span class="track-category">Talks</span>
                         </div>
                         <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'creativity-podcast')">
-                            <div class="track-number">6</div>
+                            <div class="track-number">4</div>
                             <div class="track-info">
                                 <h3>Powering Creativity Podcast with Fendous PLS</h3>
                                 <p>Discussing the intersection of technology and creativity</p>
@@ -1164,7 +1276,7 @@
                             <span class="track-category">Talks</span>
                         </div>
                         <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'symphonic-qa')">
-                            <div class="track-number">7</div>
+                            <div class="track-number">5</div>
                             <div class="track-info">
                                 <h3>Live Q&A with Symphonic Distribution</h3>
                                 <p>Answering questions about music distribution</p>
@@ -1185,11 +1297,11 @@
                     <p>e-mail: mcmedia.dk@gmail.com</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                        <a href="https://www.instagram.com/musicrightsclinic/" target="_blank" aria-label="Instagram">📷</a>
+                        <a href="https://www.instagram.com/musicrightscl" target="_blank" aria-label="Instagram">📷</a>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 MC Media. All rights reserved.</p>
+                    <p>&copy; 2023 MC Media. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -1202,27 +1314,27 @@
                 <h2>Our Services</h2>
                 <p>Comprehensive solutions for music creators and rights holders</p>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-article">
-                    <div class="service-image">Service Image</div>
-                    <h3>Copyright Embedding</h3>
-                    <p>We embed copyright information directly into your music files, ensuring your ownership travels with your work wherever it goes digitally.</p>
+                    <div class="service-image">Image Placeholder</div>
+                    <h3>Copyright Embedding Technology</h3>
+                    <p>Our proprietary technology embeds copyright information directly into your music files. This ensures your ownership data travels with your music across all digital platforms, providing legal protection and establishing clear ownership.</p>
                 </div>
                 <div class="service-article">
-                    <div class="service-image">Service Image</div>
-                    <h3>Rights Management</h3>
-                    <p>Comprehensive management of your music rights, tracking usage and ensuring proper compensation for your creative work.</p>
+                    <div class="service-image">Image Placeholder</div>
+                    <h3>Rights Management Consulting</h3>
+                    <p>Expert guidance on managing your music rights portfolio. We help you understand copyright law, navigate licensing agreements, and develop strategies to maximize your revenue from creative works.</p>
                 </div>
                 <div class="service-article">
-                    <div class="service-image">Service Image</div>
-                    <h3>Distribution Support</h3>
-                    <p>Assistance with getting your music to all major platforms while maintaining proper copyright protection.</p>
+                    <div class="service-image">Image Placeholder</div>
+                    <h3>Digital Distribution Support</h3>
+                    <p>Assistance with getting your music onto major streaming platforms while maintaining proper copyright attribution. We ensure your embedded rights information is preserved throughout the distribution process.</p>
                 </div>
                 <div class="service-article">
-                    <div class="service-image">Service Image</div>
-                    <h3>Legal Consultation</h3>
-                    <p>Expert guidance on music copyright law and best practices for protecting your intellectual property.</p>
+                    <div class="service-image">Image Placeholder</div>
+                    <h3>Custom Catalog Management</h3>
+                    <p>Enterprise-level solutions for managing large music catalogs. Our customizable software helps publishers and labels track rights, manage licenses, and monitor usage across digital platforms.</p>
                 </div>
             </div>
         </div>
@@ -1236,10 +1348,9 @@
                     <h2>About MC Media</h2>
                 </div>
                 <div class="about-text">
-                    <p>MC Media was founded with a simple mission: to ensure creators get paid for their work. In today's digital landscape, music travels further and faster than ever before, but often without the proper attribution and compensation for the artists who created it.</p>
-                    <p>Our innovative approach embeds copyright information directly into music files, creating a permanent record of ownership that travels with the work. This serves as both legal precedent and a foundation for integration with audio tracking technologies.</p>
-                    <p>As we continue to grow, we're expanding our services to include copyright management consulting and software customization for large-scale music catalog management, specifically targeting producers and publishers.</p>
-                    <p>We believe in a future where creativity is properly valued and compensated, and we're building the tools to make that future a reality.</p>
+                    <p>MC Media was founded on the principle that creators deserve to maintain ownership and get paid for their work. In today's digital landscape, music can travel across countless platforms and formats, often losing connection to its original creator along the way.</p>
+                    <p>Our solution embeds copyright information directly into music files themselves, creating an indelible link between creator and creation. This technology serves both as legal precedent for ownership claims and as infrastructure for future audio tracking systems.</p>
+                    <p>As we grow, we're expanding our services to include comprehensive rights management consulting and customized software solutions for large-scale music catalog management. We're committed to building tools that put power back in the hands of creators.</p>
                 </div>
             </div>
         </div>
@@ -1250,24 +1361,20 @@
         <div class="contact-section">
             <div class="contact-header">
                 <h2>Contact Us</h2>
-                <p>Get in touch to learn more about how we can help protect your creative work</p>
+                <p>Get in touch to learn more about protecting your music</p>
             </div>
-            
+
             <div class="contact-form-container">
                 <form class="contact-form" id="contactForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
@@ -1285,321 +1392,265 @@
     </section>
 
     <!-- Content Pages -->
-    <section id="blog-page" class="page-section">
+    <section id="blog" class="page-section">
         <div class="content-page">
-            <button class="back-to-home" onclick="navigateToPage('home')">← Back to Home</button>
             <div class="content-header">
                 <h2>Blog</h2>
-                <p>Insights and articles about music copyright and digital rights management</p>
+                <p>Insights on music copyright, technology, and creator rights</p>
             </div>
             <div class="content-grid">
-                <div class="content-article" onclick="showContentDetail('blog-post-1')">
-                    <h3>Understanding Music Copyright Basics</h3>
-                    <p>Learn the fundamentals of protecting your creative work and understanding your rights as a music creator.</p>
-                </div>
-                <div class="content-article" onclick="showContentDetail('blog-post-2')">
-                    <h3>The Future of Digital Rights Management</h3>
-                    <p>Exploring new technologies and approaches to copyright protection in the digital age.</p>
-                </div>
+                <!-- Blog content would go here -->
             </div>
         </div>
     </section>
 
-    <section id="projects-page" class="page-section">
+    <section id="projects" class="page-section">
         <div class="content-page">
-            <button class="back-to-home" onclick="navigateToPage('home')">← Back to Home</button>
             <div class="content-header">
                 <h2>Projects</h2>
-                <p>Our ongoing initiatives and development work</p>
+                <p>Our initiatives and development work</p>
             </div>
             <div class="content-grid">
-                <div class="content-article" onclick="showContentDetail('duck1-testing')">
+                <div class="content-article" data-article="duck1-testing">
                     <h3>Duck1 Testing Phase for Music Rights Management</h3>
-                    <p>Our latest project enters testing phase with innovative approaches to copyright protection.</p>
+                    <p>Our latest project, Duck1, has entered its testing phase. This innovative approach to music rights management uses embedded copyright technology to ensure creators maintain ownership of their work across digital platforms.</p>
+                    <p>The testing phase will involve a select group of creators who will use our technology to protect their music. We'll be gathering feedback and making improvements before a wider release.</p>
                 </div>
-                <div class="content-article" onclick="showContentDetail('rights-clinic')">
+                <div class="content-article" data-article="rights-clinic">
                     <h3>Music Rights Clinic Launch</h3>
-                    <p>Helping creators understand their rights and navigate the complex world of music copyright.</p>
+                    <p>We're excited to announce the launch of our Music Rights Clinic, a resource for creators to get answers to their copyright questions and understand their rights.</p>
+                    <p>The clinic will offer free consultations, educational materials, and guidance on navigating the complex world of music copyright. Our goal is to empower creators with knowledge about protecting their work.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="talks-page" class="page-section">
+    <section id="talks" class="page-section">
         <div class="content-page">
-            <button class="back-to-home" onclick="navigateToPage('home')">← Back to Home</button>
             <div class="content-header">
-                <h2>Talks</h2>
-                <p>Presentations, discussions, and interviews about music rights</p>
+                <h2>Talks & Presentations</h2>
+                <p>Conversations about music, technology, and rights</p>
             </div>
             <div class="content-grid">
-                <div class="content-article" onclick="showContentDetail('mobygratis-talk')">
+                <div class="content-article" data-article="mobygratis-talk">
                     <h3>Mobygratis Explained, A Discussion with Natalie Jacobs</h3>
-                    <p>Understanding creative commons in music and how it impacts creators.</p>
+                    <p>In this insightful conversation, we explore Mobygratis and the world of creative commons music with Natalie Jacobs. We discuss how creators can leverage creative commons licensing while still protecting their rights.</p>
+                    <p>The discussion covers practical tips for musicians looking to share their work while maintaining appropriate rights and attribution.</p>
                 </div>
-                <div class="content-article" onclick="showContentDetail('creativity-podcast')">
+                <div class="content-article" data-article="creativity-podcast">
                     <h3>Powering Creativity Podcast with Fendous PLS</h3>
-                    <p>Discussing the intersection of technology and creativity in the modern music industry.</p>
+                    <p>Join us for a conversation about the intersection of technology and creativity on the Powering Creativity podcast with Fendous PLS. We discuss how new technologies are changing the landscape for creators.</p>
+                    <p>The episode covers everything from copyright technology to distribution platforms and how creators can navigate this evolving ecosystem.</p>
                 </div>
-                <div class="content-article" onclick="showContentDetail('symphonic-qa')">
+                <div class="content-article" data-article="symphonic-qa">
                     <h3>Live Q&A with Symphonic Distribution</h3>
-                    <p>Answering questions about music distribution and rights management.</p>
+                    <p>In this live question and answer session with Symphonic Distribution, we tackle common questions about music distribution, copyright, and how creators can maximize their reach while protecting their work.</p>
+                    <p>The session covers practical advice for independent artists looking to distribute their music while maintaining control over their rights.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Back to Home Button (Hidden on Home Page) -->
+    <button class="back-to-home" id="backToHome" style="display: none;">← Back to Home</button>
 
     <script>
-        // Mobile menu functionality
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
+        // ======================================
+        // DOM ELEMENTS
+        // ======================================
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navLinksAll = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+        const stickyBanner = document.querySelector('.sticky-banner');
+        const backToHomeBtn = document.getElementById('backToHome');
+        const heroVideo = document.getElementById('heroVideo');
+        const videoFallback = document.getElementById('videoFallback');
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const navLinks = document.querySelector('.nav-links');
-            const mobileBtn = document.querySelector('.mobile-menu-btn');
-            if (!navLinks.contains(e.target) && !mobileBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
+        // ======================================
+        // MOBILE MENU TOGGLE
+        // ======================================
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        // Content filtering function
-        function filterContent(category) {
-            // Update active state of navigation buttons
-            const navItems = document.querySelectorAll('.cassette-button');
-            navItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // Hide all content and messages first
-            const allContent = document.querySelectorAll('.cassette-track');
-            allContent.forEach(item => {
-                item.style.display = 'none';
-            });
-
-            const allMessages = document.querySelectorAll('.no-content-message');
-            allMessages.forEach(msg => {
-                msg.style.display = 'none';
-            });
-
-            // Show content based on category
-            let foundContent = false;
-
-            if (category === 'all') {
-                // Show all content
-                allContent.forEach(item => {
-                    item.style.display = 'flex';
-                });
-                foundContent = true;
-            } else {
-                // Show specific category content
-                const categoryContent = document.querySelectorAll('.' + category + '-content');
-                categoryContent.forEach(item => {
-                    item.style.display = 'flex';
-                    foundContent = true;
-                });
-
-                // Show "no content" message if no items found
-                if (!foundContent) {
-                    document.getElementById('no' + category.charAt(0).toUpperCase() + category.slice(1) + 'Message').style.display = 'block';
-                }
-            }
-
-            // Scroll to content section
-            document.querySelector('.cassette-section').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-
-        // Video initialization
-        function initializeVideo() {
-            const video = document.getElementById('heroVideo');
-            if (video) {
-                video.play().catch(error => {
-                    console.log('Video autoplay prevented:', error);
-                });
-            }
-        }
-
-        // Simple navigation system
+        // ======================================
+        // PAGE NAVIGATION
+        // ======================================
         function navigateToPage(pageId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => {
+            // Hide all page sections
+            pageSections.forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Show target section
-            const targetSection = document.getElementById(pageId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
             
-            // Update nav links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
+            // Update active nav link
+            navLinksAll.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('data-page') === pageId) {
                     link.classList.add('active');
                 }
             });
             
-            // Show/hide sticky banner
-            const stickyBanner = document.querySelector('.sticky-banner');
-            if (stickyBanner) {
-                if (['services', 'about', 'contact'].includes(pageId)) {
-                    stickyBanner.style.display = 'flex';
-                } else {
-                    stickyBanner.style.display = 'none';
-                }
+            // Show/hide sticky banner and back button based on page
+            if (pageId === 'home') {
+                stickyBanner.style.display = 'none';
+                backToHomeBtn.style.display = 'none';
+            } else {
+                stickyBanner.style.display = 'flex';
+                backToHomeBtn.style.display = 'block';
             }
             
             // Close mobile menu if open
-            document.querySelector('.nav-links').classList.remove('active');
+            navLinks.classList.remove('active');
             
             // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         }
 
-        // Navigate to content pages (Blog, Projects, Talks)
-        function navigateToContentPage(contentType, contentId) {
-            // Store the content ID for later use
-            sessionStorage.setItem('currentContent', contentId);
-            
-            // Navigate to the appropriate content page
-            if (contentType === 'blog') {
-                navigateToPage('blog-page');
-            } else if (contentType === 'projects') {
-                navigateToPage('projects-page');
-            } else if (contentType === 'talks') {
-                navigateToPage('talks-page');
-            }
-        }
-
-        // Show content detail (placeholder function)
-        function showContentDetail(contentId) {
-            alert(`Loading content: ${contentId}\n\nIn a real implementation, this would display the full content article.`);
-        }
-
-        // Contact form functionality
-        function initializeContactForm() {
-            const contactForm = document.getElementById('contactForm');
-            if (!contactForm) return;
-
-            contactForm.addEventListener('submit', function(e) {
+        // ======================================
+        // NAVIGATION EVENT LISTENERS
+        // ======================================
+        navLinksAll.forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
-                
-                const formData = new FormData(contactForm);
-                const formStatus = document.getElementById('formStatus');
-                
-                // Get form values
-                const firstName = formData.get('firstName');
-                const lastName = formData.get('lastName');
-                const email = formData.get('email');
-                const subject = formData.get('subject');
-                const message = formData.get('message');
-                
-                // Validate required fields
-                if (!firstName || !lastName || !email || !subject || !message) {
-                    showFormStatus('Please fill in all required fields.', 'error');
-                    return;
-                }
-                
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    showFormStatus('Please enter a valid email address.', 'error');
-                    return;
-                }
-                
-                // Show loading state
-                const submitButton = contactForm.querySelector('.submit-btn');
-                const originalText = submitButton.textContent;
-                submitButton.textContent = 'Sending...';
-                submitButton.disabled = true;
-                
-                // Create mailto link with form data
-                const emailBody = encodeURIComponent(
-                    `From: ${firstName} ${lastName}\n` +
-                    `Email: ${email}\n\n` +
-                    `Message:\n${message}`
-                );
-                
-                const mailtoLink = `mailto:mcmedia.dk@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-                
-                // Open email client
-                window.location.href = mailtoLink;
-                
-                // Show success message
-                setTimeout(() => {
-                    showFormStatus('Your email client has been opened. Please send the email to complete your message.', 'success');
-                    contactForm.reset();
-                    
-                    // Reset button
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                }, 1000);
+                const pageId = link.getAttribute('data-page');
+                navigateToPage(pageId);
             });
-        }
+        });
 
-        function showFormStatus(message, type) {
-            const formStatus = document.getElementById('formStatus');
-            if (!formStatus) return;
+        // Back to home button
+        backToHomeBtn.addEventListener('click', () => {
+            navigateToPage('home');
+        });
+
+        // ======================================
+        // CASSETTE TAPE FILTERING
+        // ======================================
+        function filterContent(category) {
+            const tracks = document.querySelectorAll('.cassette-track');
+            const buttons = document.querySelectorAll('.cassette-button');
             
-            formStatus.textContent = message;
-            formStatus.style.display = 'block';
+            // Update active button
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
             
-            if (type === 'success') {
-                formStatus.style.background = '#000';
-                formStatus.style.color = 'white';
-                formStatus.style.border = '1px solid #000';
-            } else if (type === 'error') {
-                formStatus.style.background = '#000';
-                formStatus.style.color = 'white';
-                formStatus.style.border = '1px solid #000';
+            // Show/hide tracks based on category
+            tracks.forEach(track => {
+                if (category === 'all' || track.classList.contains(`${category}-content`)) {
+                    track.style.display = 'flex';
+                } else {
+                    track.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no content messages
+            const noBlogMessage = document.getElementById('noBlogMessage');
+            const noProjectsMessage = document.getElementById('noProjectsMessage');
+            const noTalksMessage = document.getElementById('noTalksMessage');
+            
+            // Hide all messages first
+            noBlogMessage.style.display = 'none';
+            noProjectsMessage.style.display = 'none';
+            noTalksMessage.style.display = 'none';
+            
+            // Show appropriate message if no content for selected category
+            if (category === 'blog') {
+                const blogTracks = document.querySelectorAll('.blog-content');
+                const visibleBlogTracks = Array.from(blogTracks).filter(track => track.style.display !== 'none');
+                if (visibleBlogTracks.length === 0) {
+                    noBlogMessage.style.display = 'block';
+                }
+            } else if (category === 'projects') {
+                const projectsTracks = document.querySelectorAll('.projects-content');
+                const visibleProjectsTracks = Array.from(projectsTracks).filter(track => track.style.display !== 'none');
+                if (visibleProjectsTracks.length === 0) {
+                    noProjectsMessage.style.display = 'block';
+                }
+            } else if (category === 'talks') {
+                const talksTracks = document.querySelectorAll('.talks-content');
+                const visibleTalksTracks = Array.from(talksTracks).filter(track => track.style.display !== 'none');
+                if (visibleTalksTracks.length === 0) {
+                    noTalksMessage.style.display = 'block';
+                }
             }
-            
-            // Hide status after 5 seconds
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-            }, 5000);
         }
 
-        // Initialize when page loads
+        // ======================================
+        // CONTENT PAGE NAVIGATION
+        // ======================================
+        function navigateToContentPage(contentType, articleId) {
+            // Navigate to the content page
+            navigateToPage(contentType);
+            
+            // If there's a specific article, you could scroll to it or highlight it
+            // This is a placeholder for future functionality
+            console.log(`Navigating to ${contentType} article: ${articleId}`);
+        }
+
+        // ======================================
+        // VIDEO CONTROL REMOVAL
+        // ======================================
         document.addEventListener('DOMContentLoaded', function() {
-            // Set up mobile menu button
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-            }
+            const heroVideo = document.getElementById('heroVideo');
             
-            // Set up navigation links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('data-page');
-                    navigateToPage(pageId);
+            if (heroVideo) {
+                // Remove controls attribute completely
+                heroVideo.removeAttribute('controls');
+                heroVideo.controls = false;
+                
+                // Force hide any potential controls
+                heroVideo.style.setProperty('--media-controls-display', 'none', 'important');
+                
+                // Ensure video plays automatically and loops
+                heroVideo.play().catch(error => {
+                    console.log('Video autoplay failed:', error);
                 });
-            });
-            
-            // Initialize video
-            initializeVideo();
-            
-            // Initialize contact form
-            initializeContactForm();
-            
-            // Show sticky banner after a delay
-            setTimeout(() => {
-                const stickyBanner = document.querySelector('.sticky-banner');
-                if (stickyBanner) {
-                    stickyBanner.style.display = 'flex';
+                
+                // Prevent any right-click context menu
+                heroVideo.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        });
+
+        // ======================================
+        // VIDEO FALLBACK HANDLING
+        // ======================================
+        // Check if video can play
+        if (heroVideo) {
+            heroVideo.addEventListener('error', () => {
+                // If video fails to load, show fallback
+                if (videoFallback) {
+                    videoFallback.style.display = 'flex';
                 }
-            }, 3000);
+            });
+        }
+
+        // ======================================
+        // INITIALIZATION
+        // ======================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the page
+            navigateToPage('home');
+            
+            // Set up initial cassette filter
+            filterContent('all');
+            
+            // Try to play the video
+            if (heroVideo) {
+                heroVideo.play().catch(error => {
+                    console.log('Video autoplay prevented, showing fallback');
+                    if (videoFallback) {
+                        videoFallback.style.display = 'flex';
+                    }
+                });
+            }
         });
     </script>
 </body>
