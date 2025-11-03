@@ -477,7 +477,7 @@
            CONTENT PAGES STYLES
            ====================================== */
         .content-page {
-            padding: 6rem 0 2rem 0;
+            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
             background: #ffffff;
         }
 
@@ -546,6 +546,107 @@
         }
 
         /* ======================================
+           MOBYGRATIS PAGE STYLES
+           ====================================== */
+        .mobygratis-page {
+            padding: 8rem 0 2rem 0;
+            background: #ffffff;
+        }
+
+        .mobygratis-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .mobygratis-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .mobygratis-date {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .mobygratis-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .mobygratis-article {
+            background: white;
+            padding: 2.5rem 0;
+        }
+
+        .mobygratis-article p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .mobygratis-article strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .section-heading {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #000;
+            margin: 2rem 0 1rem 0;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .small-caps-heading {
+            font-variant: small-caps;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            margin: 2rem 0 1rem 0;
+            letter-spacing: 0.05em;
+        }
+
+        .mobygratis-article ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .mobygratis-article li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-bottom: 0.8rem;
+        }
+
+        .mobygratis-link {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        .mobygratis-link a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .mobygratis-link a:hover {
+            color: #ff1493;
+        }
+
+        /* ======================================
            ADDITIONAL PAGE STYLES
            ====================================== */
         .sticky-banner {
@@ -588,7 +689,7 @@
 
         .back-to-home {
             position: fixed;
-            top: 100px;
+            top: 120px; /* Moved down to prevent overlapping */
             left: 20px;
             background: #000;
             color: white;
@@ -611,7 +712,7 @@
            SERVICES PAGE STYLES
            ====================================== */
         .services-section {
-            padding: 6rem 0 2rem 0;
+            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
             background: #ffffff;
         }
 
@@ -691,7 +792,7 @@
            ABOUT PAGE STYLES
            ====================================== */
         .about-section {
-            padding: 6rem 0 2rem 0;
+            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
             background: #ffffff;
         }
 
@@ -723,7 +824,7 @@
            CONTACT FORM STYLES
            ====================================== */
         .contact-section {
-            padding: 6rem 0 2rem 0;
+            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
             background: #ffffff;
         }
 
@@ -932,6 +1033,14 @@
                 font-size: 2.8rem;
                 white-space: nowrap;
             }
+
+            .mobygratis-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-heading {
+                font-size: 2.3rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1062,9 +1171,22 @@
             /* Back button */
             .back-to-home {
                 left: 10px;
-                top: 80px;
+                top: 100px; /* Adjusted for mobile */
                 padding: 10px 15px;
                 font-size: 0.8rem;
+            }
+
+            /* Mobygratis Page */
+            .mobygratis-title {
+                font-size: 2rem;
+            }
+
+            .mobygratis-article {
+                padding: 1.5rem 0;
+            }
+            
+            .section-heading {
+                font-size: 2rem;
             }
         }
 
@@ -1142,6 +1264,23 @@
             .track-info p {
                 font-size: 0.75rem;
             }
+
+            /* Mobygratis Page */
+            .mobygratis-title {
+                font-size: 1.7rem;
+            }
+
+            .mobygratis-article {
+                padding: 1rem 0;
+            }
+
+            .mobygratis-article p {
+                font-size: 1rem;
+            }
+            
+            .section-heading {
+                font-size: 1.7rem;
+            }
         }
     </style>
 </head>
@@ -1149,7 +1288,9 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">MC Media</a>
+            <a href="#" class="logo">
+            <img src="https://github.com/marycrisostomo/mc-media-website/blob/07bc865c977eaa7388550181a04ea3c50f84a10b/mclogo.png" alt="MC Media" class="logo-image">
+</a>
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
@@ -1244,7 +1385,7 @@
                         <p>Check back soon for talks and presentations.</p>
                     </div>
 
-                    <!-- Cassette Content - Tracks -->
+                    <!-- Cassette Content - Tracks (Music Rights Clinic Launch removed) -->
                     <div class="cassette-content">
                         <!-- Projects Content -->
                         <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'duck1-testing')">
@@ -1255,26 +1396,18 @@
                             </div>
                             <span class="track-category">Projects</span>
                         </div>
-                        <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'rights-clinic')">
-                            <div class="track-number">2</div>
-                            <div class="track-info">
-                                <h3>Music Rights Clinic Launch</h3>
-                                <p>Helping creators understand their rights</p>
-                            </div>
-                            <span class="track-category">Projects</span>
-                        </div>
 
                         <!-- Talks Content -->
-                        <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'mobygratis-talk')">
-                            <div class="track-number">3</div>
+                        <div class="cassette-track talks-content" onclick="navigateToContentPage('mobygratis')">
+                            <div class="track-number">2</div>
                             <div class="track-info">
-                                <h3>Mobygratis Explained, A Discussion with Natalie Jacobs</h3>
+                                <h3>Mobygratis Explained: Conversations about licensing agreement with Natalie Jacobs</h3>
                                 <p>Understanding creative commons in music</p>
                             </div>
                             <span class="track-category">Talks</span>
                         </div>
                         <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'creativity-podcast')">
-                            <div class="track-number">4</div>
+                            <div class="track-number">3</div>
                             <div class="track-info">
                                 <h3>Powering Creativity Podcast with Fendous PLS</h3>
                                 <p>Discussing the intersection of technology and creativity</p>
@@ -1282,7 +1415,7 @@
                             <span class="track-category">Talks</span>
                         </div>
                         <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'symphonic-qa')">
-                            <div class="track-number">5</div>
+                            <div class="track-number">4</div>
                             <div class="track-info">
                                 <h3>Live Q&A with Symphonic Distribution</h3>
                                 <p>Answering questions about music distribution</p>
@@ -1397,6 +1530,44 @@
         </div>
     </section>
 
+    <!-- Mobygratis Page -->
+    <section id="mobygratis" class="page-section">
+        <div class="mobygratis-page">
+            <div class="mobygratis-header">
+                <h1 class="mobygratis-title">Mobygratis Explained: Conversations about licensing agreement with Natalie Jacobs</h1>
+                <div class="mobygratis-date">Date: June 1, 2025</div>
+            </div>
+
+            <div class="mobygratis-content">
+                <div class="mobygratis-article">
+                    <p>Diana, founder of MC Media, had a meaningful conversation via Zoom with Natalie Jacobs, founder of Equalizer Consulting, about the newly released Mobygratis website and its accompanying licensing agreement.</p>
+                    
+                    <p>The discussion centered on Mobygratis, a platform that offers free music for primarily non-commercial purposes, including student films and NGO projects. While the initiative is marketed as having "no strings attached," the two founders highlighted several important restrictions that users should understand before downloading.</p>
+                    
+                    <div class="section-heading">key restriction to consider</div>
+                    
+                    <p>The founders explained that users must ensure their projects remain entirely free—meaning if you use Mobygratis music, your project itself must also be free and not generate any revenue. Any commercial use requires obtaining a separate license directly from Moby.</p>
+                    
+                    <p>Diana and Natalie emphasized the critical importance of thoroughly reading both the FAQs and the complete licensing agreement. Many users may overlook essential terms, including:</p>
+                    
+                    <ul>
+                        <li>Credit requirements: Moby retains 51% of the composition rights, and proper attribution must be given</li>
+                        <li>Usage boundaries: Sharing content on certain platforms may inadvertently cross into commercial territory, potentially violating the agreement</li>
+                        <li>Revocation rights: The license can be terminated unilaterally by Moby at any time</li>
+                    </ul>
+                    
+                    <div class="section-heading">what users need to know</div>
+                    
+                    <p>Both founders cautioned that even seemingly non-commercial uses can become complicated in practice. For example, posting a student film on a monetized platform could violate the agreement's terms. They stressed that users should fully understand the licensing terms, seek clarification from Mobygratis when needed, and carefully consider how their content distribution choices might affect compliance.</p>
+                    
+                    <p>Despite these important caveats, both Diana and Natalie praised the Mobygratis initiative as a valuable resource, particularly for educational institutions and non-profit organizations—provided users approach it with proper awareness and responsibility.</p>
+                    
+                    <p class="mobygratis-link">To learn more, visit <a href="https://mobygratis.com" target="_blank">https://mobygratis.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Content Pages -->
     <section id="blog" class="page-section">
         <div class="content-page">
@@ -1418,15 +1589,11 @@
             </div>
             <div class="content-grid">
                 <div class="content-article" data-article="duck1-testing">
-                    <h3>Duck1 Testing Phase for Music Rights Management</h3>
+                    <!-- Headline removed for Duck1 Testing Phase -->
                     <p>Our latest project, Duck1, has entered its testing phase. This innovative approach to music rights management uses embedded copyright technology to ensure creators maintain ownership of their work across digital platforms.</p>
                     <p>The testing phase will involve a select group of creators who will use our technology to protect their music. We'll be gathering feedback and making improvements before a wider release.</p>
                 </div>
-                <div class="content-article" data-article="rights-clinic">
-                    <h3>Music Rights Clinic Launch</h3>
-                    <p>We're excited to announce the launch of our Music Rights Clinic, a resource for creators to get answers to their copyright questions and understand their rights.</p>
-                    <p>The clinic will offer free consultations, educational materials, and guidance on navigating the complex world of music copyright. Our goal is to empower creators with knowledge about protecting their work.</p>
-                </div>
+                <!-- Music Rights Clinic Launch section removed -->
             </div>
         </div>
     </section>
@@ -1438,18 +1605,13 @@
                 <p>Conversations about music, technology, and rights</p>
             </div>
             <div class="content-grid">
-                <div class="content-article" data-article="mobygratis-talk">
-                    <h3>Mobygratis Explained, A Discussion with Natalie Jacobs</h3>
-                    <p>In this insightful conversation, we explore Mobygratis and the world of creative commons music with Natalie Jacobs. We discuss how creators can leverage creative commons licensing while still protecting their rights.</p>
-                    <p>The discussion covers practical tips for musicians looking to share their work while maintaining appropriate rights and attribution.</p>
-                </div>
                 <div class="content-article" data-article="creativity-podcast">
-                    <h3>Powering Creativity Podcast with Fendous PLS</h3>
+                    <!-- Headline removed for Powering Creativity Podcast -->
                     <p>Join us for a conversation about the intersection of technology and creativity on the Powering Creativity podcast with Fendous PLS. We discuss how new technologies are changing the landscape for creators.</p>
                     <p>The episode covers everything from copyright technology to distribution platforms and how creators can navigate this evolving ecosystem.</p>
                 </div>
                 <div class="content-article" data-article="symphonic-qa">
-                    <h3>Live Q&A with Symphonic Distribution</h3>
+                    <!-- Headline removed for Live Q&A with Symphonic Distribution -->
                     <p>In this live question and answer session with Symphonic Distribution, we tackle common questions about music distribution, copyright, and how creators can maximize their reach while protecting their work.</p>
                     <p>The session covers practical advice for independent artists looking to distribute their music while maintaining control over their rights.</p>
                 </div>
