@@ -1286,10 +1286,12 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">
+    <!-- Navigation with Logo -->
+<nav>
+    <div class="nav-container">
+        <a href="#" class="logo">
             <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/mclogo.png" alt="MC Media" class="logo-image">
+          
 </a>
             <div class="nav-right">
                 <ul class="nav-links">
@@ -1302,7 +1304,38 @@
             </div>
         </div>
     </nav>
+  
+<style>
+/* Logo Styles - Cropped and Fitted */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 55px;
+    padding: 5px 0;
+}
 
+.logo-image {
+    height: 45px; /* Perfect fit within nav */
+    width: 150px; /* Control width for vertical cropping */
+    object-fit: cover; /* This crops the image */
+    object-position: center; /* Focus on center */
+    display: block;
+}
+
+/* Responsive Logo Sizing */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 35px;
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 30px;
+        width: 100px;
+    }
     <!-- Sticky Banner (Hidden on Home Page) -->
     <div class="sticky-banner">
         <h3>we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! /</h3>
