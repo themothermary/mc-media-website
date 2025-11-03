@@ -53,7 +53,7 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #ff69b4;
+            color: #000; /* BLACK LOGO */
             text-decoration: none;
             letter-spacing: -0.02em;
         }
@@ -242,7 +242,7 @@
             display: none;
         }
 
-        /* Video Text Overlay */
+        /* Video Text Overlay - FIXED TO SHOW ONLY 2 LINES */
         .video-text-overlay {
             position: absolute;
             bottom: 80px;
@@ -259,6 +259,9 @@
             line-height: 1.1;
             letter-spacing: -0.02em;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            white-space: nowrap;
         }
 
         .video-text-overlay .line1 {
@@ -927,6 +930,7 @@
 
             .video-text-overlay h2 {
                 font-size: 2.8rem;
+                white-space: nowrap;
             }
         }
 
@@ -976,6 +980,7 @@
 
             .video-text-overlay h2 {
                 font-size: 2.3rem;
+                white-space: nowrap;
             }
 
             /* Cassette Player */
@@ -1069,11 +1074,7 @@
             }
 
             .logo {
-                font-size: 1.4rem;
-                font-weight: 700;
-                color: #ff1493; /* Changed from #000 to hot pink */
-                text-decoration: none;
-                letter-spacing: -0.02em;
+                font-size: 1.2rem;
             }
 
             /* Video Text Overlay */
@@ -1085,6 +1086,7 @@
 
             .video-text-overlay h2 {
                 font-size: 1.8rem;
+                white-space: nowrap;
             }
 
             .intro-content p {
@@ -1188,11 +1190,11 @@
                 Your browser does not support the video tag.
             </video>
             
-            <!-- Video Text Overlay - Now properly on two lines -->
+            <!-- Video Text Overlay - Now properly on two lines without period -->
             <div class="video-text-overlay">
                 <h2>
                     <span class="line1">Secure your music</span>
-                    <span class="line2">copyright with MC Media.</span>
+                    <span class="line2">copyright with MC Media</span>
                 </h2>
             </div>
             
