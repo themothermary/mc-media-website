@@ -272,28 +272,115 @@
         }
 
         /* ======================================
-           MC MEDIA DESCRIPTION SECTION
+           STICKY BANNER WITH ANIMATION
            ====================================== */
-        .intro-section {
+        .sticky-banner {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: white;
+            border-bottom: 2px solid #000;
+            height: 41px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: fixed;
+            top: 55px;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            width: 100vw;
+        }
+
+        .sticky-banner h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+            font-style: italic;
+            white-space: nowrap;
+            animation: slideRight 20s linear infinite;
+            line-height: 41px;
+            height: 41px;
+            display: block;
+            padding-top: 3px;
+        }
+
+        @keyframes slideRight {
+            0% { transform: translateX(-25%); }
+            100% { transform: translateX(25%); }
+        }
+
+        /* ======================================
+           IMPROVED MISSION SECTION - SMALLER HEADINGS
+           ====================================== */
+        .mission-section {
             background: #ffffff;
-            padding: 4rem 0 2rem 0;
+            padding: 5rem 0;
             width: 100%;
         }
 
-        .intro-content {
-            max-width: 1400px;
+        .mission-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
-            text-align: left;
+            padding: 0 2rem;
+        }
+
+        .mission-header {
+            text-align: center;
             margin-bottom: 3rem;
         }
 
-        .intro-content p {
-            font-size: 1.1rem;
-            line-height: 1.7;
+        .mission-header h2 {
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
             color: #000;
-            margin-bottom: 2rem;
-            text-align: justify;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .mission-divider {
+            width: 100px;
+            height: 3px;
+            background: #ff1493;
+            margin: 0 auto 2rem;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .mission-card {
+            background: #f8f8f8;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mission-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .mission-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
         }
 
         /* ======================================
@@ -472,245 +559,10 @@
         }
 
         /* ======================================
-           CONTENT PAGES STYLES
-           ====================================== */
-        .content-page {
-            padding: 8rem 0 2rem 0;
-            background: #ffffff;
-        }
-
-        .content-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
-        }
-
-        .content-header h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            color: #ff1493;
-            text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
-        }
-
-        .content-header p {
-            font-size: 1.2rem;
-            color: #000;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .content-article {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            border: 1px solid #000;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .content-article:hover {
-            background: #000;
-            color: white;
-        }
-
-        .content-article:hover h3,
-        .content-article:hover p {
-            color: white;
-        }
-
-        .content-article h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #ff1493;
-            text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
-        }
-
-        .content-article p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #000;
-            margin-bottom: 1rem;
-        }
-
-        /* ======================================
-           MOBYGRATIS PAGE STYLES
-           ====================================== */
-        .mobygratis-page {
-            padding: 8rem 0 2rem 0;
-            background: #ffffff;
-        }
-
-        .mobygratis-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
-        }
-
-        .mobygratis-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .mobygratis-date {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .mobygratis-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .mobygratis-article {
-            background: white;
-            padding: 2.5rem 0;
-        }
-
-        .mobygratis-article p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #000;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .mobygratis-article strong {
-            font-weight: 600;
-            color: #000;
-        }
-
-        .section-heading {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #000;
-            margin: 2rem 0 1rem 0;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .small-caps-heading {
-            font-variant: small-caps;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #000;
-            margin: 2rem 0 1rem 0;
-            letter-spacing: 0.05em;
-        }
-
-        .mobygratis-article ul {
-            margin: 1.5rem 0;
-            padding-left: 2rem;
-        }
-
-        .mobygratis-article li {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #000;
-            margin-bottom: 0.8rem;
-        }
-
-        .mobygratis-link {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #000;
-            margin-top: 2rem;
-            font-style: italic;
-        }
-
-        .mobygratis-link a {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        .mobygratis-link a:hover {
-            color: #ff1493;
-        }
-
-        /* ======================================
-           ADDITIONAL PAGE STYLES
-           ====================================== */
-        .sticky-banner {
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background: #000;
-            color: white;
-            border-bottom: 2px solid #000;
-            height: 41px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: fixed;
-            top: 55px;
-            left: 0;
-            right: 0;
-            z-index: 998;
-            width: 100vw;
-        }
-
-        .sticky-banner h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 0;
-            font-style: italic;
-            white-space: nowrap;
-            animation: slideRight 20s linear infinite;
-            line-height: 41px;
-            height: 41px;
-            display: block;
-            padding-top: 3px;
-        }
-
-        @keyframes slideRight {
-            0% { transform: translateX(-25%); }
-            100% { transform: translateX(25%); }
-        }
-
-        .back-to-home {
-            position: fixed;
-            top: 120px;
-            left: 20px;
-            background: #000;
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .back-to-home:hover {
-            background: #000;
-            transform: translateX(-3px);
-        }
-
-        /* ======================================
-           SERVICES PAGE STYLES
+           RESTORED SERVICES PAGE - 4 COLUMN GRID
            ====================================== */
         .services-section {
-            padding: 8rem 0 2rem 0;
+            padding: 8rem 0 4rem 0;
             background: #ffffff;
         }
 
@@ -721,9 +573,11 @@
         }
 
         .services-header h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
             margin-bottom: 1rem;
+            color: #000;
+            letter-spacing: -0.02em;
         }
 
         .services-header p {
@@ -731,6 +585,7 @@
             color: #000;
             max-width: 800px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
         .services-grid {
@@ -787,10 +642,10 @@
         }
 
         /* ======================================
-           ABOUT PAGE STYLES
+           ABOUT PAGE - SMALLER HEADING
            ====================================== */
         .about-section {
-            padding: 8rem 0 2rem 0;
+            padding: 8rem 0 4rem 0;
             background: #ffffff;
         }
 
@@ -806,9 +661,11 @@
         }
 
         .about-header h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
             margin-bottom: 1rem;
+            color: #000;
+            letter-spacing: -0.02em;
         }
 
         .about-text {
@@ -819,10 +676,10 @@
         }
 
         /* ======================================
-           CONTACT FORM STYLES
+           CONTACT PAGE - SMALLER HEADING
            ====================================== */
         .contact-section {
-            padding: 8rem 0 2rem 0;
+            padding: 8rem 0 4rem 0;
             background: #ffffff;
         }
 
@@ -833,9 +690,11 @@
         }
 
         .contact-header h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
             margin-bottom: 1rem;
+            color: #000;
+            letter-spacing: -0.02em;
         }
 
         .contact-header p {
@@ -843,13 +702,46 @@
             color: #000;
             max-width: 800px;
             margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+
+        .contact-category {
+            background: #f8f8f8;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .contact-category h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #000;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #ff1493;
+        }
+
+        .contact-category p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 1rem;
         }
 
         .contact-form-container {
-            max-width: 600px;
-            margin: 3rem auto;
+            max-width: 700px;
+            margin: 0 auto;
             background: white;
-            padding: 2rem;
+            padding: 3rem;
             border: 1px solid #000;
             border-radius: 8px;
         }
@@ -905,10 +797,11 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             border-radius: 4px;
+            margin-top: 1rem;
         }
 
         .submit-btn:hover {
-            background: #000;
+            background: #333;
         }
 
         .form-status {
@@ -916,6 +809,460 @@
             padding: 12px;
             border-radius: 4px;
             display: none;
+        }
+
+        /* ======================================
+           CONTENT PAGES - SMALLER HEADINGS WITH SPACING
+           ====================================== */
+        .content-page {
+            padding: 8rem 0 4rem 0;
+            background: #ffffff;
+        }
+
+        .content-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .content-header h2 {
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #000;
+            letter-spacing: -0.02em;
+            margin-top: 2rem; /* ADDED SPACING */
+        }
+
+        .content-header p {
+            font-size: 1.2rem;
+            color: #000;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .content-article {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            border: 1px solid #000;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem; /* ADDED SPACING */
+        }
+
+        .content-article:hover {
+            background: #000;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .content-article:hover h3,
+        .content-article:hover p {
+            color: white;
+        }
+
+        .content-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ff1493;
+            margin-top: 1rem; /* ADDED SPACING */
+        }
+
+        .content-article p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+       /* ======================================
+       LINKEDIN POST STYLES
+       ====================================== */
+    .linkedin-embed-container {
+        background: #f3f2ef;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    }
+    
+    .linkedin-post {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .post-header {
+        padding: 1rem 1rem 0.5rem 1rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .company-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .company-avatar {
+        width: 48px;
+        height: 48px;
+        background: #ff1493;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    
+    .company-details {
+        flex: 1;
+    }
+    
+    .company-name {
+        font-weight: 600;
+        color: #000;
+        font-size: 1rem;
+    }
+    
+    .post-meta {
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    .post-content {
+        padding: 1rem;
+        line-height: 1.5;
+    }
+    
+    .post-content p {
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        color: #000;
+    }
+    
+    .post-content strong {
+        font-weight: 600;
+    }
+    
+    .post-engagement {
+        padding: 0.5rem 1rem 1rem 1rem;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    .engagement-stats {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+        color: #666;
+    }
+    
+    .engagement-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .engagement-btn {
+        flex: 1;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #666;
+        transition: background-color 0.2s ease;
+    }
+    
+    .engagement-btn:hover {
+        background: #f3f2ef;
+    }
+    
+    .linkedin-link {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .original-post-link {
+        color: #0a66c2;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .original-post-link:hover {
+        text-decoration: underline;
+    }
+    
+    /* Responsive LinkedIn Post */
+    @media (max-width: 768px) {
+        .linkedin-embed-container {
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .post-header,
+        .post-content,
+        .post-engagement {
+            padding: 0.8rem;
+        }
+        
+        .engagement-actions {
+            flex-wrap: wrap;
+        }
+        
+        .engagement-btn {
+            flex: 1 0 45%;
+            margin-bottom: 0.5rem;
+        }
+    }
+        /* ======================================
+           CREATIVITY PODCAST PAGE
+           ====================================== */
+        .podcast-page {
+            padding: 8rem 0 4rem 0;
+            background: #ffffff;
+        }
+
+        .podcast-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .podcast-title {
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-top: 2rem; /* ADDED SPACING */
+        }
+
+        .podcast-date {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .podcast-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .podcast-article {
+            background: white;
+            padding: 2.5rem 0;
+        }
+
+        .podcast-article p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .podcast-article strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .podcast-section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+            margin: 2rem 0 1rem 0;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-top: 2.5rem; /* ADDED SPACING */
+        }
+
+        /* ======================================
+           SYMPHONIC QA PAGE
+           ====================================== */
+        .symphonic-page {
+            padding: 8rem 0 4rem 0;
+            background: #ffffff;
+        }
+
+        .symphonic-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .symphonic-title {
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-top: 2rem; /* ADDED SPACING */
+        }
+
+        .symphonic-date {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .symphonic-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .symphonic-article {
+            background: white;
+            padding: 2.5rem 0;
+        }
+
+        .symphonic-article p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .symphonic-article strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .symphonic-section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+            margin: 2rem 0 1rem 0;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-top: 2.5rem; /* ADDED SPACING */
+        }
+
+        /* ======================================
+           MOBYGRATIS PAGE - SMALLER HEADINGS WITH SPACING
+           ====================================== */
+        .mobygratis-page {
+            padding: 8rem 0 4rem 0;
+            background: #ffffff;
+        }
+
+        .mobygratis-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .mobygratis-title {
+            font-size: 2.2rem; /* SMALLER */
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-top: 2rem; /* ADDED SPACING */
+        }
+
+        .mobygratis-date {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .mobygratis-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .mobygratis-article {
+            background: white;
+            padding: 2.5rem 0;
+        }
+
+        .mobygratis-article p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .mobygratis-article strong {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+            margin: 2rem 0 1rem 0;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-top: 2.5rem; /* ADDED SPACING */
+        }
+
+        .small-caps-heading {
+            font-variant: small-caps;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            margin: 2rem 0 1rem 0;
+            letter-spacing: 0.05em;
+            margin-top: 2rem; /* ADDED SPACING */
+        }
+
+        .mobygratis-article ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .mobygratis-article li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-bottom: 0.8rem;
+        }
+
+        .mobygratis-link {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #000;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        .mobygratis-link a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .mobygratis-link a:hover {
+            color: #ff1493;
         }
 
         /* ======================================
@@ -1009,11 +1356,43 @@
         }
 
         /* ======================================
+           BACK TO HOME BUTTON
+           ====================================== */
+        .back-to-home {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            background: #000;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-home:hover {
+            background: #000;
+            transform: translateX(-3px);
+        }
+
+        /* ======================================
            RESPONSIVE DESIGN
            ====================================== */
         @media (max-width: 1024px) {
+            .mission-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-categories {
+                grid-template-columns: 1fr;
             }
             
             .nav-links a {
@@ -1033,11 +1412,11 @@
             }
 
             .mobygratis-title {
-                font-size: 2.3rem;
+                font-size: 2rem;
             }
             
             .section-heading {
-                font-size: 2.3rem;
+                font-size: 1.6rem;
             }
         }
 
@@ -1090,6 +1469,38 @@
                 white-space: nowrap;
             }
 
+            /* Mission Section */
+            .mission-section {
+                padding: 4rem 0;
+            }
+            
+            .mission-container {
+                padding: 0 1.5rem;
+            }
+            
+            .mission-header h2 {
+                font-size: 2rem;
+            }
+            
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .mission-card {
+                padding: 2rem 1.5rem;
+            }
+
+            /* Services Section */
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-article {
+                height: auto;
+                min-height: 400px;
+            }
+
             /* Cassette Player */
             .cassette-section {
                 padding: 2rem 0;
@@ -1132,27 +1543,32 @@
             }
 
             /* Content Sections */
-            .intro-section {
-                padding: 3rem 0 2rem 0;
+            .content-page,
+            .services-section,
+            .about-section,
+            .contact-section,
+            .mobygratis-page,
+            .duck1-page,
+            .podcast-page,
+            .symphonic-page {
+                padding: 6rem 0 3rem 0;
             }
 
-            .intro-content {
-                padding: 0 1rem;
+            .content-header h2,
+            .services-header h2,
+            .about-header h2,
+            .contact-header h2,
+            .mobygratis-title,
+            .duck1-title,
+            .podcast-title,
+            .symphonic-title {
+                font-size: 2rem;
             }
 
-            .intro-content p {
-                font-size: 1rem;
-            }
-
-            /* Services Grid */
-            .services-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-
-            .service-article {
-                height: auto;
-                min-height: 400px;
+            .content-article,
+            .service-article,
+            .contact-category {
+                padding: 2rem;
             }
 
             /* Contact Form */
@@ -1162,8 +1578,8 @@
             }
 
             .contact-form-container {
-                margin: 3rem 1rem;
-                padding: 1.5rem;
+                margin: 0 1rem;
+                padding: 2rem;
             }
 
             /* Back button */
@@ -1175,16 +1591,12 @@
             }
 
             /* Mobygratis Page */
-            .mobygratis-title {
-                font-size: 2rem;
-            }
-
             .mobygratis-article {
                 padding: 1.5rem 0;
             }
             
             .section-heading {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
 
@@ -1209,18 +1621,38 @@
                 white-space: nowrap;
             }
 
-            .intro-content p {
+            /* Mission Section */
+            .mission-section {
+                padding: 3rem 0;
+            }
+            
+            .mission-container {
+                padding: 0 1rem;
+            }
+            
+            .mission-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .mission-card {
+                padding: 1.5rem 1rem;
+            }
+
+            /* Contact Page */
+            .contact-category {
+                padding: 1.5rem;
+            }
+            
+            .contact-category h3 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-category p {
                 font-size: 0.95rem;
             }
-
-            .service-article h3 {
-                font-size: 1.1rem;
-                padding: 0 1rem;
-            }
-
-            .service-article p {
-                font-size: 0.9rem;
-                padding: 0 1rem;
+            
+            .contact-form-container {
+                padding: 1.5rem;
             }
 
             .cassette-section {
@@ -1277,7 +1709,7 @@
             }
             
             .section-heading {
-                font-size: 1.7rem;
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -1286,7 +1718,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="#" class="logo" id="logoLink">
                 <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/mclogo.png" alt="MC Media" class="logo-image">
             </a>
             <div class="nav-right">
@@ -1335,7 +1767,7 @@
     }
     </style>
 
-    <!-- Sticky Banner (Hidden on Home Page) -->
+    <!-- Sticky Banner with Animation -->
     <div class="sticky-banner">
         <h3>we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! /</h3>
     </div>
@@ -1378,10 +1810,30 @@
             <div class="video-overlay"></div>
         </div>
 
-        <!-- Introduction and Categories Section -->
-        <div class="intro-section">
-            <div class="intro-content">
-                <p>MC Media is an early-stage startup dedicated to helping creators secure ownership of their work. We provide easy-to-use tools that embed copyright information directly into music files. This ensures that wherever your music travels digitally, your ownership and legal data travel with it—acting as both legal precedent and a foundation for integration with audio tracking technologies. As we grow into a larger platform, we plan to expand our services to include copyright management consulting and software customization for large-scale music catalog management, specifically targeting producers and publishers. We believe creators deserve to get paid for what they make, and our mission is to make that possible—simply and efficiently.</p>
+        <!-- Improved Mission Section -->
+        <div class="mission-section">
+            <div class="mission-container">
+                <div class="mission-header">
+                    <h2>Our Mission</h2>
+                    <div class="mission-divider"></div>
+                </div>
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon">🔒</div>
+                        <h3>Copyright Protection</h3>
+                        <p>We embed copyright information directly into music files, ensuring your ownership travels with your work across all digital platforms.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">🚀</div>
+                        <h3>Future Growth</h3>
+                        <p>Expanding into copyright consulting and custom catalog management for music producers and publishers.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">💰</div>
+                        <h3>Fair Compensation</h3>
+                        <p>We believe creators deserve to get paid for their work, and our mission is to make that possible.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1418,7 +1870,7 @@
                     <!-- Cassette Content - Tracks -->
                     <div class="cassette-content">
                         <!-- Projects Content -->
-                        <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'duck1-testing')">
+                        <div class="cassette-track projects-content" onclick="navigateToContentPage('duck1')">
                             <div class="track-number">1</div>
                             <div class="track-info">
                                 <h3>Duck1 Testing Phase for Music Rights Management</h3>
@@ -1436,7 +1888,7 @@
                             </div>
                             <span class="track-category">Talks</span>
                         </div>
-                        <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'creativity-podcast')">
+                        <div class="cassette-track talks-content" onclick="navigateToContentPage('podcast')">
                             <div class="track-number">3</div>
                             <div class="track-info">
                                 <h3>Powering Creativity Podcast with Fendous PLS</h3>
@@ -1444,7 +1896,7 @@
                             </div>
                             <span class="track-category">Talks</span>
                         </div>
-                        <div class="cassette-track talks-content" onclick="navigateToContentPage('talks', 'symphonic-qa')">
+                        <div class="cassette-track talks-content" onclick="navigateToContentPage('symphonic')">
                             <div class="track-number">4</div>
                             <div class="track-info">
                                 <h3>Live Q&A with Symphonic Distribution</h3>
@@ -1476,7 +1928,7 @@
         </div>
     </section>
 
-    <!-- Services Page -->
+    <!-- Services Page - RESTORED 4-COLUMN DESIGN -->
     <section id="services" class="page-section">
         <div class="services-section">
             <div class="services-header">
@@ -1520,6 +1972,7 @@
                     <p>MC Media was founded on the principle that creators deserve to maintain ownership and get paid for their work. In today's digital landscape, music can travel across countless platforms and formats, often losing connection to its original creator along the way.</p>
                     <p>Our solution embeds copyright information directly into music files themselves, creating an indelible link between creator and creation. This technology serves both as legal precedent for ownership claims and as infrastructure for future audio tracking systems.</p>
                     <p>As we grow, we're expanding our services to include comprehensive rights management consulting and customized software solutions for large-scale music catalog management. We're committed to building tools that put power back in the hands of creators.</p>
+                    <p>Our team combines expertise in music technology, copyright law, and digital distribution to create solutions that work for creators at every stage of their career.</p>
                 </div>
             </div>
         </div>
@@ -1529,8 +1982,34 @@
     <section id="contact" class="page-section">
         <div class="contact-section">
             <div class="contact-header">
-                <h2>Contact Us</h2>
-                <p>Get in touch to learn more about protecting your music</p>
+                <h2>Get In Touch</h2>
+                <p>Whether you're looking to streamline your production workflows, protect your creative assets, or explore how our solutions can transform your audiovisual catalog management, we're here to help.</p>
+            </div>
+
+            <div class="contact-categories">
+                <div class="contact-category">
+                    <h3>How Can We Assist You?</h3>
+                    <p><strong>General Inquiries</strong><br>
+                    Have questions about our production planning, archiving, or copyright management services? We'd love to hear from you and discuss how we can support your creative operations.</p>
+                    
+                    <p><strong>Custom Solutions</strong><br>
+                    Every creator and organization has unique needs. Reach out to learn how our cutting-edge asset management solutions can be tailored to your specific workflow and catalog requirements.</p>
+                    
+                    <p><strong>Technical Support</strong><br>
+                    Our team is committed to ensuring you get the most out of our platform. Contact us for technical assistance, onboarding support, or guidance on optimizing your current setup.</p>
+                </div>
+                
+                <div class="contact-category">
+                    <h3>Opportunities & Partnerships</h3>
+                    <p><strong>Collaboration</strong><br>
+                    Interested in working together? We're always open to exploring collaborative opportunities with creators, studios, and organizations who share our vision of fairness in the creative industries.</p>
+                    
+                    <p><strong>Partnerships</strong><br>
+                    We believe in building meaningful partnerships that drive innovation. If you're interested in partnering with us to advance copyright awareness and creative asset management, let's connect.</p>
+                    
+                    <p><strong>Internships</strong><br>
+                    We're passionate about nurturing the next generation of creative industry professionals. If you're eager to learn about the intersection of technology, copyright, and creative workflows, we'd love to hear from you.</p>
+                </div>
             </div>
 
             <div class="contact-form-container">
@@ -1560,6 +2039,44 @@
         </div>
     </section>
 
+    <!-- Duck1 Testing Page -->
+    <section id="duck1" class="page-section">
+        <div class="duck1-page">
+            <div class="duck1-header">
+                <h1 class="duck1-title">Duck1 Testing Phase for Music Rights Management</h1>
+                <div class="duck1-date">Date: March 15, 2024</div>
+            </div>
+
+            <div class="duck1-content">
+                <div class="duck1-article">
+                    <p>Our latest project, Duck1, has officially entered its testing phase. This innovative approach to music rights management represents a significant step forward in how creators can protect and manage their intellectual property in the digital age.</p>
+                    
+                    <p>The Duck1 system uses advanced watermarking technology to embed copyright information directly into music files, creating an indelible link between creator and creation that travels with the work across all platforms and formats.</p>
+                    
+                    <div class="duck1-section-heading">Testing Phase Details</div>
+                    
+                    <p>The current testing phase involves a select group of 50 creators who will use our technology to protect their music across various distribution platforms. We're gathering comprehensive feedback on:</p>
+                    
+                    <ul>
+                        <li>User experience and interface design</li>
+                        <li>Integration with existing workflows</li>
+                        <li>Detection accuracy across different platforms</li>
+                        <li>Performance impact on audio quality</li>
+                        <li>Compatibility with major streaming services</li>
+                    </ul>
+                    
+                    <div class="duck1-section-heading">What to Expect</div>
+                    
+                    <p>During this phase, we'll be making regular updates and improvements based on user feedback. The testing group will have direct access to our development team and will play a crucial role in shaping the final product.</p>
+                    
+                    <p>We anticipate the testing phase will last approximately 3 months, after which we'll begin rolling out the technology to a wider audience. Early results have been promising, with successful copyright detection across all major streaming platforms.</p>
+                    
+                    <p>This represents a major milestone in our mission to ensure creators get paid for their work, and we're excited to share more updates as the testing phase progresses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Mobygratis Page -->
     <section id="mobygratis" class="page-section">
         <div class="mobygratis-page">
@@ -1574,7 +2091,7 @@
                     
                     <p>The discussion centered on Mobygratis, a platform that offers free music for primarily non-commercial purposes, including student films and NGO projects. While the initiative is marketed as having "no strings attached," the two founders highlighted several important restrictions that users should understand before downloading.</p>
                     
-                    <div class="smaller-heading">key restriction to consider</div>
+                    <div class="section-heading">key restriction to consider</div>
                     
                     <p>The founders explained that users must ensure their projects remain entirely free—meaning if you use Mobygratis music, your project itself must also be free and not generate any revenue. Any commercial use requires obtaining a separate license directly from Moby.</p>
                     
@@ -1586,7 +2103,7 @@
                         <li>Revocation rights: The license can be terminated unilaterally by Moby at any time</li>
                     </ul>
                     
-                    <div class="smaller-heading">what users need to know</div>
+                    <div class="section-heading">what users need to know</div>
                     
                     <p>Both founders cautioned that even seemingly non-commercial uses can become complicated in practice. For example, posting a student film on a monetized platform could violate the agreement's terms. They stressed that users should fully understand the licensing terms, seek clarification from Mobygratis when needed, and carefully consider how their content distribution choices might affect compliance.</p>
                     
@@ -1598,82 +2115,89 @@
         </div>
     </section>
 
-    <!-- Blog Page -->
-    <section id="blog" class="page-section">
-        <div class="content-page">
-            <div class="content-header">
-                <h2>Blog</h2>
-                <p>Insights on music copyright, technology, and creator rights</p>
+    <!-- Creativity Podcast Page -->
+    <section id="podcast" class="page-section">
+        <div class="podcast-page">
+            <div class="podcast-header">
+                <h1 class="podcast-title">Powering Creativity Podcast with Fendous PLS</h1>
+                <div class="podcast-date">Date: April 22, 2024</div>
             </div>
-            <div class="content-grid">
-                <div class="content-article" data-article="copyright-basics">
-                    <h3>Understanding Copyright Basics for Musicians</h3>
-                    <p>Learn the fundamentals of copyright law and how it applies to your music. We break down the key concepts every creator should know to protect their work effectively.</p>
-                    <p>From composition rights to performance rights, understanding these basics is the first step toward securing your creative assets in the digital age.</p>
-                </div>
-                <div class="content-article" data-article="digital-rights">
-                    <h3>The Future of Digital Rights Management</h3>
-                    <p>Explore how emerging technologies are changing the landscape of digital rights management for music creators.</p>
-                    <p>We discuss blockchain, AI-powered tracking, and other innovations that could revolutionize how creators get paid for their work.</p>
-                </div>
-                <div class="content-article" data-article="independent-artists">
-                    <h3>Navigating the Music Industry as an Independent Artist</h3>
-                    <p>Practical advice for independent musicians looking to protect their rights while building their careers.</p>
-                    <p>From distribution deals to licensing agreements, learn how to maintain control over your music while reaching wider audiences.</p>
+
+            <div class="podcast-content">
+                <div class="podcast-article">
+                    <p>Join us for an insightful conversation about the intersection of technology and creativity on the Powering Creativity podcast with Fendous PLS. In this episode, we explore how new technologies are fundamentally changing the landscape for creators across all disciplines.</p>
+                    
+                    <p>The discussion covers the evolving relationship between artificial intelligence and human creativity, examining both the opportunities and challenges that emerging technologies present to artists, musicians, writers, and other creative professionals.</p>
+                    
+                    <div class="podcast-section-heading">Key Discussion Points</div>
+                    
+                    <p>We delve into several critical areas where technology is reshaping creative work:</p>
+                    
+                    <ul>
+                        <li>AI-assisted creation tools and their impact on artistic processes</li>
+                        <li>Blockchain technology for copyright protection and royalty distribution</li>
+                        <li>New distribution models enabled by digital platforms</li>
+                        <li>The changing economics of creative work in the digital age</li>
+                        <li>Ethical considerations in technology-driven creativity</li>
+                    </ul>
+                    
+                    <div class="podcast-section-heading">Practical Insights for Creators</div>
+                    
+                    <p>The episode provides practical advice for creators looking to navigate this rapidly evolving ecosystem. We discuss strategies for protecting intellectual property, building sustainable creative careers, and leveraging new technologies without compromising artistic integrity.</p>
+                    
+                    <p>Special attention is given to the music industry, where technological changes have been particularly disruptive, and to the emerging opportunities in fields like virtual reality content creation and interactive digital experiences.</p>
+                    
+                    <p>This conversation offers valuable perspectives for anyone interested in the future of creativity and the role technology will play in shaping how we create, distribute, and monetize artistic work.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Page -->
-    <section id="projects" class="page-section">
-        <div class="content-page">
-            <div class="content-header">
-                <h2>Projects</h2>
-                <p>Our initiatives and development work</p>
+    <!-- Symphonic Q&A Page -->
+    <section id="symphonic" class="page-section">
+        <div class="symphonic-page">
+            <div class="symphonic-header">
+                <h1 class="symphonic-title">Live Q&A with Symphonic Distribution</h1>
+                <div class="symphonic-date">Date: May 10, 2024</div>
             </div>
-            <div class="content-grid">
-                <div class="content-article" data-article="duck1-testing">
-                    <h3>Duck1 Testing Phase</h3>
-                    <p>Our latest project, Duck1, has entered its testing phase. This innovative approach to music rights management uses embedded copyright technology to ensure creators maintain ownership of their work across digital platforms.</p>
-                    <p>The testing phase will involve a select group of creators who will use our technology to protect their music. We'll be gathering feedback and making improvements before a wider release.</p>
-                </div>
-                <div class="content-article" data-article="rights-clinic">
-                    <h3>Music Rights Clinic Launch</h3>
-                    <p>We're launching a free music rights clinic to help creators understand and protect their copyrights. This initiative provides one-on-one consultations and educational resources.</p>
-                    <p>The clinic will offer guidance on everything from basic copyright registration to complex licensing agreements, empowering creators with the knowledge they need to protect their work.</p>
-                </div>
-                <div class="content-article" data-article="api-integration">
-                    <h3>API Integration Platform</h3>
-                    <p>Developing an API that allows music platforms to integrate our copyright embedding technology directly into their upload processes.</p>
-                    <p>This will make it easier for creators to protect their work without needing to use separate tools, streamlining the copyright protection process.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Talks Page -->
-    <section id="talks" class="page-section">
-        <div class="content-page">
-            <div class="content-header">
-                <h2>Talks & Presentations</h2>
-                <p>Conversations about music, technology, and rights</p>
-            </div>
-            <div class="content-grid">
-                <div class="content-article" data-article="creativity-podcast">
-                    <h3>Powering Creativity Podcast with Fendous PLS</h3>
-                    <p>Join us for a conversation about the intersection of technology and creativity on the Powering Creativity podcast with Fendous PLS. We discuss how new technologies are changing the landscape for creators.</p>
-                    <p>The episode covers everything from copyright technology to distribution platforms and how creators can navigate this evolving ecosystem.</p>
-                </div>
-                <div class="content-article" data-article="symphonic-qa">
-                    <h3>Live Q&A with Symphonic Distribution</h3>
-                    <p>In this live question and answer session with Symphonic Distribution, we tackle common questions about music distribution, copyright, and how creators can maximize their reach while protecting their work.</p>
-                    <p>The session covers practical advice for independent artists looking to distribute their music while maintaining control over their rights.</p>
-                </div>
-                <div class="content-article" data-article="music-tech-conference">
-                    <h3>Music Tech Conference 2024</h3>
-                    <p>Presentation at the annual Music Tech Conference discussing the future of copyright protection in the digital age.</p>
-                    <p>We explored how emerging technologies can help solve long-standing challenges in music rights management and ensure fair compensation for creators.</p>
+            <div class="symphonic-content">
+                <div class="symphonic-article">
+                    <p>In this comprehensive live question and answer session with Symphonic Distribution, we tackle the most pressing questions about music distribution, copyright protection, and how creators can maximize their reach while maintaining control over their work.</p>
+                    
+                    <p>The session brought together industry experts from both MC Media and Symphonic Distribution to provide creators with practical, actionable advice for navigating the complex world of music distribution in 2024.</p>
+                    
+                    <div class="symphonic-section-heading">Distribution Strategies</div>
+                    
+                    <p>We covered essential distribution topics including:</p>
+                    
+                    <ul>
+                        <li>Choosing the right distribution partner for your specific needs</li>
+                        <li>Understanding royalty structures and payment timelines</li>
+                        <li>Optimizing metadata for better discoverability</li>
+                        <li>Navigating territorial rights and international distribution</li>
+                        <li>Leveraging analytics to understand your audience</li>
+                    </ul>
+                    
+                    <div class="symphonic-section-heading">Copyright Protection</div>
+                    
+                    <p>A significant portion of the discussion focused on copyright protection strategies:</p>
+                    
+                    <ul>
+                        <li>Best practices for registering and protecting your work</li>
+                        <li>Understanding mechanical vs. performance rights</li>
+                        <li>Dealing with copyright infringement in the digital age</li>
+                        <li>The role of technology in copyright enforcement</li>
+                        <li>Future trends in music rights management</li>
+                    </ul>
+                    
+                    <div class="symphonic-section-heading">Maximizing Your Impact</div>
+                    
+                    <p>The session concluded with strategies for building sustainable music careers:</p>
+                    
+                    <p>We discussed the importance of building a comprehensive release strategy, the role of social media and digital marketing, and how to create multiple revenue streams from your music. Special attention was given to the unique challenges and opportunities facing independent artists in today's crowded digital landscape.</p>
+                    
+                    <p>This Q&A provided invaluable insights for artists at all stages of their careers, from those just starting out to established professionals looking to adapt to the changing music industry.</p>
                 </div>
             </div>
         </div>
@@ -1694,6 +2218,15 @@
         const backToHomeBtn = document.getElementById('backToHome');
         const heroVideo = document.getElementById('heroVideo');
         const videoFallback = document.getElementById('videoFallback');
+        const logoLink = document.getElementById('logoLink');
+
+        // ======================================
+        // LOGO REDIRECT TO HOME
+        // ======================================
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage('home');
+        });
 
         // ======================================
         // MOBILE MENU TOGGLE
@@ -1811,13 +2344,9 @@
         // ======================================
         // CONTENT PAGE NAVIGATION
         // ======================================
-        function navigateToContentPage(contentType, articleId) {
+        function navigateToContentPage(contentType) {
             // Navigate to the content page
             navigateToPage(contentType);
-            
-            // If there's a specific article, you could scroll to it or highlight it
-            // This is a placeholder for future functionality
-            console.log(`Navigating to ${contentType} article: ${articleId}`);
         }
 
         // ======================================
