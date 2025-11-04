@@ -53,7 +53,7 @@
         .logo {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #000; /* BLACK LOGO */
+            color: #000;
             text-decoration: none;
             letter-spacing: -0.02em;
         }
@@ -134,13 +134,11 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            /* COMPLETELY REMOVE CONTROLS */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
-            /* Hide all controls */
             pointer-events: none;
         }
 
@@ -477,7 +475,7 @@
            CONTENT PAGES STYLES
            ====================================== */
         .content-page {
-            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
+            padding: 8rem 0 2rem 0;
             background: #ffffff;
         }
 
@@ -689,7 +687,7 @@
 
         .back-to-home {
             position: fixed;
-            top: 120px; /* Moved down to prevent overlapping */
+            top: 120px;
             left: 20px;
             background: #000;
             color: white;
@@ -712,7 +710,7 @@
            SERVICES PAGE STYLES
            ====================================== */
         .services-section {
-            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
+            padding: 8rem 0 2rem 0;
             background: #ffffff;
         }
 
@@ -792,7 +790,7 @@
            ABOUT PAGE STYLES
            ====================================== */
         .about-section {
-            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
+            padding: 8rem 0 2rem 0;
             background: #ffffff;
         }
 
@@ -824,7 +822,7 @@
            CONTACT FORM STYLES
            ====================================== */
         .contact-section {
-            padding: 8rem 0 2rem 0; /* Increased top padding for better spacing */
+            padding: 8rem 0 2rem 0;
             background: #ffffff;
         }
 
@@ -1171,7 +1169,7 @@
             /* Back button */
             .back-to-home {
                 left: 10px;
-                top: 100px; /* Adjusted for mobile */
+                top: 100px;
                 padding: 10px 15px;
                 font-size: 0.8rem;
             }
@@ -1286,13 +1284,11 @@
 </head>
 <body>
     <!-- Navigation -->
-    <!-- Navigation with Logo -->
-<nav>
-    <div class="nav-container">
-        <a href="#" class="logo">
-            <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/mclogo.png" alt="MC Media" class="logo-image">
-          
-</a>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/mclogo.png" alt="MC Media" class="logo-image">
+            </a>
             <div class="nav-right">
                 <ul class="nav-links">
                     <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
@@ -1305,37 +1301,40 @@
         </div>
     </nav>
   
-<style>
-/* Logo Styles - Cropped and Fitted */
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    height: 55px;
-    padding: 5px 0;
-}
-
-.logo-image {
-    height: 45px; /* Perfect fit within nav */
-    width: 150px; /* Control width for vertical cropping */
-    object-fit: cover; /* This crops the image */
-    object-position: center; /* Focus on center */
-    display: block;
-}
-
-/* Responsive Logo Sizing */
-@media (max-width: 768px) {
-    .logo-image {
-        height: 35px;
-        width: 120px;
+    <style>
+    /* Logo Styles - Cropped and Fitted */
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        height: 55px;
+        padding: 5px 0;
     }
-}
 
-@media (max-width: 480px) {
     .logo-image {
-        height: 30px;
-        width: 100px;
+        height: 45px;
+        width: 150px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
     }
+
+    /* Responsive Logo Sizing */
+    @media (max-width: 768px) {
+        .logo-image {
+            height: 35px;
+            width: 120px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo-image {
+            height: 30px;
+            width: 100px;
+        }
+    }
+    </style>
+
     <!-- Sticky Banner (Hidden on Home Page) -->
     <div class="sticky-banner">
         <h3>we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! / we embed copyright and creators get paid! /</h3>
@@ -1356,15 +1355,13 @@
                 muted
                 poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3C/svg%3E"
             >
-                <!-- Try multiple video sources for better compatibility -->
                 <source src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/INTRO_RAW.mp4" type="video/mp4">
                 <source src="https://github.com/marycrisostomo/mc-media-website/raw/main/INTRO_RAW.mp4" type="video/mp4">
-                <!-- Fallback to a working video if yours doesn't load -->
                 <source src="https://assets.codepen.io/3364143/710-2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             
-            <!-- Video Text Overlay - Now properly on two lines without period -->
+            <!-- Video Text Overlay -->
             <div class="video-text-overlay">
                 <h2>
                     <span class="line1">Secure your music</span>
@@ -1372,7 +1369,7 @@
                 </h2>
             </div>
             
-            <!-- Video Fallback Content (completely removed text content) -->
+            <!-- Video Fallback Content -->
             <div class="video-fallback" id="videoFallback">
                 <!-- Empty fallback - no text content -->
             </div>
@@ -1418,7 +1415,7 @@
                         <p>Check back soon for talks and presentations.</p>
                     </div>
 
-                    <!-- Cassette Content - Tracks (Music Rights Clinic Launch removed) -->
+                    <!-- Cassette Content - Tracks -->
                     <div class="cassette-content">
                         <!-- Projects Content -->
                         <div class="cassette-track projects-content" onclick="navigateToContentPage('projects', 'duck1-testing')">
@@ -1577,7 +1574,7 @@
                     
                     <p>The discussion centered on Mobygratis, a platform that offers free music for primarily non-commercial purposes, including student films and NGO projects. While the initiative is marketed as having "no strings attached," the two founders highlighted several important restrictions that users should understand before downloading.</p>
                     
-                    <div class="section-heading">key restriction to consider</div>
+                    <div class="smaller-heading">key restriction to consider</div>
                     
                     <p>The founders explained that users must ensure their projects remain entirely free—meaning if you use Mobygratis music, your project itself must also be free and not generate any revenue. Any commercial use requires obtaining a separate license directly from Moby.</p>
                     
@@ -1589,7 +1586,7 @@
                         <li>Revocation rights: The license can be terminated unilaterally by Moby at any time</li>
                     </ul>
                     
-                    <div class="section-heading">what users need to know</div>
+                    <div class="smaller-heading">what users need to know</div>
                     
                     <p>Both founders cautioned that even seemingly non-commercial uses can become complicated in practice. For example, posting a student film on a monetized platform could violate the agreement's terms. They stressed that users should fully understand the licensing terms, seek clarification from Mobygratis when needed, and carefully consider how their content distribution choices might affect compliance.</p>
                     
@@ -1601,7 +1598,7 @@
         </div>
     </section>
 
-    <!-- Content Pages -->
+    <!-- Blog Page -->
     <section id="blog" class="page-section">
         <div class="content-page">
             <div class="content-header">
@@ -1609,11 +1606,26 @@
                 <p>Insights on music copyright, technology, and creator rights</p>
             </div>
             <div class="content-grid">
-                <!-- Blog content would go here -->
+                <div class="content-article" data-article="copyright-basics">
+                    <h3>Understanding Copyright Basics for Musicians</h3>
+                    <p>Learn the fundamentals of copyright law and how it applies to your music. We break down the key concepts every creator should know to protect their work effectively.</p>
+                    <p>From composition rights to performance rights, understanding these basics is the first step toward securing your creative assets in the digital age.</p>
+                </div>
+                <div class="content-article" data-article="digital-rights">
+                    <h3>The Future of Digital Rights Management</h3>
+                    <p>Explore how emerging technologies are changing the landscape of digital rights management for music creators.</p>
+                    <p>We discuss blockchain, AI-powered tracking, and other innovations that could revolutionize how creators get paid for their work.</p>
+                </div>
+                <div class="content-article" data-article="independent-artists">
+                    <h3>Navigating the Music Industry as an Independent Artist</h3>
+                    <p>Practical advice for independent musicians looking to protect their rights while building their careers.</p>
+                    <p>From distribution deals to licensing agreements, learn how to maintain control over your music while reaching wider audiences.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Projects Page -->
     <section id="projects" class="page-section">
         <div class="content-page">
             <div class="content-header">
@@ -1622,15 +1634,25 @@
             </div>
             <div class="content-grid">
                 <div class="content-article" data-article="duck1-testing">
-                    <!-- Headline removed for Duck1 Testing Phase -->
+                    <h3>Duck1 Testing Phase</h3>
                     <p>Our latest project, Duck1, has entered its testing phase. This innovative approach to music rights management uses embedded copyright technology to ensure creators maintain ownership of their work across digital platforms.</p>
                     <p>The testing phase will involve a select group of creators who will use our technology to protect their music. We'll be gathering feedback and making improvements before a wider release.</p>
                 </div>
-                <!-- Music Rights Clinic Launch section removed -->
+                <div class="content-article" data-article="rights-clinic">
+                    <h3>Music Rights Clinic Launch</h3>
+                    <p>We're launching a free music rights clinic to help creators understand and protect their copyrights. This initiative provides one-on-one consultations and educational resources.</p>
+                    <p>The clinic will offer guidance on everything from basic copyright registration to complex licensing agreements, empowering creators with the knowledge they need to protect their work.</p>
+                </div>
+                <div class="content-article" data-article="api-integration">
+                    <h3>API Integration Platform</h3>
+                    <p>Developing an API that allows music platforms to integrate our copyright embedding technology directly into their upload processes.</p>
+                    <p>This will make it easier for creators to protect their work without needing to use separate tools, streamlining the copyright protection process.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Talks Page -->
     <section id="talks" class="page-section">
         <div class="content-page">
             <div class="content-header">
@@ -1639,14 +1661,19 @@
             </div>
             <div class="content-grid">
                 <div class="content-article" data-article="creativity-podcast">
-                    <!-- Headline removed for Powering Creativity Podcast -->
+                    <h3>Powering Creativity Podcast with Fendous PLS</h3>
                     <p>Join us for a conversation about the intersection of technology and creativity on the Powering Creativity podcast with Fendous PLS. We discuss how new technologies are changing the landscape for creators.</p>
                     <p>The episode covers everything from copyright technology to distribution platforms and how creators can navigate this evolving ecosystem.</p>
                 </div>
                 <div class="content-article" data-article="symphonic-qa">
-                    <!-- Headline removed for Live Q&A with Symphonic Distribution -->
+                    <h3>Live Q&A with Symphonic Distribution</h3>
                     <p>In this live question and answer session with Symphonic Distribution, we tackle common questions about music distribution, copyright, and how creators can maximize their reach while protecting their work.</p>
                     <p>The session covers practical advice for independent artists looking to distribute their music while maintaining control over their rights.</p>
+                </div>
+                <div class="content-article" data-article="music-tech-conference">
+                    <h3>Music Tech Conference 2024</h3>
+                    <p>Presentation at the annual Music Tech Conference discussing the future of copyright protection in the digital age.</p>
+                    <p>We explored how emerging technologies can help solve long-standing challenges in music rights management and ensure fair compensation for creators.</p>
                 </div>
             </div>
         </div>
