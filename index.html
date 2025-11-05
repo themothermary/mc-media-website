@@ -642,7 +642,7 @@
         }
 
         /* ======================================
-           ABOUT PAGE - SMALLER HEADING
+           ABOUT PAGE STYLES
            ====================================== */
         .about-section {
             padding: 8rem 0 4rem 0;
@@ -672,6 +672,101 @@
             font-size: 1.1rem;
             line-height: 1.7;
             margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        /* Founders Section */
+        .founders-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .founder-card {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #fff5f8 0%, #ffd6e7 100%);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #000;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.1);
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.15);
+        }
+
+        .founder-image {
+            flex-shrink: 0;
+        }
+
+        .founder-image img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #000;
+        }
+
+        .founder-info {
+            flex: 1;
+        }
+
+        .founder-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .founder-info p {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .founder-info .title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .founder-info .experience {
+            margin-bottom: 0.3rem;
+            color: #333;
+        }
+
+        /* Our Network Section */
+        .network-section {
+            margin-top: 4rem;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .network-section h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        .network-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
             text-align: justify;
         }
 
@@ -1542,6 +1637,22 @@
                 padding: 2rem;
             }
 
+            /* About Page - Mobile Adjustments */
+            .founders-section {
+                padding: 2rem 1rem;
+            }
+
+            .founder-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .founder-image img {
+                width: 120px;
+                height: 120px;
+            }
+
             /* Contact Form */
             .form-row {
                 flex-direction: column;
@@ -1669,6 +1780,20 @@
 
             .track-info p {
                 font-size: 0.75rem;
+            }
+
+            /* About Page - Mobile Adjustments */
+            .founders-section {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .founder-card {
+                padding: 1.5rem;
+            }
+
+            .founder-image img {
+                width: 100px;
+                height: 100px;
             }
 
             /* Mobygratis Page */
@@ -1968,44 +2093,78 @@
         </div>
     </section>
 
- <!-- About Page -->
-<section id="about" class="page-section">
-    <div class="about-section">
-        <div class="about-content">
-            <div class="about-header">
-                <h2>About MC Media</h2>
-            </div>
-            <div class="about-text">
-                <p>MC Media was founded on the principle that creators deserve ownership and fair compensation for their work. In today's digital landscape, music travels across countless platforms, often losing track of its distribution and failing to credit the original creator.</p>
-                
-                <p>Our solution embeds copyright information directly into music files to create a permanent link between the work and the creator.</p>
-                
-                <p>Overall, our goal is to build tools that put power back in the hands of creators. MC Media team brings expertise in music technology and copyright management to support creators at every stage.</p>
-            </div>
+    <!-- About Page - UPDATED CONTENT -->
+    <section id="about" class="page-section">
+        <div class="about-section">
+            <div class="about-content">
+                <div class="about-header">
+                    <h2>About MC Media</h2>
+                </div>
+                <div class="about-text">
+                    <p>MC Media was founded on the principle that creators deserve ownership and fair compensation for their work. In today's digital landscape, music travels across countless platforms, often losing track of its distribution and failing to credit the original creator.</p>
+                    
+                    <p>Our solution embeds copyright information directly into music files to create a permanent link between the work and the creator.</p>
+                    
+                    <p>Overall, our goal is to build tools that put power back in the hands of creators. MC Media team brings expertise in music technology and copyright management to support creators at every stage.</p>
+                </div>
 
-            <!-- Meet Our Founders Section -->
-            <div class="founders-section" style="margin-top: 4rem;">
-                <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.2rem; font-weight: 700; color: #000;">Meet Our Founders</h2>
-                
-                <div class="founder-card" style="display: flex; gap: 2rem; align-items: flex-start; max-width: 800px; margin: 0 auto; background: #f8f8f8; padding: 2.5rem; border-radius: 8px; border: 1px solid #000;">
-                    <div class="founder-image" style="flex-shrink: 0;">
-                        <!-- Replace the src URL with your GitHub image URL -->
-                        <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/placeholder team picture-2.jpg" 
-                             alt="Diana Monroy-Garcia" 
-                             style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #000;">
-                    </div>
-                    <div class="founder-info" style="flex: 1;">
-                        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #000;">Diana Monroy-Garcia</h3>
-                        <div style="margin-bottom: 1.5rem;">
-                            <p style="font-weight: 600; margin-bottom: 0.5rem; color: #000;">Founder, MC Media</p>
-                            <p style="margin-bottom: 0.3rem; color: #333;">Music Licensing (3 yrs) & Multimedia Asset Management (5 yrs)</p>
-                            <p style="color: #333;">Deep understanding of creator rights & data</p>
+                <!-- Meet Our Founders Section -->
+                <div class="founders-section">
+                    <h2>Meet Our Founders</h2>
+                    
+                    <div class="founders-grid">
+                        <!-- Founder 1 -->
+                        <div class="founder-card">
+                            <div class="founder-image">
+                                <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/placeholder team picture-2.jpg" 
+                                     alt="Diana Monroy-Garcia">
+                            </div>
+                            <div class="founder-info">
+                                <h3>Diana Monroy-Garcia</h3>
+                                <p class="title">Founder</p>
+                                <p class="experience">Music Licensing (3 yrs) & Multimedia Asset Management (5 yrs)</p>
+                                <p>Deep understanding of creator rights & data</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Founder 2 -->
+                        <div class="founder-card">
+                            <div class="founder-image">
+                                <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/insertimage" 
+                                     alt="Founder 2">
+                            </div>
+                            <div class="founder-info">
+                                <h3>Andrés Monroy-García</h3>
+                                <p class="title">Co-Founder</p>
+                                <p class="experience">Small Business Ops & Software Dev (5+ yrs)</p>
+                                <p> Proven ability to build for tech education</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Founder 3 -->
+                        <div class="founder-card">
+                            <div class="founder-image">
+                                <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/placeholder team picture-2.jpg" 
+                                     alt="Founder 3">
+                            </div>
+                            <div class="founder-info">
+                                <h3>Founder Name</h3>
+                                <p class="title">Co-Founder</p>
+                                <p class="experience">Software Developer, PhD Computer Science (5+ yrs)</p>
+                                <p>Technical expertise in complex systems</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Our Network Section -->
+                <div class="network-section">
+                    <h2>Our Network</h2>
+                    <div class="network-content">
+                        <p>Our network includes collaborations with industry professionals, legal experts, and technology partners who share our vision of empowering creators. Together, we're building a more equitable ecosystem for music rights management.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        
             
             <!-- Footer -->
             <div class="white-footer">
