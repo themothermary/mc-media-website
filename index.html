@@ -675,7 +675,7 @@
             text-align: justify;
         }
 
-        /* Founders Section */
+        /* IMPROVED FOUNDERS SECTION - 3 COLUMN LAYOUT */
         .founders-section h2 {
             text-align: center;
             margin-bottom: 3rem;
@@ -686,107 +686,173 @@
 
         .founders-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .founder-card {
             display: flex;
-            gap: 2rem;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             background: linear-gradient(135deg, #fff5f8 0%, #ffd6e7 100%);
-            padding: 2.5rem;
-            border-radius: 8px;
+            padding: 2rem;
+            border-radius: 12px;
             border: 1px solid #000;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 20, 147, 0.1);
+            height: 100%;
         }
 
         .founder-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.15);
         }
 
         .founder-image {
-            flex-shrink: 0;
+            margin-bottom: 1.5rem;
+            width: 140px;
+            height: 140px;
         }
 
         .founder-image img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 1px;
-            border: 1px solid #000;
+            border-radius: 50%;
+            border: 3px solid #000; /* CHANGED FROM PINK TO BLACK */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .founder-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .founder-info h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: #000;
         }
 
         .founder-info p {
             margin-bottom: 0.5rem;
             color: #333;
+            font-size: 0.95rem;
         }
 
         .founder-info .title {
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #000;
+            color: #000; /* CHANGED FROM PINK TO BLACK */
+            font-size: 1rem;
         }
 
         .founder-info .experience {
             margin-bottom: 0.3rem;
             color: #333;
+            font-size: 0.9rem;
         }
 
-         <!-- Our Network Section -->
-                    <div class="network-section">
-                        <h2>OUR NETWORK</h2>
-                        <div class="network-logos">
-                            <div class="network-logo">
-                                <div class="logo-placeholder">Equalizer Consulting</div>
-                                <div class="logo-text">Equalizer Consulting<br>Los Angeles, CA</div>
-                            </div>
-                            <div class="network-logo">
-                                <div class="logo-placeholder">Transparent Audio</div>
-                                <div class="logo-text">Transparent Audio<br>Málaga, ES</div>
-                            </div>
-                            <div class="network-logo">
-                                <div class="logo-placeholder">Measure of Music</div>
-                                <div class="logo-text">Measure of Music<br>London, UK</div>
-                            </div>
-                            <div class="network-logo">
-                                <div class="logo-placeholder">RoEx</div>
-                                <div class="logo-text">RoEx<br>London, UK</div>
-                            </div>
-                            <div class="network-logo">
-                                <div class="logo-placeholder">SPOT:NEXT</div>
-                                <div class="logo-text">SPOT:NEXT<br>Aarhus, DK</div>
-                            </div>
-                            <div class="network-logo">
-                                <div class="logo-placeholder">Aarhus Lydforening</div>
-                                <div class="logo-text">Aarhus Lydforening<br>Aarhus, DK</div>
-                            </div>
-                            <div class="network-logo">
-                                <div class="logo-placeholder">MuSA</div>
-                                <div class="logo-text">MuSA<br>Aarhus, DK</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        /* ======================================
+           IMPROVED OUR NETWORK SECTION
+           ====================================== */
+        .network-section {
+            margin: 4rem 0;
+            padding: 2rem 0;
+        }
 
-        
+        .network-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .network-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .network-logo {
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .network-logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .network-logo-image {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-placeholder {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .logo-text {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        /* Responsive adjustments for network section */
+        @media (max-width: 768px) {
+            .network-logos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .network-logo {
+                padding: 1rem;
+            }
+            
+            .network-logo-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .network-logos {
+                grid-template-columns: 1fr;
+            }
+            
+            .network-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
         /* ======================================
            CONTACT PAGE - SMALLER HEADING
            ====================================== */
@@ -1110,136 +1176,6 @@
         }
 
         /* ======================================
-           CREATIVITY PODCAST PAGE
-           ====================================== */
-        .podcast-page {
-            padding: 8rem 0 4rem 0;
-            background: #ffffff;
-        }
-
-        .podcast-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
-        }
-
-        .podcast-title {
-            font-size: 2.2rem; /* SMALLER */
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-top: 2rem; /* ADDED SPACING */
-        }
-
-        .podcast-date {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .podcast-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .podcast-article {
-            background: white;
-            padding: 2.5rem 0;
-        }
-
-        .podcast-article p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #000;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .podcast-article strong {
-            font-weight: 600;
-            color: #000;
-        }
-
-        .podcast-section-heading {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #000;
-            margin: 2rem 0 1rem 0;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-top: 2.5rem; /* ADDED SPACING */
-        }
-
-        /* ======================================
-           SYMPHONIC QA PAGE
-           ====================================== */
-        .symphonic-page {
-            padding: 8rem 0 4rem 0;
-            background: #ffffff;
-        }
-
-        .symphonic-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
-        }
-
-        .symphonic-title {
-            font-size: 2.2rem; /* SMALLER */
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-top: 2rem; /* ADDED SPACING */
-        }
-
-        .symphonic-date {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .symphonic-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .symphonic-article {
-            background: white;
-            padding: 2.5rem 0;
-        }
-
-        .symphonic-article p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #000;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .symphonic-article strong {
-            font-weight: 600;
-            color: #000;
-        }
-
-        .symphonic-section-heading {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #000;
-            margin: 2rem 0 1rem 0;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-top: 2.5rem; /* ADDED SPACING */
-        }
-
-        /* ======================================
            MOBYGRATIS PAGE - SMALLER HEADINGS WITH SPACING
            ====================================== */
         .mobygratis-page {
@@ -1439,7 +1375,7 @@
         }
 
         /* ======================================
-           BACK TO HOME BUTTON
+           BACK TO HOME BUTTON - IMPROVED Z-INDEX
            ====================================== */
         .back-to-home {
             position: fixed;
@@ -1454,7 +1390,7 @@
             font-size: 0.9rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            z-index: 1000;
+            z-index: 999; /* HIGHER Z-INDEX TO APPEAR ABOVE MENU */
         }
 
         .back-to-home:hover {
@@ -1501,6 +1437,11 @@
             .section-heading {
                 font-size: 1.6rem;
             }
+            
+            /* Founders section responsive */
+            .founders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1519,6 +1460,7 @@
                 flex-direction: column;
                 border-top: 1px solid #000;
                 border-bottom: 1px solid #000;
+                z-index: 1001; /* HIGHER THAN BACK BUTTON */
             }
 
             .nav-links.active {
@@ -1631,9 +1573,7 @@
             .about-section,
             .contact-section,
             .mobygratis-page,
-            .duck1-page,
-            .podcast-page,
-            .symphonic-page {
+            .duck1-page {
                 padding: 6rem 0 3rem 0;
             }
 
@@ -1642,9 +1582,7 @@
             .about-header h2,
             .contact-header h2,
             .mobygratis-title,
-            .duck1-title,
-            .podcast-title,
-            .symphonic-title {
+            .duck1-title {
                 font-size: 2rem;
             }
 
@@ -1660,14 +1598,22 @@
             }
 
             .founder-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 2rem;
+                padding: 1.5rem;
+            }
+
+            .founder-image {
+                width: 120px;
+                height: 120px;
             }
 
             .founder-image img {
-                width: 120px;
-                height: 120px;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Founders section responsive */
+            .founders-grid {
+                grid-template-columns: 1fr;
             }
 
             /* Contact Form */
@@ -1687,6 +1633,7 @@
                 top: 100px;
                 padding: 10px 15px;
                 font-size: 0.8rem;
+                z-index: 999; /* MAINTAIN HIGH Z-INDEX */
             }
 
             /* Mobygratis Page */
@@ -1808,7 +1755,7 @@
                 padding: 1.5rem;
             }
 
-            .founder-image img {
+            .founder-image {
                 width: 100px;
                 height: 100px;
             }
@@ -1998,7 +1945,7 @@
                         <p>Check back soon for talks and presentations.</p>
                     </div>
 
-                    <!-- Cassette Content - Tracks -->
+                    <!-- Cassette Content - Tracks (REMOVED PODCAST AND SYMPHONIC) -->
                     <div class="cassette-content">
                         <!-- Projects Content -->
                         <div class="cassette-track projects-content" onclick="navigateToContentPage('duck1')">
@@ -2016,22 +1963,6 @@
                             <div class="track-info">
                                 <h3>Mobygratis Explained: Conversations about licensing agreement with Natalie Jacobs</h3>
                                 <p>Understanding creative commons in music</p>
-                            </div>
-                            <span class="track-category">Talks</span>
-                        </div>
-                        <div class="cassette-track talks-content" onclick="navigateToContentPage('podcast')">
-                            <div class="track-number">3</div>
-                            <div class="track-info">
-                                <h3>Powering Creativity Podcast with Fendous PLS</h3>
-                                <p>Discussing the intersection of technology and creativity</p>
-                            </div>
-                            <span class="track-category">Talks</span>
-                        </div>
-                        <div class="cassette-track talks-content" onclick="navigateToContentPage('symphonic')">
-                            <div class="track-number">4</div>
-                            <div class="track-info">
-                                <h3>Live Q&A with Symphonic Distribution</h3>
-                                <p>Answering questions about music distribution</p>
                             </div>
                             <span class="track-category">Talks</span>
                         </div>
@@ -2123,7 +2054,7 @@
                     Overall, our goal is to build tools that put power back in the hands of creators. MC Media team brings expertise in music technology and copyright management to support creators at every stage.</p>
                 </div>
 
-                <!-- Meet Our Founders Section -->
+                <!-- IMPROVED Meet Our Founders Section - 3 COLUMN LAYOUT -->
                 <div class="founders-section">
                     <h2>Meet Our Founders</h2>
                     
@@ -2146,7 +2077,7 @@
                         <div class="founder-card">
                             <div class="founder-image">
                                 <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/insertimage" 
-                                     alt="Founder 2">
+                                     alt="Andrés Monroy-García">
                             </div>
                             <div class="founder-info">
                                 <h3>Andrés Monroy-García</h3>
@@ -2163,7 +2094,7 @@
                                      alt="Founder 3">
                             </div>
                             <div class="founder-info">
-                                <h3>Founder Name</h3>
+                                <h3>Alexander Leguizamon-Robayo</h3>
                                 <p class="title">Co-Founder</p>
                                 <p class="experience">Software Developer, PhD Computer Science (5+ yrs)</p>
                                 <p>Technical expertise in complex systems</p>
@@ -2172,11 +2103,45 @@
                     </div>
                 </div>
 
-                <!-- Our Network Section -->
+                <!-- IMPROVED Our Network Section - BORDERLESS WITH IMAGES -->
                 <div class="network-section">
-                    <h2>Our Network</h2>
-                    <div class="network-content">
-                        <p>Our network includes collaborations with industry professionals, legal experts, and technology partners who share our vision of empowering creators. Together, we're building a more equitable ecosystem for music rights management.</p>
+                    <h2>OUR NETWORK</h2>
+                    <div class="network-logos">
+                        <div class="network-logo">
+                            <img src="https://via.placeholder.com/80x80?text=EQ" alt="Equalizer Consulting" class="network-logo-image">
+                            <div class="logo-placeholder">Equalizer Consulting</div>
+                            <div class="logo-text">Los Angeles, CA</div>
+                        </div>
+                        <div class="network-logo">
+                            <img src="https://via.placeholder.com/80x80?text=TA" alt="Transparent Audio" class="network-logo-image">
+                            <div class="logo-placeholder">Transparent Audio</div>
+                            <div class="logo-text">Málaga, ES</div>
+                        </div>
+                        <div class="network-logo">
+                            <img src="https://via.placeholder.com/80x80?text=MM" alt="Measure of Music" class="network-logo-image">
+                            <div class="logo-placeholder">Measure of Music</div>
+                            <div class="logo-text">London, UK</div>
+                        </div>
+                        <div class="network-logo">
+                            <img src="https://via.placeholder.com/80x80?text=RX" alt="RoEx" class="network-logo-image">
+                            <div class="logo-placeholder">RoEx</div>
+                            <div class="logo-text">London, UK</div>
+                        </div>
+                        <div class="network-logo">
+                            <img src="https://via.placeholder.com/80x80?text=SN" alt="SPOT:NEXT" class="network-logo-image">
+                            <div class="logo-placeholder">SPOT:NEXT</div>
+                            <div class="logo-text">Aarhus, DK</div>
+                        </div>
+                        <div class="network-logo">
+                            <img src="https://via.placeholder.com/80x80?text=AL" alt="Aarhus Lydforening" class="network-logo-image">
+                            <div class="logo-placeholder">Aarhus Lydforening</div>
+                            <div class="logo-text">Aarhus, DK</div>
+                        </div>
+                        <div class="network-logo">
+                            <img src="https://via.placeholder.com/80x80?text=MS" alt="MuSA" class="network-logo-image">
+                            <div class="logo-placeholder">MuSA</div>
+                            <div class="logo-text">Aarhus, DK</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2360,130 +2325,6 @@
                     <p>Despite these important caveats, both Diana and Natalie praised the Mobygratis initiative as a valuable resource, particularly for educational institutions and non-profit organizations—provided users approach it with proper awareness and responsibility.</p>
                     
                     <p class="mobygratis-link">To learn more, visit <a href="https://mobygratis.com" target="_blank">https://mobygratis.com</a></p>
-                </div>
-            </div>
-            
-            <!-- Footer -->
-            <div class="white-footer">
-                <div class="footer-content">
-                    <div class="footer-about">
-                        <h3>MC Media</h3>
-                        <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                        <p>e-mail: mcmedia.dk@gmail.com</p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                            <a href="https://www.instagram.com/musicrightscl" target="_blank" aria-label="Instagram">📷</a>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p>&copy; 2025 MC Media. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Creativity Podcast Page -->
-    <section id="podcast" class="page-section">
-        <div class="podcast-page">
-            <div class="podcast-header">
-                <h1 class="podcast-title">Powering Creativity Podcast with Fendous PLS</h1>
-                <div class="podcast-date">Date: April 22, 2024</div>
-            </div>
-
-            <div class="podcast-content">
-                <div class="podcast-article">
-                    <p>Join us for an insightful conversation about the intersection of technology and creativity on the Powering Creativity podcast with Fendous PLS. In this episode, we explore how new technologies are fundamentally changing the landscape for creators across all disciplines.</p>
-                    
-                    <p>The discussion covers the evolving relationship between artificial intelligence and human creativity, examining both the opportunities and challenges that emerging technologies present to artists, musicians, writers, and other creative professionals.</p>
-                    
-                    <div class="podcast-section-heading">Key Discussion Points</div>
-                    
-                    <p>We delve into several critical areas where technology is reshaping creative work:</p>
-                    
-                    <ul>
-                        <li>AI-assisted creation tools and their impact on artistic processes</li>
-                        <li>Blockchain technology for copyright protection and royalty distribution</li>
-                        <li>New distribution models enabled by digital platforms</li>
-                        <li>The changing economics of creative work in the digital age</li>
-                        <li>Ethical considerations in technology-driven creativity</li>
-                    </ul>
-                    
-                    <div class="podcast-section-heading">Practical Insights for Creators</div>
-                    
-                    <p>The episode provides practical advice for creators looking to navigate this rapidly evolving ecosystem. We discuss strategies for protecting intellectual property, building sustainable creative careers, and leveraging new technologies without compromising artistic integrity.</p>
-                    
-                    <p>Special attention is given to the music industry, where technological changes have been particularly disruptive, and to the emerging opportunities in fields like virtual reality content creation and interactive digital experiences.</p>
-                    
-                    <p>This conversation offers valuable perspectives for anyone interested in the future of creativity and the role technology will play in shaping how we create, distribute, and monetize artistic work.</p>
-                </div>
-            </div>
-            
-            <!-- Footer -->
-            <div class="white-footer">
-                <div class="footer-content">
-                    <div class="footer-about">
-                        <h3>MC Media</h3>
-                        <p>Empowering music creators with easy copyright protection. We embed copyright, and creators get paid!</p>
-                        <p>e-mail: mcmedia.dk@gmail.com</p>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/company/mcmedia-dk/posts/?feedView=all" target="_blank" aria-label="LinkedIn">in</a>
-                            <a href="https://www.instagram.com/musicrightscl" target="_blank" aria-label="Instagram">📷</a>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p>&copy; 2025 MC Media. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Symphonic Q&A Page -->
-    <section id="symphonic" class="page-section">
-        <div class="symphonic-page">
-            <div class="symphonic-header">
-                <h1 class="symphonic-title">Live Q&A with Symphonic Distribution</h1>
-                <div class="symphonic-date">Date: May 10, 2024</div>
-            </div>
-
-            <div class="symphonic-content">
-                <div class="symphonic-article">
-                    <p>In this comprehensive live question and answer session with Symphonic Distribution, we tackle the most pressing questions about music distribution, copyright protection, and how creators can maximize their reach while maintaining control over their work.</p>
-                    
-                    <p>The session brought together industry experts from both MC Media and Symphonic Distribution to provide creators with practical, actionable advice for navigating the complex world of music distribution in 2024.</p>
-                    
-                    <div class="symphonic-section-heading">Distribution Strategies</div>
-                    
-                    <p>We covered essential distribution topics including:</p>
-                    
-                    <ul>
-                        <li>Choosing the right distribution partner for your specific needs</li>
-                        <li>Understanding royalty structures and payment timelines</li>
-                        <li>Optimizing metadata for better discoverability</li>
-                        <li>Navigating territorial rights and international distribution</li>
-                        <li>Leveraging analytics to understand your audience</li>
-                    </ul>
-                    
-                    <div class="symphonic-section-heading">Copyright Protection</div>
-                    
-                    <p>A significant portion of the discussion focused on copyright protection strategies:</p>
-                    
-                    <ul>
-                        <li>Best practices for registering and protecting your work</li>
-                        <li>Understanding mechanical vs. performance rights</li>
-                        <li>Dealing with copyright infringement in the digital age</li>
-                        <li>The role of technology in copyright enforcement</li>
-                        <li>Future trends in music rights management</li>
-                    </ul>
-                    
-                    <div class="symphonic-section-heading">Maximizing Your Impact</div>
-                    
-                    <p>The session concluded with strategies for building sustainable music careers:</p>
-                    
-                    <p>We discussed the importance of building a comprehensive release strategy, the role of social media and digital marketing, and how to create multiple revenue streams from your music. Special attention was given to the unique challenges and opportunities facing independent artists in today's crowded digital landscape.</p>
-                    
-                    <p>This Q&A provided invaluable insights for artists at all stages of their careers, from those just starting out to established professionals looking to adapt to the changing music industry.</p>
                 </div>
             </div>
             
