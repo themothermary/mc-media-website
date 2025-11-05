@@ -142,6 +142,31 @@
             pointer-events: none;
         }
 
+        /* Video Controls */
+        .video-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+
+        .video-control-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 1px solid white;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         /* COMPREHENSIVE VIDEO CONTROL REMOVAL */
         .hero-video-background::-webkit-media-controls {
             display: none !important;
@@ -559,93 +584,81 @@
         }
 
         /* ======================================
-           RESTORED SERVICES PAGE - 4 COLUMN GRID
+           RESTORED SERVICES PAGE - MISSION STYLE DESIGN
            ====================================== */
         .services-section {
-            padding: 8rem 0 4rem 0;
             background: #ffffff;
+            padding: 8rem 0 4rem 0; /* Added space before heading */
+            width: 100%;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .services-header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 0 1rem;
         }
 
         .services-header h2 {
-            font-size: 2.2rem; /* SMALLER */
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
             color: #000;
+            margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
 
-        .services-header p {
-            font-size: 1.2rem;
-            color: #000;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
+        .services-divider {
+            width: 100px;
+            height: 3px;
+            background: #ff1493;
+            margin: 0 auto 2rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            width: 100%;
-            margin: 3rem 0;
-            padding: 0 1rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
         }
 
-        .service-article {
-            background: white;
-            display: flex;
-            flex-direction: column;
-            height: 480px;
-            border: 1px solid #000;
+        .service-card {
+            background: #f8f8f8;
+            padding: 2.5rem 2rem;
             border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .service-image {
-            width: 100%;
-            height: 200px;
-            background: white;
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000;
-            font-size: 1rem;
-            border-bottom: 1px solid #000;
-            border-radius: 8px 8px 0 0;
         }
 
-        .service-article h3 {
+        .service-card h3 {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: #000;
-            line-height: 1.3;
-            padding: 0 1.5rem;
         }
 
-        .service-article p {
-            font-size: 0.95rem;
+        .service-card p {
+            font-size: 1rem;
             line-height: 1.6;
-            color: #000;
-            margin-bottom: 1rem;
-            flex: 1;
-            padding: 0 1.5rem;
+            color: #333;
         }
 
         /* ======================================
            ABOUT PAGE STYLES
            ====================================== */
         .about-section {
-            padding: 8rem 0 4rem 0;
+            padding: 8rem 0 4rem 0; /* Added space before heading */
             background: #ffffff;
         }
 
@@ -857,7 +870,7 @@
            CONTACT PAGE - SMALLER HEADING
            ====================================== */
         .contact-section {
-            padding: 8rem 0 4rem 0;
+            padding: 8rem 0 4rem 0; /* Added space before heading */
             background: #ffffff;
         }
 
@@ -1291,7 +1304,7 @@
             background-color: #ffffff;
             color: #000;
             padding: 2rem 0 1rem 0;
-            margin-top: 0;
+            margin-top: 4rem; /* Added space before footer */
             border-top: 1px solid #000;
             text-align: center;
             width: 100%;
@@ -1521,11 +1534,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .service-article {
-                height: auto;
-                min-height: 400px;
-            }
-
             /* Cassette Player */
             .cassette-section {
                 padding: 2rem 0;
@@ -1587,7 +1595,7 @@
             }
 
             .content-article,
-            .service-article,
+            .service-card,
             .contact-category {
                 padding: 2rem;
             }
@@ -1871,6 +1879,12 @@
                 Your browser does not support the video tag.
             </video>
             
+            <!-- Video Controls -->
+            <div class="video-controls">
+                <button class="video-control-btn" id="playBtn">Play</button>
+                <button class="video-control-btn" id="pauseBtn">Pause</button>
+            </div>
+            
             <!-- Video Text Overlay -->
             <div class="video-text-overlay">
                 <h2>
@@ -1990,34 +2004,35 @@
         </div>
     </section>
 
-    <!-- Services Page - RESTORED 4-COLUMN DESIGN -->
+    <!-- Services Page - MISSION STYLE DESIGN WITH 4 NEW SERVICES -->
     <section id="services" class="page-section">
         <div class="services-section">
-            <div class="services-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive solutions for music creators and rights holders</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-article">
-                    <div class="service-image">Image Placeholder</div>
-                    <h3>Copyright Embedding Technology</h3>
-                    <p>Our proprietary technology embeds copyright information directly into your music files. This ensures your ownership data travels with your music across all digital platforms, providing legal protection and establishing clear ownership.</p>
+            <div class="services-container">
+                <div class="services-header">
+                    <h2>Our Services</h2>
+                    <div class="services-divider"></div>
                 </div>
-                <div class="service-article">
-                    <div class="service-image">Image Placeholder</div>
-                    <h3>Rights Management Consulting</h3>
-                    <p>Expert guidance on managing your music rights portfolio. We help you understand copyright law, navigate licensing agreements, and develop strategies to maximize your revenue from creative works.</p>
-                </div>
-                <div class="service-article">
-                    <div class="service-image">Image Placeholder</div>
-                    <h3>Digital Distribution Support</h3>
-                    <p>Assistance with getting your music onto major streaming platforms while maintaining proper copyright attribution. We ensure your embedded rights information is preserved throughout the distribution process.</p>
-                </div>
-                <div class="service-article">
-                    <div class="service-image">Image Placeholder</div>
-                    <h3>Custom Catalog Management</h3>
-                    <p>Enterprise-level solutions for managing large music catalogs. Our customizable software helps publishers and labels track rights, manage licenses, and monitor usage across digital platforms.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3>Artist Education</h3>
+                        <p>We provide educational resources—blogs, discussions, and guides—to help artists understand copyright, licensing, and digital rights. MC Media empower creators with knowledge to protect their work and maximize their earnings.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3>Web Platform (API)</h3>
+                        <p>We built a web platform for artists to easily protect their work. Features include drag-and-drop uploading, automatic copyright embedding, and freemium pricing with subscription tiers.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔌</div>
+                        <h3>Digital Audio Workstation (DAW) Plugins</h3>
+                        <p>Copyright protection that works right where you create. These plugins integrate seamlessly with Audacity and other DAWs, letting you protect tracks as you make them. Accessible via subscription or through software licensing partnerships.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚖️</div>
+                        <h3>Music Rights Consultation</h3>
+                        <p>Expert consultation services for navigating complex music rights landscapes. Get personalized advice on music copyright and licensing agreements.</p>
+                    </div>
                 </div>
             </div>
             
@@ -2049,7 +2064,7 @@
                     <h2>About MC Media</h2>
                 </div>
                 <div class="about-text">
-                    <p>MC Media was founded on the principle that creators deserve ownership and fair compensation for their work. In today's digital landscape, music travels across countless platforms, often losing track of its distribution and failing to credit the original creator.
+                    <p>MC Media believes creators deserve ownership and fair pay. In today's digital landscape, music travels across countless platforms, often losing track of its distribution and failing to credit the original creator.
                     Our solution embeds copyright information directly into music files to create a permanent link between the work and the creator.
                     Overall, our goal is to build tools that put power back in the hands of creators. MC Media team brings expertise in music technology and copyright management to support creators at every stage.</p>
                 </div>
@@ -2364,6 +2379,21 @@
         const heroVideo = document.getElementById('heroVideo');
         const videoFallback = document.getElementById('videoFallback');
         const logoLink = document.getElementById('logoLink');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+
+        // ======================================
+        // VIDEO PLAY/PAUSE CONTROLS
+        // ======================================
+        if (playBtn && pauseBtn && heroVideo) {
+            playBtn.addEventListener('click', () => {
+                heroVideo.play();
+            });
+            
+            pauseBtn.addEventListener('click', () => {
+                heroVideo.pause();
+            });
+        }
 
         // ======================================
         // LOGO REDIRECT TO HOME
