@@ -1879,12 +1879,6 @@
                 Your browser does not support the video tag.
             </video>
             
-            <!-- Video Controls -->
-            <div class="video-controls">
-                <button class="video-control-btn" id="playBtn">Play</button>
-                <button class="video-control-btn" id="pauseBtn">Pause</button>
-            </div>
-            
             <!-- Video Text Overlay -->
             <div class="video-text-overlay">
                 <h2>
@@ -2379,22 +2373,7 @@
         const heroVideo = document.getElementById('heroVideo');
         const videoFallback = document.getElementById('videoFallback');
         const logoLink = document.getElementById('logoLink');
-        const playBtn = document.getElementById('playBtn');
-        const pauseBtn = document.getElementById('pauseBtn');
-
-        // ======================================
-        // VIDEO PLAY/PAUSE CONTROLS
-        // ======================================
-        if (playBtn && pauseBtn && heroVideo) {
-            playBtn.addEventListener('click', () => {
-                heroVideo.play();
-            });
-            
-            pauseBtn.addEventListener('click', () => {
-                heroVideo.pause();
-            });
-        }
-
+       
         // ======================================
         // LOGO REDIRECT TO HOME
         // ======================================
