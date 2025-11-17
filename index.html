@@ -286,6 +286,74 @@
         }
 
         /* ======================================
+           OUR NETWORK SECTION ON HOMEPAGE
+           ====================================== */
+        .network-section {
+            margin: 4rem 0;
+            padding: 2rem 0;
+            background: #ffffff;
+        }
+
+        .network-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .network-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .network-logo {
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .network-logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .network-logo-image {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-placeholder {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .logo-text {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        /* ======================================
            BLACK & WHITE CASSETTE TAPE STYLING
            ====================================== */
         .cassette-section {
@@ -652,95 +720,18 @@
         /* ======================================
            IMPROVED OUR NETWORK SECTION
            ====================================== */
-        .network-section {
+        .network-section-about {
             margin: 4rem 0;
             padding: 2rem 0;
         }
 
-        .network-section h2 {
+        .network-section-about h2 {
             text-align: center;
             font-size: 2.2rem;
             font-weight: 700;
             color: #000;
             margin-bottom: 2rem;
             letter-spacing: -0.02em;
-        }
-
-        .network-logos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .network-logo {
-            background: transparent;
-            border: none;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .network-logo:hover {
-            transform: translateY(-5px);
-        }
-
-        .network-logo-image {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            background: white;
-            padding: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo-placeholder {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: #000;
-        }
-
-        .logo-text {
-            font-size: 0.9rem;
-            line-height: 1.4;
-            color: #333;
-        }
-
-        /* Responsive adjustments for network section */
-        @media (max-width: 768px) {
-            .network-logos {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .network-logo {
-                padding: 1rem;
-            }
-            
-            .network-logo-image {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .network-logos {
-                grid-template-columns: 1fr;
-            }
-            
-            .network-section h2 {
-                font-size: 1.8rem;
-            }
         }
 
         /* ======================================
@@ -1289,6 +1280,25 @@
         }
 
         /* ======================================
+           LOGO STYLES
+           ====================================== */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            height: 55px;
+            padding: 5px 0;
+        }
+
+        .logo-image {
+            height: 45px;
+            width: 150px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* ======================================
            RESPONSIVE DESIGN
            ====================================== */
         @media (max-width: 1024px) {
@@ -1370,6 +1380,12 @@
 
             .nav-links li:last-child a {
                 border-bottom: none;
+            }
+
+            /* Logo Responsive */
+            .logo-image {
+                height: 35px;
+                width: 120px;
             }
 
             /* Video Text Overlay */
@@ -1534,6 +1550,21 @@
             .linkedin-embed iframe {
                 min-height: 300px;
             }
+
+            /* Network section responsive */
+            .network-logos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .network-logo {
+                padding: 1rem;
+            }
+            
+            .network-logo-image {
+                width: 60px;
+                height: 60px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1543,6 +1574,11 @@
 
             .logo {
                 font-size: 1.2rem;
+            }
+
+            .logo-image {
+                height: 30px;
+                width: 100px;
             }
 
             /* Video Text Overlay */
@@ -1674,6 +1710,15 @@
             .linkedin-fallback {
                 padding: 1.5rem;
             }
+
+            /* Network section mobile */
+            .network-logos {
+                grid-template-columns: 1fr;
+            }
+            
+            .network-section h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -1695,40 +1740,6 @@
             </div>
         </div>
     </nav>
-  
-    <style>
-    /* Logo Styles - Cropped and Fitted */
-    .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        height: 55px;
-        padding: 5px 0;
-    }
-
-    .logo-image {
-        height: 45px;
-        width: 150px;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-    }
-
-    /* Responsive Logo Sizing */
-    @media (max-width: 768px) {
-        .logo-image {
-            height: 35px;
-            width: 120px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .logo-image {
-            height: 30px;
-            width: 100px;
-        }
-    }
-    </style>
 
     <!-- Sticky Banner with Animation -->
     <div class="sticky-banner">
@@ -1762,8 +1773,7 @@
             <!-- Video Text Overlay -->
             <div class="video-text-overlay">
                 <h2>
-                    <span class="line1">Secure your music</span>
-                    <span class="line2">copyright with MC Media</span>
+                    <span class="line1">Secure your music copyright with MC Media</span>
                 </h2>
             </div>
             
@@ -1799,6 +1809,48 @@
                         <h3>Fair Compensation</h3>
                         <p>We believe creators deserve to get paid for their work, and our mission is to make that possible.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Network Section on Homepage -->
+        <div class="network-section">
+            <h2>OUR NETWORK</h2>
+            <div class="network-logos">
+                <div class="network-logo">
+                    <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/Equalizer Consulting Logo.webp" alt="Equalizer Consulting" class="network-logo-image">
+                    <div class="logo-placeholder">Equalizer Consulting</div>
+                    <div class="logo-text">Los Angeles, CA</div>
+                </div>
+                <div class="network-logo">
+                    <img src="https://via.placeholder.com/80x80?text=TA" alt="Transparent Audio" class="network-logo-image">
+                    <div class="logo-placeholder">Transparent Audio</div>
+                    <div class="logo-text">Málaga, ES</div>
+                </div>
+                <div class="network-logo">
+                    <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/Measure of Music.jpg" alt="Measure of Music" class="network-logo-image">
+                    <div class="logo-placeholder">Measure of Music</div>
+                    <div class="logo-text">London, UK</div>
+                </div>
+                <div class="network-logo">
+                    <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/roexaudio_logo.jpeg" alt="RoEx" class="network-logo-image">
+                    <div class="logo-placeholder">RoEx</div>
+                    <div class="logo-text">London, UK</div>
+                </div>
+                <div class="network-logo">
+                    <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/SPOT-NEXT.webp" alt="SPOT:NEXT" class="network-logo-image">
+                    <div class="logo-placeholder">SPOT:NEXT</div>
+                    <div class="logo-text">Aarhus, DK</div>
+                </div>
+                <div class="network-logo">
+                    <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/Aarhus Lydforening.png" alt="Aarhus Lydforening" class="network-logo-image">
+                    <div class="logo-placeholder">Aarhus Lydforening</div>
+                    <div class="logo-text">Aarhus, DK</div>
+                </div>
+                <div class="network-logo">
+                    <img src="https://raw.githubusercontent.com/marycrisostomo/mc-media-website/main/Musa.jpeg" alt="MuSA" class="network-logo-image">
+                    <div class="logo-placeholder">MuSA</div>
+                    <div class="logo-text">Aarhus, DK</div>
                 </div>
             </div>
         </div>
@@ -1993,7 +2045,7 @@
                 </div>
 
                 <!-- IMPROVED Our Network Section - BORDERLESS WITH IMAGES -->
-                <div class="network-section">
+                <div class="network-section-about">
                     <h2>OUR NETWORK</h2>
                     <div class="network-logos">
                         <div class="network-logo">
